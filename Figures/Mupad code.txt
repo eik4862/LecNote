@@ -1,0 +1,26 @@
+func := max(min(Re(erf(x + I * y)), 2.1), -2.1):
+
+xLower := -3:
+xUpper := 3:
+yLower := -3:
+yUpper := 3:
+zLower := -2:
+zUpper := 2:
+
+funcPlot := plot::Function3d(func(x,y),
+                             x = xLower..xUpper,
+                             y = yLower..yUpper,
+                             Mesh = [23, 23],
+                             Submesh = [15, 15],
+                             LineColor = RGB::Black.[0.4],
+                             LineWidth = 0.2,
+                             ViewingBoxZRange = zLower..zUpper,
+                             ZContours = [zLower, zUpper]
+                            ):
+
+plotEverything := plot::Canvas(funcPlot,
+                               Width = 3 * unit::inch, 
+                               Height = 3 * unit::inch
+                              ):
+
+plot(plotEverything)

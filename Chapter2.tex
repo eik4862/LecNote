@@ -1,0 +1,237 @@
+\abstract{확률론은 20세기 들어 급격하게 발전한 분야이다. 애초에 확률이라는 개념이 수학에 편입된 것이 그리 오래되지 않았다. 이는 Descart의 연역주의의 영향이 진하게 남아있던 근대 유럽의 수학에서 불확실성을 다루기를 꺼려했기 때문이다. 오죽했으면 ``거의 확실한 것은 거의 확실히 거짓이다.''라고까지 했을까. 하지만 도박 문제(de Mere's problem)와 같이 불확실성을 계량하여 다루어야 할 필요성은 조금씩 늘어갔고, 이러한 현실적 요구에 확률은 Pascal, Fermat, Lagrange 등의 기라성같은 수학자들에 의해 조금씩 건드려지기 시작했다. 이때까지만 하더라도 확률이 무엇인지에 대한 수학자들의 생각은 `어떤 사건이 발생할 가능성' 정도였다. 이러한 확률의 의미가 직관적으로나 현실적으로나 분명하였기에 이에 의문을 제기하는 사람도 없었고, 그럴 필요도 느끼지 못했다. 그러나 미적분학에서 극한의 개념이 그러하였듯, 확률에 대한 연구가 계속될수록 미묘한 잡음이 발생하기 시작했고, 이는 확률의 개념에 대한 엄밀한 수학적 접근이 필요함을 암시했다. 결국 `확률은 무엇인가?'라는 질문의 답을 찾기 위한 긴 여정이 시작되었고, Laplace가 확률에 해석학을 끼얹은 것을 시작으로 Kolomogorov가 그의 명저 『Grundbegriffe der Wahrscheinlichkeitsre chnung』에서 측도론으로 확률을 정의하면서 그 여정은 일단락되게 된다. 본 장에서는 그 여정의 끝에서 수학자들이 괘뚫어본 확률의 본질에 대해 살펴보도록 하자.}
+
+\section{Probability Spaces}
+
+단도직입적으로 말하면, 확률은 측도의 특별한 한 종류에 불과하다. 곧 확률은 일종의 넓이나 부피와 같은 개념으로 무언가를 재는 역할을 하고, 현실적인 측면에서 바라보면 `가능성'을 잰다고 할 수 있겠다.
+
+\begin{definition}
+    측도공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에 대해 $\mathbb{P}(\Omega)=1$이면 이때의 유한 측도 $\mathbb{P}$를 \textbf{확률측도(probability measure)}라 하고, 유한 측도공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$를 \textbf{확률공간(probability space)}이라 한다. 나아가 집합 $\Omega$를 \textbf{표본공간(sample space)}이라 하고, $\sigma$-대수 $\mathcal{F}$에 속하는 임의의 집합 $E$를 \textbf{사건(event)}이라 하여 $\mathbb{P}(E)$의 값을 사건 $E$의 \textbf{확률(probability)}이라 한다.
+\end{definition}
+
+확률의 본질이 측도라는 위의 정의는 나름 설득력이 있다. 그렇다면 이걸로 다 된 것일까? 아쉽게도 이제부터 해야 할 일이 태산이다. 일단 위의 정의를 받아들이기로 했다면, 지금까지 우리가 배웠던 확률의 대한 모든 내용들을 측도론의 언어로 다시 써야 한다. 문제는 이가 단순한 번역 작업이 아닌,사실 꽤나 골치아픈 작업이라는 점이다. 초록에서 지적한 바와 같이 확률에 대한 초기 연구는 `어떤 사건이 발생할 가능성'이라는 막연한 확률에 대한 인식을 바탕으로 이루어졌고, 그 과정에서 이미 수많은 결과가 얻어졌다. 그런데 확률과는 전혀 다른 맥락에서 연구되던 측도론으로 확률을 뒤늦게 정의하였으므로, 기존의 결과들이 측도로서 정의한 확률에 대해서도 성립한다는 보장이 없다. 그렇다고 측도론적인 확률의 정의를 고수하기 위해 호환되지 않는 일부 결과들을 폐기할 수도 없는 노릇이다. 이에 우리는, 마음을 졸이며, 조심스럽게 이 골치아픈 번역 작업을 해보려고 한다.
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$와 사건 $E,\,F$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item $\mathbb{P}(\emptyset)=0$.
+        \item ($\sigma$-가법성) 서로소인 사건열 $\{E_i\}$에 대해 $\mathbb{P}(\bigsqcup_{i=1}^\infty E_i)=\sum_{i=1}^\infty\mathbb{P}(E_i)$이다.
+        \item $0\leq\mathbb{P}(E)\leq1$.
+        \item $\mathbb{P}(E^c)=1-\mathbb{P}(E)$.
+        \item (단조성) 만약 $E\subseteq F$이면 $\mathbb{P}(E)\leq\mathbb{P}(F)$이다.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    이는 정의와 측도의 기본적인 성질로부터 자명하다.
+\end{proof}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item (포함배제의 원리) 사건 $E_1,\,\cdots,\,E_l$에 대해
+        \begin{equation*}
+            \mathbb{P}\bigg(\bigcup_{i=1}^lE_i\bigg)=\sum_{i=1}^l(-1)^{i-1}\sum_{1\leq j_1<\cdots<j_i\leq l}\mathbb{P}\bigg(\bigcap_{k=1}^i E_{j_k}\bigg)
+        \end{equation*}
+        이다.
+        \item ($\sigma$-반가법성) 사건열 $\{E_i\}$에 대해 $\mathbb{P}(\bigcup_{i=1}^\infty E_i)\leq\sum_{i=1}^\infty\mathbb{P}(E_i)$이다.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    i는 측도론의 포함배제의 원리를 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에 적용한 결과이고, ii는 측도의 $\sigma$-가법성이 $\sigma$-반가법성을 함의한다는 점에서 자명하다.
+\end{proof}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$와 사건열 $\{E_i\}$에 대해 
+    \begin{equation*}
+        \mathbb{P}(\liminf_{i\to\infty}E_i)\leq\liminf_{i\to\infty}\mathbb{P}(E_i)\leq\limsup_{i\to\infty}\mathbb{P}(E_i)\leq\mathbb{P}(\limsup_{i\to\infty}E_i)
+    \end{equation*}
+    가 성립한다. 특별히, $E_i\to E$이면 $\mathbb{P}(E_i)\to\mathbb{P}(E)$이다.
+\end{theorem}
+
+\begin{proof}
+    이는 정리 \ref{thm:generalSeriesMeasure}로부터 자명하다.
+\end{proof}
+
+\begin{definition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에 대해 영집합인 사건을 \textbf{영사건(null event)}이라 한다.
+\end{definition}
+
+\begin{definition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$와 영사건이 아닌 사건 $E$에 대해 \textbf{사건 $E$에 대한 조건부확률(conditional probability under event $E$)}을  $\mathbb{P}(\cdot\vert E):\mathcal{F}\to\mathbb{R}^+_0$로 쓰고 $\mathbb{P}(\cdot\vert E):F\mapsto\mathbb{P}(F\cap E)/\mathbb{P}(E)$로 정의한다.
+\end{definition}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$와 영사건이 아닌 사건 $E$에 대한 조건부확률 $\mathbb{P}(\cdot\vert E)$는 확률측도이다. 따라서 $(\Omega,\,\mathcal{F},\,\mathbb{P}(\cdot\vert E))$는 확률공간을 이룬다.
+\end{theorem}
+
+\begin{proof}
+    우선 $\mathbb{P}(\emptyset\vert E)=\mathbb{P}(\emptyset)/\mathbb{P}(E)=0,\,\mathbb{P}(\Omega\vert E)=\mathbb{P}(E)/\mathbb{P}(E)=1$임은 분명하고, 임의의 서로소인 사건열 $\{E_i\}$에 대해 $\mathbb{P}(\bigsqcup_{i=1}^\infty E_i\vert E)=\mathbb{P}(\bigsqcup_{i=1}^\infty E_i\cap E)/\mathbb{P}(E)=\mathbb{P}(\bigsqcup_{i=1}^\infty(E_i\cap E))/\mathbb{P}(E)=\sum_{i=1}^\infty\mathbb{P}(E_i\cap E)/\mathbb{P}(E)=\sum_{i=1}^\infty\mathbb{P}(E_i\vert E)$이므로 $\mathbb{P}(\cdot\vert E)$가 확률측도임을 안다.
+\end{proof}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item 사건 $E$와 영사건이 아닌 사건 $F$에 대해 $\mathbb{P}(E\cap F)=\mathbb{P}(E\vert F)\mathbb{P}(F)$이다.
+        \item (Law of total probability) 서로소인 가산개의 사건 $E_1,\,E_2,\,\cdots$에 대해 각 $E_i$가 영사건이 아니고 $\bigsqcup_{i=1}^kE_i=\Omega$이면 임의의 사건 $E$에 대해 $\mathbb{P}(E)=\sum_{i=1}^k\mathbb{P}(E\vert E_i)\mathbb{P}(E_i)$이다. (여기서 $k$는 유한할 수도 있고, $\infty$일 수도 있다.)
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    i. 이는 조건부확률의 정의로부터 자명하다.
+    
+    ii. i로부터 $\mathbb{P}(E)=\mathbb{P}(E\cap\bigsqcup_{i=1}^kE_i)=\mathbb{P}(\bigsqcup_{i=1}^k(E\cap E_i))=\sum_{i=1}^k\mathbb{P}(E\cap E_i)=\sum_{i=1}^k\mathbb{P}(E\vert E_i)\mathbb{P}(E_i)$이다.
+\end{proof}
+
+\begin{theorem}[Bayes]
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$와 서로소인 가산개의 사건 $E_1,\,E_2,\,\cdots$에 대해 각 $E_i$가 영사건이 아니고 $\bigsqcup_{i=1}^kE_i=\Omega$이면 임의의 사건 $E$에 대해
+    \begin{equation*}
+        \mathbb{P}(E_1\vert E)=\frac{\mathbb{P}(E\vert E_1)\mathbb{P}(E_1)}{\sum_{i=1}^k\mathbb{P}(E\vert E_i)\mathbb{P}(E_i)}
+    \end{equation*}
+    이다. (여기서 $k$는 유한할 수도 있고, $\infty$일 수도 있다.)
+\end{theorem}
+
+\begin{proof}
+    전사건 공식으로부터 $\mathbb{P}(E_1\vert E)=\mathbb{P}(E\cap E_1)/\mathbb{P}(E)=\mathbb{P}(E\vert E_1)\mathbb{P}(E_1)/\sum_{i=1}^k\mathbb{P}(E\vert E_i)\mathbb{P}(E_i)$가 자명하다.
+\end{proof}
+
+\begin{definition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$와 사건 $E_1,\,\cdots,\,E_k$를 생각하자. 만약 각 $l\leq k$와 임의의 서로다른 $i_1,\,\cdots,\,i_l\leq k$에 대해 $\mathbb{P}(\prod_{j=1}^lE_{i_j})=\prod_{j=1}^l\mathbb{P}(E_{i_j})$가 성립하면 이때의 사건 $E_1,\,\cdots,\,E_k$를 \textbf{서로 독립((mutually) independent)}이라 한다. 한편, 만약 위의 성질이 $l=2$에 대해서만 만족되면, 즉 임의의 서로다른 $i,\,j\leq k$에 대해서 $\mathbb{P}(E_i\cap E_j)=\mathbb{P}(E_i)\mathbb{P}(E_j)$가 성립하는 것에 그치면 이때의 사건 $E_1,\,\cdots,\,E_k$를 \textbf{pairwise 독립(- independent)}이라 한다.
+\end{definition}
+
+\section{Random Variables and Random Vectors}
+
+\begin{definition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에 대해 가측함수 $X:\Omega\to\mathbb{R}^n$를 \textbf{($n$차원) 확률벡터(($n$ dimensional) random vector)}라 하고, 특별히 $n=1$이면 \textbf{확률변수(random variable)}라고 한다.
+\end{definition}
+
+\begin{proposition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 함수 $X:\Omega\to\mathbb{R}^n$에 대해 $X$가 rv.일 필요충분조건은 $X_1,\,\cdots,\,X_n$이 모두 rv.인 것이다.
+\end{proposition}
+
+\begin{proof}
+    이는 가측함수의 성분도 가측함수라는 점에서 자명하다.
+\end{proof}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $m$차원 rv. $X$와 Borel 함수 $f:\mathbb{R}^m\to\mathbb{R}^n$에 대해 $f\circ X$도 $n$차원 rv.이다.
+\end{theorem}
+
+\begin{proof}
+    이는 Borel 함수와 가측함수의 합성은 가측이라는 점에서 자명하다.
+\end{proof}
+
+\begin{definition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 rv. $X$에 대해 pushfoward 측도 $X_*\mathbb{P}$를 rv. $X$의 \textbf{분포(distribution)}라 하고 $\prob_X$로 쓴다. 특별히, $n\geq2$인 경우 $\prob_X$를 rv. $X_1,\,\cdots,\,X_n$의 \textbf{결합분포(joint distribution)}라 하고 $\prob_{X_1,\,\cdots,\,X_n}$으로 쓰기도 한다.
+\end{definition}
+
+\begin{theorem}\label{thm:rvProbSpace}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 rv. $X$에 대해 $(\mathbb{R}^n,\,\mathcal{B}_n,\,\prob_X)$는 확률공간을 이룬다.
+\end{theorem}
+
+\begin{proof}
+    먼저 $\mathcal{B}_n\subseteq X_*\mathcal{F}$임을 보이기 위해 임의의 $A\in\mathcal{B}_n$를 택하면 $X^{-1}(A)\in\mathcal{F}$이므로 $A\in X_*\mathcal{A}$에서 $\mathcal{B}_n\subseteq X_*\mathcal{F}$이다. 따라서 $\prob_X$가 확률측도임을 보이면 충분한데, 이는 $\prob_X(\mathbb{R}^n)=\mathbb{P}(X^{-1}(\mathbb{R}^n))=\mathbb{P}(\Omega)=1$에서 쉽게 알 수 있고, 곧 증명이 끝난다.
+\end{proof}
+
+\begin{theorem}\label{thm:probSpaceRv}
+    Borel $\sigma$-대수 $\mathcal{B}_n$ 위의 확률측도 $\mu$에 대해 적당한 확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 rv. $X$가 존재하여 $\mu=\prob_X$이다.
+\end{theorem}
+
+\begin{proof}
+    거의 자명하다. 함수 $X:\mathbb{R}^n\to\mathbb{R}^n$를 항등함수로 두면 이는 확률공간 $(\mathbb{R}^n,\,\mathcal{B}_n,\,\mu)$ 위의 $n$차원 rv.이고, 임의의 사건 $E$에 대해 $\prob_X(E)=\mu(X^{-1}(E))=\mu(E)$에서 $\mu=\prob_X$이다.
+\end{proof}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $m$차원 rv. $X$와 Borel 함수 $f:\mathbb{R}^m\to\mathbb{R}^n$에 대해 $\prob_{f(X)}=\prob_X\circ f^{-1}$이다.
+\end{theorem}
+
+\begin{proof}
+    임의의 $A\in\mathcal{B}_n$에 대해 $\prob_{f(X)}(A)=\mathbb{P}((f\circ X)^{-1}(A))=\mathbb{P}(X^{-1}(f^{-1}(A)))=\prob_X(f^{-1}(A))=(\prob_X\circ f^{-1})(A)$이므로 $\prob_{f(X)}=\prob_X\circ f^{-1}$이다.
+\end{proof}
+
+\begin{definition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 rv. $X$에 대해 $\prob_X$가 이산측도이면 이때의 rv. $X$를 \textbf{이산확률벡터(discrete rv.)}라 한다. 또한, 만약 $\prob_X\ll\mu_n$이면 이때의 rv. $X$를 \textbf{연속확률벡터(continuous rv.)}라 하고, 만약 $\prob_X\perp\mu_n$이고 임의의 $x\in\mathbb{R}^n$에 대해 $\prob_X\{x\}=0$이면 이때의 rv. $X$를 \textbf{singular rv.}라 한다. 특별히, $n=1$인 경우 이산확률벡터와 연속확률벡터를 각각 이산확률변수와 연속확률변수라 한다.
+\end{definition}
+
+\begin{proposition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 rv. $X$에 대해 이는 이산확률벡터, 연속확률벡터, singular rv.의 정의 중에서 두 개의 이상을 동시에 만족시킬 수 없다.
+\end{proposition}
+
+\begin{proof}
+    모순을 유도하기 위해 $X$가 이산확률벡터인 동시에 연속확률벡터라고 하자. 그렇다면 $\prob_X$는 가산 지지집합 $A\in\mathcal{B}_n$를 가지는데, $\mu_n(A)=0$에서 $\prob_X(A)=0$의 모순이 발생한다. 이번에는 $X$가 이산확률벡터인 동시에 singular rv.라 하자. 그렇다면 이전과 같이 $\prob_X$는 가산 지지집합 $A\in\mathcal{B}_n$를 가지는데, 이의 가산개의 원소를 $x_1,\,x_2,\,\cdots$와 같이 나열하면 $\prob_X(A)=\sum_{i=1}^k\prob_X\{x_i\}=0$에서 모순이 발생한다. (여기서 $k$는 유한할 수도 있고, $\infty$일 수도 있다.) 마지막으로 $X$가 연속확률벡터인 동시에 singular rv.라 하면 $\prob_X\ll\mu_n$이고 $\prob_X\perp\mu_n$이므로 $\prob_X=0$의 모순이 발생하고, 증명은 이로써 충분하다.
+\end{proof}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 rv. $X$에 대해 다음의 조건
+    \begin{enumerate}
+        \item $n$차원 rv. $X_\mathrm{ac}$는 확률공간 $(\Omega_\mathrm{ac},\,\mathcal{F}_\mathrm{ac},\,\mathbb{P}_\mathrm{ac})$ 위의 연속확률벡터이다.
+        \item $n$차원 rv. $X_\mathrm{pp}$는 확률공간 $(\Omega_\mathrm{pp},\,\mathcal{F}_\mathrm{pp},\,\mathbb{P}_\mathrm{pp})$ 위의 이산확률벡터이다.
+        \item $n$차원 rv. $X_\mathrm{cs}$는 확률공간 $(\Omega_\mathrm{cs},\,\mathcal{F}_\mathrm{cs},\,\mathbb{P}_\mathrm{cs})$ 위의 singular rv.이다.
+    \end{enumerate}
+    를 만족하는 적당한 rv. $X_\mathrm{ac},\,X_\mathrm{pp},\,X_\mathrm{cs}$가 존재하여 $\alpha+\beta+\gamma=1$인 적당한 $\alpha,\,\beta,\,\gamma\geq0$에 대해 $\prob_X=\alpha\prob_{X_\mathrm{ac}}+\beta\prob_{X_\mathrm{pp}}+\gamma\prob_{X_\mathrm{cs}}$이다.
+\end{theorem}
+
+\begin{proof}
+    정리 \ref{thm:rvProbSpace}로부터 $(\mathbb{R}^n,\,\mathcal{B}_n,\,\prob_X)$가 확률공간이므로 Lebesgue의 분해정리로부터 $\prob_X=(\prob_X)_\mathrm{ac}+(\prob_X)_\mathrm{pp}+(\prob_X)_\mathrm{cs}$이고 조건
+    \begin{enumerate}
+        \item $(\prob_X)_\mathrm{ac}\ll\mu_n$.
+        \item 측도 $(\prob_X)_\mathrm{pp}$는 이산측도이다.
+        \item 임의의 $x\in X$에 대해 $(\prob_X)_\mathrm{cs}\{x\}=0$이고 $(\prob_X)_\mathrm{cs}\perp\mu_n$이다.
+    \end{enumerate}
+    를 만족하는 $\mathcal{B}_n$ 위의 측도 $(\prob_X)_\mathrm{ac},\,(\prob_X)_\mathrm{pp},\,(\prob_X)_\mathrm{cs}$가 유일하게 존재한다. 또한, $\prob_X(\mathbb{R}^n)=1$이므로 $\alpha=(\prob_X)_\mathrm{ac}(\mathbb{R}^n),\,\beta=(\prob_X)_\mathrm{pp}(\mathbb{R}^n),\,\gamma=(\prob_X)_\mathrm{cs}(\mathbb{R}^n)$라 하면 $\alpha,\,\beta,\,\gamma$는 모두 유한하고 $\alpha+\beta+\gamma=1$이다. 이제 $\alpha,\,\beta,\,\gamma$가 모두 $0$이 아닌 특별한 경우를 생각해보자. 그렇다면 $\mathbb{P}_1:=(\prob_X)_\mathrm{ac}/\alpha,\,\mathbb{P}_2:=(\prob_X)_\mathrm{pp}/\beta,\,\mathbb{P}_3:=(\prob_X)_\mathrm{cs}/\gamma$가 모두 $\mathcal{B}_n$ 위의 확률측도이므로 $(\prob_X)_\mathrm{ac},\,(\prob_X)_\mathrm{pp},\,(\prob_X)_\mathrm{cs}$의 성질과 정리 \ref{thm:probSpaceRv}로부터 적당한 확률공간 $(\Omega_\mathrm{ac},\,\mathcal{F}_\mathrm{ac},\,\mathbb{P}_\mathrm{ac})$ 위의 $n$차원 연속확률벡터 $X_\mathrm{ac}$, 적당한 확률공간 $(\Omega_\mathrm{pp},\,\mathcal{F}_\mathrm{pp},\,\mathbb{P}_\mathrm{pp})$ 위의 $n$차원 이산확률벡터 $X_\mathrm{pp}$, 적당한 확률공간 $(\Omega_\mathrm{cs},\,\mathcal{F}_\mathrm{cs},\,\mathbb{P}_\mathrm{cs})$ 위의 $n$차원 singular rv. $X_\mathrm{cs}$가 존재하여 $\mathbb{P}_1=\prob_{X_\mathrm{ac}},\,\mathbb{P}_2=\prob_{X_\mathrm{pp}},\,\mathbb{P}_3=\prob_{X_\mathrm{cs}}$이고, 곧 $\prob_X=(\prob_X)_\mathrm{ac}+(\prob_X)_\mathrm{pp}+(\prob_X)_\mathrm{cs}=\alpha\mathbb{P}_1+\beta\mathbb{P}_2+\gamma\mathbb{P}_3=\alpha\prob_{X_\mathrm{ac}}+\beta\prob_{X_\mathrm{pp}}+\gamma\prob_{X_\mathrm{cs}}$이다. 한편, $\alpha,\,\beta,\,\gamma$ 중에 일부가 $0$인 경우에 대해서도 이와 비슷하게 하면 된다.
+\end{proof}
+
+\begin{definition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 rv. $X$에 대해 rv. $X$의 \textbf{누적분포함수(cumulative distribution function)}를 $F_X:\mathbb{R}^n\to\mathbb{R}$로 쓰고 $F_X:x\mapsto\prob_X(\prod_{i=1}^n(-\infty,\,x_i])$로 정의한다. 특별히, $n\geq2$인 경우 $F_X$를 rv. $X_1,\,\cdots,\,X_n$의 \textbf{결합누적분포함수(joint cumu-lative distribution function)}라 하고 $F_{X_1,\,\cdots,\,X_n}$으로 쓰기도 한다.
+\end{definition}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 rv. $X$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item $0\leq F_X\leq 1$.
+        \item 임의의 유계인 semi-open box $B\subseteq\mathbb{R}^n$에 대해 $\Delta_BF_X=\prob_X(B)\geq0$이다.
+        \item 함수 $F_X$는 각 변수에 대해 증가한다.
+        \item 함수 $F_X$는 오른쪽 연속이다.
+        \item 각 $i\leq n$에 대해 $\lim_{x_i\to-\infty}F_X(x)=0$이다.
+        \item $\lim_{x_1,\,\cdots,\,x_n\to\infty}F_X(x)=1$.
+        \item 임의의 $x\in\mathbb{R}^$에 대해 $B_x=\prod_{i=1}^n(-\infty,\,x_i]$라 하면 $F_X(x-)=\prob_X(B_x^\circ)$이고 $F_X(x)-F_X(x-)=\prob_X(\partial B_x)$이다.\footnote{
+            열린집합 $U\subseteq\mathbb{R}^m$에서 정의된 함수 $f:U\to\mathbb{R}^n$와 한 점 $x_0\in U$에 대해 $f(x_0-)$는 극한 $\lim_{x\uparrow x_0}f(x)$를 의미한다. 한편, 여기서의 극한은 임의의 $\epsilon>0$에 대해 적당한 $\delta>0$가 존재하여 $||x-x_0||<\delta$이고 $x<x_0$인 임의의 $x\in U$에 대해 $||f(x)-f(x_0)||<\epsilon$이라는 의미이다.
+        }
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    i, ii, iii, iv, v, vi. 이는 CDF의 정의와 정리 \ref{thm:distributionProp}로부터 자명하다.
+    
+    vii. 임의의 $x\in\mathbb{R}^n$를 택하여 $B=\prod_{i=1}^n(-\infty,\,x_i]$라 하고, 집합열 $\{B_j\}$를 $B_j:=\prod_{i=1}^n(-\infty,\,x_i-1/j]$로 두면 이는 $\mathcal{S}_n$에 속하는 증가하는 집합열로서 $B_j\uparrow\prod_{i=1}^n(-\infty,\,x_i)=B^\circ$이다. 따라서 $F_X(x-\ind/j)=\prob_X(B_j)\uparrow\prob_X(B^\circ)$이므로 임의의 $\epsilon>0$을 택하면 적당한 $j_0\in\mathbb{N}$가 존재하여 $\prob_X(B^\circ)-\prob_X(B_{j_0})<\epsilon$이다. 이제 $\delta=1/j_0$라 하면 $||x-y||<\delta$이고 $x>y$인 모든 $y\in\mathbb{R}^n$에 대해 $B_{j_0}\subseteq\prod_{i=1}^n(-\infty,\,y_i)\subseteq B^\circ$에서 $\prob_X(B^\circ)-\epsilon<\prob_X(B_{j_0})\leq F_X(y)=\prob_X(\prod_{i=1}^n(-\infty,\,y_i])\leq\prob_X(B^\circ)$이므로 $|F_X(y)-\prob_X(B^\circ)|<\epsilon$가 되어 $F_X(x-)=\prob_X(B_x^\circ)$임을 안다. 이제 $F_X(x)-F_X(x-)=\prob_X(B)-\prob_X(B^\circ)=\prob_X(\partial B)$임은 자명하다.
+\end{proof}
+
+\begin{theorem}
+    함수 $F:\mathbb{R}^n\to[0,\,1]$에 대해 이가
+    \begin{enumerate}
+        \item 함수 $F$는 오른쪽 연속이고 각 변수 에 대해 증가한다.
+        \item 유계인 semi-open box $B\subseteq\mathbb{R}^n$에 대해 $\Delta_BF\geq0$이다.
+        \item 각 $i\leq n$에 대해 $\lim_{x_i\to-\infty}F(x)=0$이고 $\lim_{x_1,\,\cdots,\,x_n\to\infty}F_X(x)=1$이다.
+    \end{enumerate}
+    를 만족하면 적당한 확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 rv. $X$가 존재하여 $F=F_X$이다.
+\end{theorem}
+
+\begin{proof}
+    정리 \ref{thm:finiteBorelSpecify}로부터 적당한 $\mathcal{B}_n$ 위의 측도 $\mu$가 존재하여 임의의 $x\in\mathbb{R}^n$에 대해 $F(x)=\mu(\prod_{i=1}^n(-\infty,\,x_i])$이다. 그런데 정리 \ref{thm:distributionProp}의 vii와 주어진 조건으로부터 $\mu(\mathbb{R}^n)=1$이 되어 $\mu$는 확률측도이고, 곧 정리 \ref{thm:probSpaceRv}로부터 적당한 확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 rv. $X$가 존재하여 $\mu=\prob_X$이다. 이상으로부터 임의의 $x\in\mathbb{R}^n$에 대해 $F(x)=\mu(\prod_{i=1}^n(-\infty,\,x_i])=\prob_X(\prod_{i=1}^n(-\infty,\,x_i])=F_X(x)$이므로 증명이 끝난다.
+\end{proof}
+
+\begin{definition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 rv. $X$에 대해 적당한 $\mathcal{B}_n$ 위의 $\sigma$-유한 측도 $\mu$가 존재하여 $\prob_X\ll\mu$라 하자. 이때 Radon-Nikodym 도함수 $d\prob_X/d\mu$를 $X$의 $\mu$에 대한 \textbf{확률밀도함수(probability density function)}라 하고 $f_X$로 쓴다. 특별히, $n\geq2$인 경우 $f_X$를 rv. $X_1,\,\cdots,\,X_n$의 \textbf{결합확률밀도함수(joint probability density function)}라 하고 $f_{X_1,\,\cdots,\,X_n}$으로 쓰기도 한다.
+\end{definition}
+
+\begin{proposition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 rv. $X$와 $\mathcal{B}_n$ 위의 셈측도 $\#$에 대해 $\prob_X\ll\#$이다.
+\end{proposition}
+
+\begin{proof}
+    이는 셈측도의 성질로부터 자명하다.
+\end{proof}
+ 
+\begin{theorem}
+    
+\end{theorem}
