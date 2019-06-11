@@ -1676,7 +1676,7 @@
 
 \texttt{Lebesgue} 적분의 정의가 끝났으니 이제 이의 성질들을 알아보도록 하자. 표기의 편의와 간결한 논의를 위해 대부분의 명제나 정리들에서 적분 영역이 전체 공간 $X$로 주어져 있지만 임의의 가측집합 $A\subseteq X$에 대해 $f$ 대신 $f\ind_A$를 생각함으로써 이들을 임의의 가측집합을 적분 영역으로 갖는 경우로 자명하게 일반화할 수 있다.
 
-\begin{theorem}
+\begin{theorem}\label{thm:integralProperty}
     측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 음이 아닌 가측함수 $f,\,g:X\to\overline{\mathbb{R}}^+_0$와 $A,\,B\in\mathcal{A}$에 대해 다음이 성립한다.
     \begin{enumerate}
         \item 임의의 $c\geq0$에 대해 $\int_Xcf\,d\mu=c\int_Xf\,d\mu$이다.
@@ -2387,17 +2387,17 @@
 \end{proof}
 
 \begin{theorem}[H\"older's inequality]
-    측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 가측함수 $f,\,g:X\to\overline{\mathbb{R}}$와 $1/p+1/q=1$인 $p,\,q>1$에 대해 $\int_X|fg|\,d\mu\leq||f||_p||g||_q$이다. 이때, $||f||_p,\,||g||_q<\infty$라면 등호가 성립할 필요충분조건은 적당한 $\alpha,\,\beta\geq0$가 존재하여 $\alpha|f|^p=\beta|g|^q$ (\texttt{ae.})인 것이다.
+    측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 가측함수 $f,\,g:X\to\overline{\mathbb{R}}$와 $1/p+1/q=1$인 $p,\,q>1$에 대해 $\int_X|fg|\,d\mu\leq||f||_p||g||_q$이다. 이때, $||f||_p,\,||g||_q<\infty$라면 등호가 성립할 필요충분조건은 적당한 $c\geq0$가 존재하여 $|f|^p=c|g|^q$ (\texttt{ae.})이거나 $|g|^q=c|f|^p$ (\texttt{ae.})인 것이다.
 \end{theorem}
 
 \begin{proof}
     \texttt{WLOG}, 필요하다면 $f,\,g$를 각각 $|f|,\,|g|$로 대체하여 $f,\,g$가 처음부터 음이 아니라 해도 된다. 한편, 만약 $||f||_p=0$이면 명제 \ref{prop:lpnormScale}의 ii로부터 $f=0$ (\texttt{ae.})이고, 곧 $\int_X|fg|\,d\mu=0$이 되어 부등식이 자명하므로 $||f||_p>0$이라 하고, 비슷한 이유로 $||g||_p>0$이라 하자. 또한 $||f||_p=\infty$이거나 $||g||_p=\infty$인 경우에도 부등식이 자명하므로 $||f||_p,\,||g||_p<\infty$라 하자. 이제 $||f||_p=||g||_q=1$인 특별한 경우를 생각하면 \texttt{Young}의 부등식으로부터 $\int_Xfg\,d\mu\leq\int_Xf^p/p+g^q/q\,d\mu=||f||_p^p/p+||g||_q^q/q=1/p+1/q=1$이다. 이제 일반적인 경우에 $\widetilde{f}=f/||f||_p,\,\widetilde{g}=g/||g||_q$라 하면 명제 \ref{prop:lpnormScale}의 i로부터 $||\widetilde{f}||_p=||\widetilde{g}||_q=1$이므로 앞선 결과로부터 $\int_X|\widetilde{f}\widetilde{g}|\,d\mu\leq1$이 되어 곧 $\int_X|fg|\,d\mu\leq||f||_p||g||_q$임을 안다.
 
-    한편, 등호조건을 보이기 위해 $||f||_p,\,||g||_q<\infty$이고 $\int_X|fg|\,d\mu=||f||_p||g||_q$라 하자. 만약 $||f||_p=0$이면 $f=0$ (\texttt{ae.})에서 $|f|^p=0=0\cdot|g|^q$ (\texttt{ae.})가 되어 더 이상 보일 것이 없으므로 $||f||_p\ne0$이라 하고, 비슷한 이유에서 $||g||_q\ne0$이라 하자. 이제 $\widetilde{f}=|f|/||f||_p,\,\widetilde{g}=|g|/||g||_q$라 하면 $\int_X\widetilde{f}\widetilde{g}\,d\mu=(\int_X|fg|\,d\mu)/||f||_p||g||_q=1=||\widetilde{f}||_p^p/p+||\widetilde{g}||_q^q/q=\int_X\widetilde{f}^p/p+\widetilde{g}^q/q\,d\mu$이므로 \texttt{Young}의 부등식과 정리 \ref{thm:zeroAeIntegral}의 ii로부터 $\widetilde{f}\widetilde{g}=\widetilde{f}^p/p+\widetilde{g}^q/q$ (\texttt{ae.})이다. 이는 다시 \texttt{Young}의 부등식의 등호조건으로부터 $\widetilde{f}^p=\widetilde{g}^q$ (\texttt{ae.})를 뜻하고, 따라서 $|f|^p=(||f||_p^p/||g||_q^q)|g|^q$ (\texttt{ae.})이다. 역으로 적당한 $\alpha,\,\beta\geq0$가 존재하여 $\alpha|f|^p=\beta|g|^q$ (\texttt{ae.})인 경우에 등호가 성립함은 자명하므로 증명은 이로써 충분한다.
+    한편, 등호조건을 보이기 위해 $||f||_p,\,||g||_q<\infty$이고 $\int_X|fg|\,d\mu=||f||_p||g||_q$라 하자. 만약 $||f||_p=0$이면 $f=0$ (\texttt{ae.})에서 $|f|^p=0=0\cdot|g|^q$ (\texttt{ae.})가 되어 더 이상 보일 것이 없으므로 $||f||_p\ne0$이라 하고, 비슷한 이유에서 $||g||_q\ne0$이라 하자. 이제 $\widetilde{f}=|f|/||f||_p,\,\widetilde{g}=|g|/||g||_q$라 하면 $\int_X\widetilde{f}\widetilde{g}\,d\mu=(\int_X|fg|\,d\mu)/||f||_p||g||_q=1=||\widetilde{f}||_p^p/p+||\widetilde{g}||_q^q/q=\int_X\widetilde{f}^p/p+\widetilde{g}^q/q\,d\mu$이므로 \texttt{Young}의 부등식과 정리 \ref{thm:zeroAeIntegral}의 ii로부터 $\widetilde{f}\widetilde{g}=\widetilde{f}^p/p+\widetilde{g}^q/q$ (\texttt{ae.})이다. 이는 다시 \texttt{Young}의 부등식의 등호조건으로부터 $\widetilde{f}^p=\widetilde{g}^q$ (\texttt{ae.})를 뜻하고, 따라서 $|f|^p=(||f||_p^p/||g||_q^q)|g|^q$ (\texttt{ae.})이다. 역으로 적당한 $c\geq0$가 존재하여 $|f|^p=c|g|^q$ (\texttt{ae.}) 이거나 $|g|^q=c|f|^p$ (\texttt{ae.})인 경우에 등호가 성립함은 자명하므로 증명은 이로써 충분한다.
 \end{proof}
 
 \begin{theorem}[Minkowski's inequality]
-    측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 가측함수 $f,\,g:X\to\overline{\mathbb{R}}$와 $p\geq1$에 대해 $||f+g||_p\leq||f||_p+||g||_p$이다.
+    측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 가측함수 $f,\,g:X\to\overline{\mathbb{R}}$와 $p\geq1$에 대해 $||f+g||_p\leq||f||_p+||g||_p$이다. 이때, $||f||_p,\,||g||_p<\infty$이고 $f+g=0$ (\texttt{ae}.)이 아니라면 등호가 성립한 필요충분조건은 적당한 $c\geq0$가 존재하여 $|f|^p=c|g|^p$ (\texttt{ae}.)이거나 $|g|^p=c|f|^p$ (\texttt{ae}.)인 것이다.
 \end{theorem}
 
 \begin{proof}
@@ -2411,6 +2411,8 @@
         &=(||f||_p+||g||_p)||f+g||_p^{p-1}
     \end{align*}
     이므로 $||f+g||_p\leq||f||_p+||g||_p$임을 안다.
+
+    한편, 등호조건을 보이기 위해 $||f||_p,\,||g||_p<\infty$이고 $f+g=0$ (\texttt{ae}.)이 아니며, $||f+g||_p=||f||_p+||g||_p$라 하자. 만약 $f=0$ (\texttt{ae}.)이면 $|f|^p=0=0\cdot|g|^p$ (\texttt{ae}.)에서 더 이상 보일 것이 없으므로 $f=0$ (\texttt{ae}.)이 아니라 하고, 비슷한 이유에서 $g=0$ (\texttt{ae}.)도 아니라 하자. 그렇다면 위의 증명과정과 \texttt{H\"older}의 부등식의 등호조건으로부터 적당한 $c_1,\,c_2>0$가 존재하여 $|f|^p=c_1|f+g|^{(p-1)q}=c_1|f+g|^p$ (\texttt{ae}.)이고 $|g|^p=c_2|f+g|^{(p-1)q}=c_2|f+g|^p$ (\texttt{ae}.)이므로 곧 $|f|^p=(c_1/c_2)c_2|f+g|^p=(c_1/c_2)|g|^p$ (\texttt{ae}.)이다. 역으로 적당한 $c\geq0$가 존재하여 $|f|^p=c|g|^p$ (\texttt{ae}.)이거나 $|g|^p=c|f|^p$ (\texttt{ae}.)인 경우에 등호가 성립함은 자명하므로 증명은 이로써 충분하다.
 \end{proof}
 
 당장은 $p$-노름은 노름이 아니라는 점에 주의하자. 명제 \ref{prop:lpnormScale}의 i과 \texttt{Minkowski}의 부등식으로부터 $p$-노름이 양의 동차성과 삼각부등식은 만족하지만, 아직 이가 양의 정부호성을 만족하는지는 알지 못한다. 그리고 조금만 생각해보면, $p$-노름이 양의 정부호성을 갖길 기대하는 건 부질없는 것임을 깨달을 수 있다. 적분값이 0이라고 해서 피적분함수가 반드시 0일 필요는 없기 때문이다. 그럼에도 이에 $p$-노름이라는 이름을 괜히 붙인 것은 아닐테니, $p$-노름을 정말 노름으로 만들기 위해서는 `도약'이 필요하다.
@@ -2968,10 +2970,6 @@ f
 
     \noindent\texttt{\textbf{Step 4.}} 모든 \texttt{homothety} $T:\mathbb{R}^n\to\mathbb{R}^n$는 \texttt{good}이다.
 
-    \texttt{Homothety}인 $T$는 적당한 0이 아닌 $c\in\mathbb{R}$에 대해 $T:x\mapsto cx$로 쓸 수 있다. 이번에도 단계 1로써 $T$가 \texttt{good}임을 보이도록 하자. 먼저 임의의 \texttt{semi-open box} $B\subseteq\mathbb{R}^n$를 생각하면 $T$가 연속이므로 곧 가측이고, 따라서 $T^{-1}(B)$도 가측이다. 이제 $\lambda_n(T^{-1}(B))=\rho_n(B)/|c|^n$임을 보이고자 하는데, 만약 $B$가 유계가 아니라면 $T^{-1}(B)$도 유계가 아니어서 이가 자명하므로 $B$가 유계라 하자. 그렇다면 적당한 $x,\,y\in\mathbb{R}^n$가 존재하여 $B=\prod_{i=1}^n(x_i,\,y_i]$이고, 곧 보조정리 \ref{lem:ReimannIntegrable}로부터 $\lambda_n(T^{-1}(B))=\lambda_n(B/c)=\prod_{i=1}^n(y_i-x_i)/|c|=\rho_n(B)/|c|^n$이다.\footnotemark\label{note:rotateSemiOpenBox} 나아가, 정리 \ref{thm:genAlgebra}로부터 임의의 $A\in A(\mathcal{S}_n)$에 대해서도 $T^{-1}(A)$가 가측이고 $\lambda_n(T^{-1}(A))=\rho_n(A)/|c|^n$임이 자명하다.
-    
-    마지막으로, 임의의 $S\subseteq\mathbb{R}^n$를 택하고 이의 $A(\mathcal{S}_n)$에 속하는 임의의 가산 덮개 $\{S_i\}$를 생각하여, \texttt{WLOG}, 필요하다면 공집합을 추가하여 이가 집합열을 이룬다고 하자. 만약 $c>0$이라면 $\{T^{-1}(S_i)\}$가 $A(\mathcal{S}_n)$에 속하는 $T^{-1}(S)$의 가산 덮개임이 분명하므로 앞선 결과로부터 $\rho_n^*(T^{-1}(S))=\rho_n^*(S)/|c|^n$임이 분명하다.
-    
     \begin{figure}[ht!]
         \centering
         \begin{tikzpicture}
@@ -3158,8 +3156,10 @@ f
         \end{tikzpicture}
         \caption{변수변환 공식의 증명의 4단계에서의 집합 $S$와 임의의 가산 덮개 $\{S_i\}$가 \texttt{homothety} $T$에 의해 변환되는 모습. 각각 $c>0$인 경우(위)와 $c<0$인 경우(중간). 한편, $c<0$인 경우에는 $\{T_i\}$가 $T^{-1}(S)$의 가산 덮개가 되지 못할 수도 있으므로(왼쪽 아래) 각 $T_i$를 조금씩 늘려 $\{T_i'\}$를 구성한다(오른쪽 아래).}
     \end{figure}
+
+    \texttt{Homothety}인 $T$는 적당한 0이 아닌 $c\in\mathbb{R}$에 대해 $T:x\mapsto cx$로 쓸 수 있다. 이번에도 단계 1로써 $T$가 \texttt{good}임을 보이도록 하자. 먼저 임의의 \texttt{semi-open box} $B\subseteq\mathbb{R}^n$를 생각하면 $T$가 연속이므로 곧 가측이고, 따라서 $T^{-1}(B)$도 가측이다. 이제 $\lambda_n(T^{-1}(B))=\rho_n(B)/|c|^n$임을 보이고자 하는데, 만약 $B$가 유계가 아니라면 $T^{-1}(B)$도 유계가 아니어서 이가 자명하므로 $B$가 유계라 하자. 그렇다면 적당한 $x,\,y\in\mathbb{R}^n$가 존재하여 $B=\prod_{i=1}^n(x_i,\,y_i]$이고, 곧 보조정리 \ref{lem:ReimannIntegrable}로부터 $\lambda_n(T^{-1}(B))=\lambda_n(B/c)=\prod_{i=1}^n(y_i-x_i)/|c|=\rho_n(B)/|c|^n$이다.\footnotemark\label{note:rotateSemiOpenBox} 나아가, 정리 \ref{thm:genAlgebra}로부터 임의의 $A\in A(\mathcal{S}_n)$에 대해서도 $T^{-1}(A)$가 가측이고 $\lambda_n(T^{-1}(A))=\rho_n(A)/|c|^n$임이 자명하다.
     
-    한편, $c<0$인 경우에는 조금 복잡하다. 먼저 각 $i\in\mathbb{N}$에 대해 $T^{-1}(S_i)$를 구성하는 서로소인 box들에서 원래 속한 면은 빼고, 원래 빠진 면은 더하여 얻는 집합을 $T_i$라 하면 이는 다시 \texttt{semi-open box}들의 서로소 합집합이 되고, 앞선 결과와 보조정리 \ref{lem:ReimannIntegrable}로부터 $\rho_n(T_i)=\lambda_n(T^{-1}(S_i))=\rho_n(S_i)/|c|^n$이다. (각주 \ref{note:rotateSemiOpenBox} 참조.) 그러나 원래 속한 면을 빼는 과정에서 $\{T_i\}$가 더 이상 $T^{-1}(S)$의 가산 덮개가 되지 못할 수 있다. 이 문제를 해결하기 위해 임의의 $\epsilon>0$을 택하여 각 $i\in\mathbb{N}$에 대해 $T_i$를 이루는 \texttt{semi-open box}들을 조금씩 늘려 얻은 $T_i'$가 $\rho_n(T_i')=\rho_n(T_i)+\epsilon/2^i$가 되도록 하면 이때의 $\{T_i'\}$는 다시 $T^{-1}(S)$의 가산 덮개가 되면서 $\sum_{i=1}^\infty\rho_n(T_i')=\rho_n(S_i)/|c|^n+\epsilon$을 만족한다. 이로부터 $\rho_n^*(T^{-1}(S))\leq\rho_n(S_i)/|c|^n+\epsilon$이고, 곧 $\rho_n^*(T^{-1}(S))\leq\rho_n^*(S)/|c|^n$이다. 그런데 여기서 $T$는 임의의 \texttt{homothety}이고, $T^{-1}$도 $T^{-1}:x\mapsto x/c$인 \texttt{homothety}이므로 $\rho_n^*(T(S))/|c|^n\leq\rho_n^*(S)$에서 $\rho_n^*(S)/|c|^n\leq\rho_n^*(T^{-1}(S))$가 되어 이상으로부터 $c$의 부호에 무관하게 $\rho_n^*(T^{-1}(S))=\rho_n^*(S)/|c|^n$임을 안다. 이러한 결론이 임의의 $S\subseteq\mathbb{R}^n$에 대해 성립한다는 점을 상기하면, 임의의 가측인 $A\subseteq\mathbb{R}^n$와 임의의 $S\subseteq\mathbb{R}^n$에 대해
+    마지막으로, 임의의 $S\subseteq\mathbb{R}^n$를 택하고 이의 $A(\mathcal{S}_n)$에 속하는 임의의 가산 덮개 $\{S_i\}$를 생각하여, \texttt{WLOG}, 필요하다면 공집합을 추가하여 이가 집합열을 이룬다고 하자. 만약 $c>0$이라면 $\{T^{-1}(S_i)\}$가 $A(\mathcal{S}_n)$에 속하는 $T^{-1}(S)$의 가산 덮개임이 분명하므로 앞선 결과로부터 $\rho_n^*(T^{-1}(S))=\rho_n^*(S)/|c|^n$임이 분명하다. 한편, $c<0$인 경우에는 조금 복잡하다. 먼저 각 $i\in\mathbb{N}$에 대해 $T^{-1}(S_i)$를 구성하는 서로소인 box들에서 원래 속한 면은 빼고, 원래 빠진 면은 더하여 얻는 집합을 $T_i$라 하면 이는 다시 \texttt{semi-open box}들의 서로소 합집합이 되고, 앞선 결과와 보조정리 \ref{lem:ReimannIntegrable}로부터 $\rho_n(T_i)=\lambda_n(T^{-1}(S_i))=\rho_n(S_i)/|c|^n$이다. (각주 \ref{note:rotateSemiOpenBox} 참조.) 그러나 원래 속한 면을 빼는 과정에서 $\{T_i\}$가 더 이상 $T^{-1}(S)$의 가산 덮개가 되지 못할 수 있다. 이 문제를 해결하기 위해 임의의 $\epsilon>0$을 택하여 각 $i\in\mathbb{N}$에 대해 $T_i$를 이루는 \texttt{semi-open box}들을 조금씩 늘려 얻은 $T_i'$가 $\rho_n(T_i')=\rho_n(T_i)+\epsilon/2^i$가 되도록 하면 이때의 $\{T_i'\}$는 다시 $T^{-1}(S)$의 가산 덮개가 되면서 $\sum_{i=1}^\infty\rho_n(T_i')=\rho_n(S_i)/|c|^n+\epsilon$을 만족한다. 이로부터 $\rho_n^*(T^{-1}(S))\leq\rho_n(S_i)/|c|^n+\epsilon$이고, 곧 $\rho_n^*(T^{-1}(S))\leq\rho_n^*(S)/|c|^n$이다. 그런데 여기서 $T$는 임의의 \texttt{homothety}이고, $T^{-1}$도 $T^{-1}:x\mapsto x/c$인 \texttt{homothety}이므로 $\rho_n^*(T(S))/|c|^n\leq\rho_n^*(S)$에서 $\rho_n^*(S)/|c|^n\leq\rho_n^*(T^{-1}(S))$가 되어 이상으로부터 $c$의 부호에 무관하게 $\rho_n^*(T^{-1}(S))=\rho_n^*(S)/|c|^n$임을 안다. 이러한 결론이 임의의 $S\subseteq\mathbb{R}^n$에 대해 성립한다는 점을 상기하면, 임의의 가측인 $A\subseteq\mathbb{R}^n$와 임의의 $S\subseteq\mathbb{R}^n$에 대해
     \begin{align*}
         \rho_n^*(S\cap T^{-1}(A))+\rho_n^*(S\cap [T^{-1}(A)]^c)&=\rho_n^*(S\cap T^{-1}(A))+\rho_n^*(S\cap T^{-1}(A^c))\\
         &=\frac{\rho_n^*(T(S)\cap A)+\rho_n^*(T(S)\cap A^c)}{|c|^n}\\
@@ -4280,7 +4280,7 @@ f
 
 \section{Epilog}
 
-본 장의 마지막을 장식할 이번 절에서는 별개의 절로 구성할 정도의 내용은 아니지만, 그래도 놓치기는 아까운 주제들에 대해 가볍게 알아보도록 하겠다. 다루게 될 주제는 측도의 분해와 이를 통한 \texttt{Radon-Nikod\'ym} 도함수의 일반화, 셈측도로 크게 두 가지이다.
+본 장의 마지막을 장식할 이번 절에서는 별개의 절로 구성할 정도의 내용은 아니지만, 그래도 놓치기는 아까운 주제들에 대해 가볍게 알아보도록 하겠다. 다루게 될 주제는 측도의 분해, 셈측도, 그리고 벡터함수와 복소함수의 적분으로 크게 3가지이다.
 
 \subsection{Lebesgue's decomposition theorem}
 
@@ -4521,15 +4521,75 @@ f
     측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 가측함수 $f:X\to\mathbb{R}^n$에 대해 $f$의 모든 성분이 적분가능하면 이때 $f$를 \textbf{($\mu$-\texttt{Lebesgue}) 적분가능(- \texttt{integrable})}하다고 한다. 나아가 적분가능한 $f:X\to\mathbb{R}^n$에 대해 $\mu$에 대한 $f$의 \textbf{(\texttt{Lebesgue}) 적분(- \texttt{integral})}을 $\int_Xf(x)\,d\mu(x)$ 혹은 간단히 $\int_Xf\,d\mu$로 쓰고 $\int_Xf\,d\mu=(\int_Xf_i\,d\mu)_i$로 정의한다.
 \end{definition}
 
-복소함수의 적분도 이와 비슷한 아이디어로 정의할 수 있다. 다만, 우선 $\mathbb{C}$ 위의 `바람직한' $\sigma$-대수를 어떻게 잡을지에 대한 질문의 답이 필요하다. 앞서 $\mathbb{R}^n$ 위의 `바람직한' $\sigma$-대수인 $\mathcal{B}_n$이나 $\mathcal{M}_n$을 구성하기 위해 얼마나 많은 지면을 할애하여 논의를 전개했는지를 생각해보면 정말이지 정신이 아득해지는 질문이다. 하지만, 조금만 요령을 부리면 이 질문에 아주 근사한 답을 할 수 있다. 바로 $\mathbb{C}$와 $\mathbb{R}^2$를 동일시하는 것이다. 즉, 복소수 $x+\imag y$를 $(x,\,y)$로 생각하고, 이를 통해 우리는 $\mathbb{R}^2$에서의 표준위상, 거리함수, 심지어는 $\mathcal{B}_2$와 $\mathcal{M}_2$로 만들어지는 가측공간의 구조도 $\mathbb{C}$로 자연스럽게 옮겨올 수 있다.
+앞서 정리 \ref{thm:integralProperty}에서 보였던 적분의 기본적인 성질들도 대부분 비슷하게 성립한다.
+
+\begin{corollary}
+    측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 적분가능한 함수 $f,\,g:X\to\mathbb{R}^n$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item 임의의 $c\in\mathbb{R}$에 대해 $cf$가 적분가능하고 $\int_Xcf\,d\mu=c\int_Xf\,d\mu$이다.
+        \item 함수 $f+g$가 적분가능하고 $\int_Xf+g\,d\mu=\int_Xf\,d\mu+\int_Xg\,d\mu$이다.
+        \item 임의의 $x\in\mathbb{R}^n$에 대해 $\langle x,\,f\rangle$가 적분가능하고 $\int_X\langle x,\,f\rangle\,d\mu=\langle x,\,\int_Xf\,d\mu\rangle$이다.
+        \item $||\int_Xf\,d\mu||\leq\int_X||f||\,d\mu$.
+    \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+    i. ii. 이는 정의와 적분의 기본적인 성질로부터 자명하다.
+
+    iii. 각 $f_i$가 적분가능하므로 $\langle x,\,f\rangle=\sum_{i=1}^nx_if_i$가 적분가능함은 분명하고, 곧 $\int_X\langle x,\,f\rangle\,d\mu=\int_X\sum_{i=1}^nx_if_i\,d\mu=\sum_{i=1}^nx_i\int_Xf_i\,d\mu=\langle x,\,\int_Xf\,d\mu\rangle$이다.
+
+    iv. 표기의 편의를 위해 $I=\int_Xf\,d\mu$라 하자. 나아가 만약 $I=0$이면 부등식이 자명하므로 $I\ne0$이라 하자. 그렇다면 \texttt{Cauchy-Schwarz} 부등식으로부터 $||I||^2=\langle I,\,\int_Xf\,d\mu\rangle=\int_X\langle I,\,f\rangle\,d\mu\leq\int_X||I||||f||\,d\mu=||I||\int_X||f||\,d\mu$가 되어 정리가 성립한다.
+\end{proof}
+
+\begin{corollary}[Fundamental theorem of calculus]
+    다음이 성립한다.
+    \begin{enumerate}
+        \item 적분가능한 연속함수 $f:\mathbb{R}\to\mathbb{R}^n$에 대해 함수 $F:\mathbb{R}\to\mathbb{R}^n$를 $F:x\mapsto\int_{-\infty}^xf\,d\lambda_1$로 두면 이는 $f$의 역도함수이다. 즉, $\nabla F=f$이다.
+        \item 함수 $F:\mathbb{R}\to\mathbb{R}^n$가 $\mathcal{C}^1$급이고 그 도함수가 적분가능하면 $f:=\nabla F$에 대해 $F(x)=\int_{-\infty}^xf\,d\lambda_1$이다.
+    \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+    이는 정의와 \texttt{FTC}로부터 자명하다.
+\end{proof}
+
+복소함수의 적분도 이와 비슷한 아이디어로 정의할 수 있다. 다만, 우선 $\mathbb{C}$ 위의 `바람직한' $\sigma$-대수를 어떻게 잡을지에 대한 질문의 답이 필요하다. 앞서 $\mathbb{R}^n$ 위의 `바람직한' $\sigma$-대수인 $\mathcal{B}_n$이나 $\mathcal{M}_n$을 구성하기 위해 얼마나 많은 지면을 할애하여 논의를 전개했는지를 생각해보면 정신이 아득해질 법하지만, 조금만 요령을 부리면 이 질문에 꽤 근사한 답을 할 수 있다. 바로 $\mathbb{C}$와 $\mathbb{R}^2$를 동일시하는 것이다. 즉, 복소수 $x+\imag y$를 $(x,\,y)$로 생각하고, 이를 통해 우리는 $\mathbb{R}^2$에서의 표준위상, 거리함수, 심지어는 $\mathcal{B}_2$와 $\mathcal{M}_2$로 만들어지는 가측공간의 구조도 $\mathbb{C}$로 자연스럽게 옮겨올 수 있다. 곧, 우리는 가측공간 $(X,\,\mathcal{A})$에서 정의된 복소함수 $f:X\to\mathbb{C}$에 대해 이의 실수부와 허수부가 모두 가측이면 이때의 $f$를 가측함수라 한다. 비슷하게, $f:\mathbb{R}\to\mathbb{C}$의 실수부와 허수부가 모두 연속이거나 미분가능하면 이때의 $f$를 각각 연속 혹은 미분가능하다고 한다. (보통 표기의 편의를 위해 $f:\mathbb{R}\to\mathbb{C}$의 미분을 $f'=(\re f)'+(\im f)'$로 쓴다.)
 
 \begin{definition}
     측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 가측함수 $f:X\to\mathbb{C}$에 대해 $f$의 실수부와 허수부가 적분가능하면 이때 $f$를 \textbf{($\mu$-\texttt{Lebesgue}) 적분가능(- \texttt{integrable})}하다고 한다. 나아가 적분가능한 $f:X\to\mathbb{C}$에 대해 $\mu$에 대한 $f$의 \textbf{(\texttt{Lebesgue}) 적분(- \texttt{integral})}을 $\int_Xf(x)\,d\mu(x)$ 혹은 간단히 $\int_Xf\,d\mu$로 쓰고 $\int_Xf\,d\mu=\int_X\re f\,d\mu+\imag\int_X\im f\,d\mu$로 정의한다.
 \end{definition}
 
+적분의 기본적인 성질이 비슷하게 성립하는 것은 벡터함수의 적분과 마찬가지이다.
 
+\begin{corollary}
+    측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 적분가능한 함수 $f,\,g:X\to\mathbb{R}^n$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item 임의의 $c\in\mathbb{R}$에 대해 $cf$가 적분가능하고 $\int_Xcf\,d\mu=c\int_Xf\,d\mu$이다.
+        \item 함수 $f+g$가 적분가능하고 $\int_Xf+g\,d\mu=\int_Xf\,d\mu+\int_Xg\,d\mu$이다.
+        \item 함수 $\overline{f}$가 적분가능하고 $\int_X\overline{f}\,d\mu=\overline{\int_Xf\,d\mu}$이다.
+        \item $|\int_Xf\,d\mu|\leq\int_X|f|\,d\mu$.
+    \end{enumerate}
+\end{corollary}
 
-이로써 길고 험했던 측도론 이야기는 막을 내린다. 무려 200개가 넘는 생소한 정의, 정리와 씨름하며 여기까지 와 준 독자들에게 감사와 축하를 보낸다. 통계학 이야기는 이제서야 본격적으로 시작되지만, 늦었다고 걱정할 필요는 없다. 측도론을 통해 보는 통계학은 분명 여태까지와는 다른 새로운 통계학일 것이다.
+\begin{proof}
+    이는 정의와 적분의 기본적인 성질로부터 자명하다.
+\end{proof}
+
+\begin{corollary}[Fundamental theorem of calculus]
+    다음이 성립한다.
+    \begin{enumerate}
+        \item 적분가능한 연속함수 $f:\mathbb{R}\to\mathbb{C}$에 대해 함수 $F:\mathbb{R}\to\mathbb{C}$를 $F:x\mapsto\int_{-\infty}^xf\,d\lambda_1$로 두면 이는 $f$의 역도함수이다. 즉, $F'=f$이다.
+        \item 함수 $F:\mathbb{R}\to\mathbb{C}$가 $\mathcal{C}^1$급이고 그 도함수가 적분가능하면 $f:=F'$에 대해 $F(x)=\int_{-\infty}^xf\,d\lambda_1$이다.
+    \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+    이는 정의와 \texttt{FTC}로부터 자명하다.
+\end{proof}
+
+특히, 복소함수의 적분의 경우 \texttt{Euler}의 공식으로 알려진 $e^{\imag\theta}=\cos\theta+\imag\sin\theta$로부터 $e^{\imag\theta}$의 $\theta$에 대한 미분이 $\imag e^{\imag\theta}$가 되어 그 계산이 간단해지는 경우가 많다. 예컨대 $\int_0^{\sqrt{2\pi}}\theta e^{\imag\theta^2}\,d\lambda_1$를 계산하는 경우에, 이를 $\int_0^{\sqrt{2\pi}}\theta(\cos\theta^2+\imag\sin\theta^2)\,d\lambda_1$로 생각하여 계산해도 되지만, $(e^{\imag\theta^2}/2\imag)'=\theta e^{\imag\theta^2}$임에 착안하여 $\int_0^{\sqrt{2\pi}}\theta e^{\imag\theta^2}\,d\lambda_1=[e^{\imag\theta^2}/2\imag]_0^{\sqrt{2\pi}}=0$로 손쉽게 계산할 수도 있다.
+
+이로써 길고 험했던 측도론 이야기는 막을 내린다. 무려 250개 가까이 되는 생소한 정의, 정리와 씨름하며 여기까지 와 준 독자들에게 정말 감사할 따름이다. 통계학 이야기는 이제서야 본격적으로 시작되지만, 늦었다고 걱정할 필요는 없다. 측도론을 통해 보는 통계학은 분명 여태까지와는 다른 새로운 통계학일 것이다.
 
 \section*{Notes}
 \footnotesize
