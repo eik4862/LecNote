@@ -29,25 +29,30 @@
 \newcommand{\musim}{\stackrel{\mu}{\sim}}
 \renewcommand{\D}{\mathbf{D}\,}
 \newcommand{\supp}{\mathrm{supp}\,}
+\renewcommand{\imag}{\mathbf{i}}
+\newcommand{\re}{\mathbf{Re}\,}
+\newcommand{\im}{\mathbf{Im}\,}
+
+\renewcommand{\prob}{\mathbf{P}}
+\newcommand{\expect}{\mathbf{E}}
+\newcommand{\io}{\,\,\,\mathrm{io.}}
+
 \newcommand{\erf}{\mathrm{erf}}
 \newcommand{\Be}{\mathrm{B}}
-\renewcommand{\imag}{\mathbf{i}}
 \newcommand{\cosec}{\mathrm{cosec}\,}
-\renewcommand{\prob}{\mathbf{P}}
-\newcommand{\Bern}{\mathsf{Bernoulli}}
-\newcommand{\expect}{\mathbf{E}}
+
 \newcommand{\var}{\mathbf{Var}}
+\newcommand{\sd}{\mathbf{Sd}}
 \renewcommand{\skew}{\mathbf{Skew}}
 \newcommand{\kurt}{\mathbf{Kurt}}
-\newcommand{\Bi}{\mathsf{B}}
 \newcommand{\iid}{\stackrel{\mathrm{iid}}{\sim}}
 \newcommand{\deq}{\stackrel{d}{=}}
+\newcommand{\Bern}{\mathsf{Bernoulli}}
+\newcommand{\Bi}{\mathsf{B}}
 \newcommand{\BBeta}{\mathsf{Beta}}
 \newcommand{\mode}{\mathbf{Mode}}
 \newcommand{\Geo}{\mathsf{Geo}}
 \newcommand{\Negbin}{\mathsf{Negbin}}
-\newcommand{\re}{\mathbf{Re}\,}
-\newcommand{\im}{\mathbf{Im}\,}
 
 \begin{document}
 
@@ -69,27 +74,29 @@
 \extrachap{Acronyms}
 
 \begin{itemize}
-    \item[\texttt{\textbf{WLOG}}]{일반성을 잃지 않고(Without Loss Of Generality)}
-    \item[\texttt{\textbf{TFAE}}]{다음은 서로 동치이다.(The Followings Are Equivalent.)}
-    \item[\texttt{\textbf{ow.}}]{그렇지 않으면(OtherWise)}
-    \item[\texttt{\textbf{ae.}}]{거의 어디서나(Almost Everywhere)}
-    \item[\texttt{\textbf{LUBP}}]{Least Upper Bound Property}
-    \item[\texttt{\textbf{GLBP}}]{Greatest Lower Bound Property}
-    \item[\texttt{\textbf{MSP}}]{Monotone Sequence Property}
-    \item[\texttt{\textbf{MCT}}]{단조수렴정리(Monotone Convergence Theorem)}
-    \item[\texttt{\textbf{DCT}}]{Lebesuge의 지배수렴정리(Lebesgue's Dominated Convergence Theorem)}
-    \item[\texttt{\textbf{FTC}}]{미적분학의 기본정리(Funcdamental Theorem of Calculus)}
-    \item[\texttt{\textbf{MVT}}]{평균값 정리(Mean Value Theorem)}
-    \item[\texttt{\textbf{IVT}}]{중간값 정리(Intermediate Value Theorem)}
-    \item[\texttt{\textbf{INFT}}]{역함수 정리(INverse Function Theorem)}
-    \item[\texttt{\textbf{rv.}}]{확률변수(Random Variable) 혹은 확률벡터(Random Vector)}
-    \item[\texttt{\textbf{PDF}}]{확률밀도함수(Probability Density Function)}
-    \item[\texttt{\textbf{PMF}}]{확률질량함수(Probability Mass Function)}
-    \item[\texttt{\textbf{CDF}}]{누적분포함수(Cumulative Distribution Function)}
-    \item[\texttt{\textbf{MGF}}]{적률생성함수(Moment Generating Function)}
-    \item[\texttt{\textbf{CF}}]{특성함수(Characteristic Function)}
-    \item[\texttt{\textbf{PGF}}]{확률생성함수(Probability Generating Function)}
-    \item[\texttt{\textbf{iid.}}]{Independent and Identically Distributed rv.}
+    \item[\texttt{\textbf{WLOG}}]{일반성을 잃지 않고(\texttt{Without Loss Of Generality})}
+    \item[\texttt{\textbf{TFAE}}]{다음은 서로 동치이다.(\texttt{The Followings Are Equivalent.})}
+    \item[\texttt{\textbf{ow.}}]{그렇지 않으면(\texttt{OtherWise})}
+    \item[\texttt{\textbf{ae.}}]{거의 어디서나(\texttt{Almost Everywhere})}
+    \item[\texttt{\textbf{LUBP}}]{\texttt{Least Upper Bound Property}}
+    \item[\texttt{\textbf{GLBP}}]{\texttt{Greatest Lower Bound Property}}
+    \item[\texttt{\textbf{MSP}}]{\texttt{Monotone Sequence Property}}
+    \item[\texttt{\textbf{MCT}}]{단조수렴정리(\texttt{Monotone Convergence Theorem})}
+    \item[\texttt{\textbf{DCT}}]{\texttt{Lebesgue}의 지배수렴정리(\texttt{Lebesgue's Dominated Convergence Theorem})}
+    \item[\texttt{\textbf{FTC}}]{미적분학의 기본정리(\texttt{Funcdamental Theorem of Calculus})}
+    \item[\texttt{\textbf{MVT}}]{평균값 정리(\texttt{Mean Value Theorem})}
+    \item[\texttt{\textbf{IVT}}]{중간값 정리(\texttt{Intermediate Value Theorem})}
+    \item[\texttt{\textbf{INFT}}]{역함수 정리(\texttt{INverse Function Theorem})}
+    \item[\texttt{\textbf{rv.}}]{확률변수(\texttt{Random Variable}) 혹은 확률벡터(\texttt{Random Vector})}
+    \item[\texttt{\textbf{PDF}}]{확률밀도함수(\texttt{Probability Density Function})}
+    \item[\texttt{\textbf{PMF}}]{확률질량함수(\texttt{Probability Mass Function})}
+    \item[\texttt{\textbf{CDF}}]{누적분포함수(\texttt{Cumulative Distribution Function})}
+    \item[\texttt{\textbf{MGF}}]{적률생성함수(\texttt{Moment Generating Function})}
+    \item[\texttt{\textbf{CF}}]{특성함수(\texttt{Characteristic Function})}
+    \item[\texttt{\textbf{PGF}}]{확률생성함수(\texttt{Probability Generating Function})}
+    \item[\texttt{\textbf{iid.}}]{\texttt{Independent and Identically Distributed rv.}}
+    \item[\texttt{\textbf{io.}}]{\texttt{Infinitely Often}}
+    \item[\texttt{\textbf{as.}}]{거의 확실하게(\texttt{Almost Surely})}
 \end{itemize}
 
 \tableofcontents
@@ -100,11 +107,11 @@
 
 \chapter{Measure Theory}
 
-\input{Chapter1.tex}
+%\input{Chapter1.tex}
 
-% \chapter{Probability Theory}
+\chapter{Probability Theory}
 
-% \input{Chapter2.tex}
+\input{Chapter2.tex}
 
 % \part{Distributions}
 

@@ -61,7 +61,7 @@
     \begin{enumerate}
         \item $X\in\mathcal{L}$.
         \item 임의의 $A\in\mathcal{L}$에 대해 $A^c\in\mathcal{L}$이다.
-        \item 집합족 $\mathcal{L}$에 속하는 임의의 서로소인 수열 $\{A_i\}$에 대해 $\bigsqcup_{i=1}^\infty A_i\in\mathcal{L}$이다.
+        \item 집합족 $\mathcal{L}$에 속하는 임의의 서로소인 집합열 $\{A_i\}$에 대해 $\bigsqcup_{i=1}^\infty A_i\in\mathcal{L}$이다.
     \end{enumerate}
     를 만족하면 이때의 $\mathcal{L}$을 $X$ 위의 \textbf{$\lambda$-\texttt{system}}, \textbf{$d$-\texttt{system}} 혹은 \textbf{\texttt{Dynkin class}}라 한다.\footnotemark
 \end{definition}
@@ -407,7 +407,7 @@
 \begin{proof}
     정리 \ref{thm:genAlgebra}로부터 임의의 $A\in A(\mathcal{A})$에 대해 적당한 서로소인 집합 $A_1,\,\cdots,\,A_k\in\mathcal{A}$가 존재하여 $A=\bigsqcup_{i=1}^kA_i$이다. 이제 함수 $\widetilde{\rho}:A(\mathcal{A})\to\overline{\mathbb{R}}^+_0$를 위와 같이 표현되는 $A$에 대해 $\widetilde{\rho}:A\mapsto\sum_{i=1}^k\rho(A_i)$인 함수로 정의하자. 그렇다면 이는 명백히 $\rho$의 $A(\mathcal{A})$로의 확장이다. 한편, 이의 \texttt{well-definedness}를 담보하기 위해 위의 $A$를 또다른 서로소인 $B_1,\,\cdots,\,B_l\in\mathcal{A}$에 대해 $A=\bigsqcup_{j=1}^lB_j$로도 쓸 수 있다고 하자. 그렇다면 $A_1\cap B_1,\,\cdots,\,A_k\cap B_l\in\mathcal{A}$이 모두 서로소이므로 $\sum_{i=1}^k\rho(A_i)=\sum_{i=1}^k\rho(\bigsqcup_{j=1}^l(A_i\cap B_j))=\sum_{i=1}^k\sum_{j=1}^l\rho(A_i\cap B_j)=\sum_{j=1}^l\rho(\bigsqcup_{i=1}^k(A_i\cap B_j))=\sum_{j=1}^l\rho(B_j)$가 되어 $\widetilde{\rho}$가 \texttt{well-define}됨을 안다.
 
-    이제 $\widetilde{\rho}$가 \texttt{premeasure}임을 보이자. 정의로부터 $\widetilde{\rho}(\emptyset)=\rho(\emptyset)=0$임은 분명하므로 이의 $\sigma$-가법성을 보이는 것으로 충분하다. 이를 위해, $A(\mathcal{A})$에 속하는 임의의 서로소인 수열 $\{A_i\}$에 대해 $A=\bigsqcup_{i=1}^\infty A_i\in A(\mathcal{A})$라 하자. 그렇다면 다시 정리 \ref{thm:genAlgebra}로부터 적당한 서로소인 집합 $B_1,\,\cdots,\,B_l\in\mathcal{A}$가 존재하여 $A=\bigsqcup_{j=1}^lB_j$이고 각 $i\in\mathbb{N}$에 대해서도 적당한 서로소인 집합 $C_{i1},\,\cdots,\,C_{im_i}\in\mathcal{A}$가 존재하여 $A_i=\bigsqcup_{k=1}^{m_i}C_{ik}$이다. 이로부터
+    이제 $\widetilde{\rho}$가 \texttt{premeasure}임을 보이자. 정의로부터 $\widetilde{\rho}(\emptyset)=\rho(\emptyset)=0$임은 분명하므로 이의 $\sigma$-가법성을 보이는 것으로 충분하다. 이를 위해, $A(\mathcal{A})$에 속하는 임의의 서로소인 집합열 $\{A_i\}$에 대해 $A=\bigsqcup_{i=1}^\infty A_i\in A(\mathcal{A})$라 하자. 그렇다면 다시 정리 \ref{thm:genAlgebra}로부터 적당한 서로소인 집합 $B_1,\,\cdots,\,B_l\in\mathcal{A}$가 존재하여 $A=\bigsqcup_{j=1}^lB_j$이고 각 $i\in\mathbb{N}$에 대해서도 적당한 서로소인 집합 $C_{i1},\,\cdots,\,C_{im_i}\in\mathcal{A}$가 존재하여 $A_i=\bigsqcup_{k=1}^{m_i}C_{ik}$이다. 이로부터
     \begin{align*}
         \widetilde{\rho}(A)&=\widetilde{\rho}\bigg(\bigsqcup_{j=1}^lB_j\bigg)\\
         &=\sum_{j=1}^l\rho(B_j)\\
@@ -1768,7 +1768,7 @@
 이제 이번 절의 후반부로서 \texttt{Lebesgue} 적분과 극한이 서로 어떻게 상호작용하는지에 대해 알아보도록 하자. 이러한 상호작용을 규정하는 정리들을 흔히 `수렴정리'라 부른다. 아쉽게도, 어느 경우에나 항상 사용할 수 있는 일반적인 수렴정리는 존재하지 않는다. 곧 각각의 수렴정리는 나름의 조건을 요구하는데, 수렴정리를 적용하기 전에 이러한 조건을 반드시 확인해야 한다.\footnotemark 첫 번째로 살펴볼 수렴정리는 함수열이 음이 아니며 증가할 것을 요구한다.
 
 \begin{theorem}[Monotone convergence theorem]
-    측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 음이 아닌 가측함수 $f_i:X\to\overline{\mathbb{R}}^+_0$의 열 $\{f_i\}$가 증가하며 적당한 가측함수 $f:X\to\overline{\mathbb{R}}^+_0$에 대해 $f_i\uparrow f$ (\texttt{ae.})라 하면 $\int_Xf_i\,d\mu\uparrow\int_Xf\,d\mu$이다.
+    측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 음이 아닌 가측함수 $f_i:X\to\overline{\mathbb{R}}^+_0$의 열 $\{f_i\}$가 증가하며 적당한 음이 아닌 가측함수 $f:X\to\overline{\mathbb{R}}^+_0$에 대해 $f_i\uparrow f$ (\texttt{ae.})라 하면 $\int_Xf_i\,d\mu\uparrow\int_Xf\,d\mu$이다.
 \end{theorem}
 
 \begin{proof}
@@ -2637,7 +2637,7 @@
 \end{proof}
 
 \begin{theorem}[Radon-Nikod\'ym]
-    가측공간 $(X,\,\mathcal{A})$ 위의 측도 $\mu$와 $\sigma$-유한 측도 $\nu$에 대해 TFAE.
+    가측공간 $(X,\,\mathcal{A})$ 위의 측도 $\mu$와 $\sigma$-유한 측도 $\nu$에 대해 \texttt{TFAE}.
     \begin{enumerate}
         \item 측도 $\mu$는 $\sigma$-유한하고 $\mu\ll\nu$이다.
         \item 음이 아닌 가측함수 $f:X\to\mathbb{R}^+_0$가 존재하여 $\mu=\nu_f$이다.
@@ -2646,9 +2646,9 @@
 \end{theorem}
 
 \begin{proof}
-    먼저 ii가 i을 함의함을 보이자. 우선 임의의 $N\in\mathcal{A}$에 대해 $\nu(N)=0$이라 하면 보조정리 \ref{cor:zeroAeIntegral}의 i로부터 $\mu(N)=\nu_f(N)=0$이 되어 $\mu\ll\nu$임은 분명하므로 $\mu$가 $\sigma$-유한함만 보이면 된다. 가정으로부터 $\nu$가 $\sigma$-유한하므로 $\mathcal{A}$에 속하는 적당한 $\{A_i\}$가 존재하여 각 $i\in\mathbb{N}$에 대해 $\nu(A_i)<\infty$이고 $\bigcup_{i=1}^\infty A_i=X$이며, \texttt{WLOG}, 필요하다면 각 항을 $C_i:=\bigcup_{j=1}^iA_j$로 바꾸어 $\{A_i\}$가 처음부터 증가하는 집합열이라 해도 된다. 이제 집합열 $\{B_i\}$를 $B_i=f^{-1}((-\infty,\,i])\cap A_i$라 하면 이는 명백히 증가하는 집합열로 각 $i\in\mathbb{N}$에 대해 $\mu(B_i)=\int_{B_i}f\,d\nu\leq\int_{A_i}i\,d\nu=i\nu(A_i)<\infty$이고 $\bigcup_{i=1}^\infty B_i=X$임이 분명하므로 $\mu$도 $\sigma$-유한하다.
+    ii $\Rightarrow$ i. 우선 임의의 $N\in\mathcal{A}$에 대해 $\nu(N)=0$이라 하면 보조정리 \ref{cor:zeroAeIntegral}의 i로부터 $\mu(N)=\nu_f(N)=0$이 되어 $\mu\ll\nu$임은 분명하므로 $\mu$가 $\sigma$-유한함만 보이면 된다. 가정으로부터 $\nu$가 $\sigma$-유한하므로 $\mathcal{A}$에 속하는 적당한 $\{A_i\}$가 존재하여 각 $i\in\mathbb{N}$에 대해 $\nu(A_i)<\infty$이고 $\bigcup_{i=1}^\infty A_i=X$이며, \texttt{WLOG}, 필요하다면 각 항을 $C_i:=\bigcup_{j=1}^iA_j$로 바꾸어 $\{A_i\}$가 처음부터 증가하는 집합열이라 해도 된다. 이제 집합열 $\{B_i\}$를 $B_i=f^{-1}((-\infty,\,i])\cap A_i$라 하면 이는 명백히 증가하는 집합열로 각 $i\in\mathbb{N}$에 대해 $\mu(B_i)=\int_{B_i}f\,d\nu\leq\int_{A_i}i\,d\nu=i\nu(A_i)<\infty$이고 $\bigcup_{i=1}^\infty B_i=X$임이 분명하므로 $\mu$도 $\sigma$-유한하다.
 
-    다음으로 i이 ii을 함의함을 보이려고 하는데, 우선 $\nu,\,\mu$가 모두 유한한 특별한 경우를 생각하자. 이제 함수 $T:L^2(\nu+\mu)\to\mathbb{R}$를 $T:g\mapsto\int_Xg\,d\mu$로 두면 $\nu,\,\mu$가 유한하므로 $\nu+\mu$도 유한하여 위의 보조정리와 정리 \ref{thm:linearCombiMeasure}의 ii로부터 $L^2(\nu+\mu)\subseteq L^1(\nu+\mu)\subseteq L^1(\mu)$이고, 곧 $T$는 \texttt{well-define}된다. 또한, $T$가 선형사상임이 분명하고 임의의 $g\in L^2(\nu+\mu)$에 대해 \texttt{Cauchy-Schwarz} 부등식으로부터
+    i $\Rightarrow$ ii. 우선 $\nu,\,\mu$가 모두 유한한 특별한 경우를 생각하자. 이제 함수 $T:L^2(\nu+\mu)\to\mathbb{R}$를 $T:g\mapsto\int_Xg\,d\mu$로 두면 $\nu,\,\mu$가 유한하므로 $\nu+\mu$도 유한하여 위의 보조정리와 정리 \ref{thm:linearCombiMeasure}의 ii로부터 $L^2(\nu+\mu)\subseteq L^1(\nu+\mu)\subseteq L^1(\mu)$이고, 곧 $T$는 \texttt{well-define}된다. 또한, $T$가 선형사상임이 분명하고 임의의 $g\in L^2(\nu+\mu)$에 대해 \texttt{Cauchy-Schwarz} 부등식으로부터
     \begin{align*}
         |T(g)|&=\bigg|\int_Xg\,d\mu\bigg|\\
         &\leq\int_X|g|\,d\mu\\
@@ -4623,7 +4623,7 @@ f
     \item 집합 $\mathbb{R}^n$에서 모든 꼭짓점이 유리점인 열린 \texttt{box}를 \texttt{rational box}라 하면, $\mathbb{Q}$가 가산이므로 $\mathbb{Q}^n$도 가산이고, 곧 모든 \texttt{rational box}도 가산개이다. 이제 임의의 열린집합 $U\subseteq\mathbb{R}^n$에 대해 $U$에 포함되는 \texttt{rational box}만을 모두 택하여 집합족 $\mathcal{U}$를 구성하자. 그렇다면 $U=\bigcup\mathcal{U}$임을 쉽게 보일 수 있고, $\mathcal{U}$가 명백히 가산이므로 $\mathbb{R}^n$의 모든 열린집합은 유계인 열린 \texttt{box}의 가산 합집합으로 표현됨을 안다.
     \item \textsf{[측도론]} 각주 \ref{note:lebesgueCardinal}에서 살펴본 바와 같이 $|\mathcal{B}_n|<|\mathcal{M}_n|$이므로 $\mathcal{B}_n$은 $\mathcal{M}_n$의 진부분집합이다. 이는 곧 가측이지만 \texttt{Borel}은 아닌 집합이 존재한다는 뜻인데, 이를 직접 구성해볼 수 있다. 이번에는 \texttt{Cantor} 함수 $c:[0,\,1]\to\mathbb{R}$가 중요한 역할을 한다. 우선 함수 $f:[0,\,1]\to[0,\,2]$를 $f:x\mapsto x+c(x)$로 정의하면 이는 증가하는 연속함수이므로 \texttt{Borel}이고, 전단사임을 쉽게 보일 수 있다. (\texttt{Hint}: 함수 $f$가 전사임은 \texttt{IVT}로부터 자명하다. 한편, $f$가 단사임을 보이기 위해서 $x<y$인 임의의 $x,\,y\in[0,\,1]$에 대해 $f(x)=f(y)$라 하면 $c(x)>c(y)$에서 모순이 발생한다.) 또한, \texttt{Cantor} 집합 $C$에 대해 $\lambda_1(f(C))=1$임도 쉽게 보일 수 있으므로(\texttt{Hint}: 닫힌구간 $[0,\,1]$에 속하는 서로소인 열린구간 $I_1,\,I_2,\,\cdots$에 대해 $[0,\,1]\setminus C=\bigsqcup_{i=1}^\infty I_i$로 쓸 수 있고, 각 $I_i$에서 $c$는 상수함수이므로 $\lambda_1(f(I_i))=\lambda_1(I_i)$이다.) \texttt{Vitali}의 정리로부터 적당한 비가측 집합 $A\subseteq f(C)$가 존재한다. 그렇다면 $f^{-1}(A)\subseteq C$는 영집합이어서 가측이지만 \texttt{Borel}이 아니다.
     \item 구체적으로 다음과 같이 할 수 있다. 먼저 $\delta=\lambda_n(A)-\sum_{i=1}^\infty\rho_n(A_i)+\epsilon>0$로 두고 각 $i\in\mathbb{N}$에 대해 \texttt{semi-open box} $A_i$의 중심을 고정한 채로 이의 모서리의 길이를 조금씩 늘리되 그 결과로 만들어진 새 \texttt{semi-open box} $A_i'$이 $\rho_n(A_i')<\rho_n(A_i)+\delta/2^{i+1}$를 만족하도록 한다. 그렇다면 $A_i\subseteq(A_i')^\circ\subseteq A_i'$에서 $A\subseteq\bigcup_{i=1}^\infty A_i\subseteq\bigcup_{i=1}^\infty(A_i')^\circ$이고 $\sum_{i=1}^\infty\rho_n(A_i')\leq\sum_{i=1}^\infty[\rho_n(A_i)+\delta/2^{i+1}]=\sum_{i=1}^\infty\rho_n(A_i)+\delta/2<\lambda_n(A)+\epsilon$이 성립한다.
-    \item 여기서 $\lim_{x_i\to-\infty}F_\mu(x)=0$는 임의의 $\cdots,\,x_{i-1},\,x_{i+1},\,\cdots\in\mathbb{R}$와 임의의 $\epsilon>0$에 대해 적당한 $M\in\mathbb{R}$이 존재하여 $x_i<M$인 임의의 $x_i\in\mathbb{R}$에 대해 $F_\mu(x)<\epsilon$이라는 의미이다.
+    \item 여기서 $\lim_{x_i\to-\infty}F_\mu(x)=0$은 임의의 $\cdots,\,x_{i-1},\,x_{i+1},\,\cdots\in\mathbb{R}$와 임의의 $\epsilon>0$에 대해 적당한 $M\in\mathbb{R}$이 존재하여 $x_i<M$인 임의의 $x_i\in\mathbb{R}$에 대해 $F_\mu(x)<\epsilon$이라는 의미이다.
     \item 여기서 $\lim_{x_1,\,\cdots,\,x_n\to\infty}F_\mu(x)=\mu(\mathbb{R}^n)$는 임의의 $\epsilon>0$에 대해 적당한 $M\in\mathbb{R}$이 존재하여 $x\geq M\ind$인 임의의 $x\in\mathbb{R}^n$에 대해 $|F_\mu(x)-\mu(\mathbb{R}^n)|<\epsilon$이라는 의미이다.
     \item \textsf{[위상수학]} $\mathbb{R}$에 주어진 표준위상 $\mathcal{T}$는 $\beta=\{(x,\,\infty)\}_{x\in\mathbb{R}}\cup\{(-\infty,\,y)\}_{y\in\mathbb{R}}$를 부분기저로 하는 순서위상이다. 따라서 이를 그대로 확장하여 $\overline{\mathbb{R}}$에도 $\widetilde{\beta}=\{(x,\,\infty]\}_{x\in\mathbb{R}}\cup\{[-\infty,\,y)\}_{y\in\mathbb{R}}$를 부분기저로 하는 순서위상 $\mathcal{T}_\mathrm{ext}$를 줄 수 있고, 이는 곧 $\gamma=\{(x,\,\infty]\}_{x\in\mathbb{R}}\cup\{[-\infty,\,y)\}_{y\in\mathbb{R}}\cup\{(x,\,y)\}_{x,\,y\in\mathbb{R}}$이 $\mathcal{T}_\mathrm{ext}$의 기저라는 것과 동치이므로 $\mathcal{T}\subseteq\mathcal{T}_\mathrm{ext}$임이 자명하다. 이제 임의의 $U\in\mathcal{T}_\mathrm{ext}$는 적당한 $x,\,y\in\mathbb{R}$와 $V\subseteq(y,\,x)$인 $V\in\mathcal{T}$에 대해 $[-\infty,\,y)\cup V\cup(x,\,\infty]$로 쓸 수 있고, $V$는 유계인 열린구간의 가산 합집합으로 쓸 수 있으므로 곧 $U$는 적당한 $x,\,y\in\mathbb{R}$에 대해 $(x,\,y),\,(x,\,\infty],\,[-\infty,\,y)$로 표현되는 구간들의 가산 합집합으로 표현되고 그 역도 성립한다.
 
@@ -4677,7 +4677,9 @@ f
     \item Juha Kinnunen, \textit{Real Analysis}, Aalto University, 2016.
     \item Unknown, \textit{Functions of Real Variables}, Tel Aviv University, 2015.
     \item Tom Lindstrom, \textit{Mathematical Analysis}, University of Oslo, 2013.
+    \item Marco Gualtieri, \textit{Geometry and Topology}, University of Toronto, 2009.
     \item Mathematics Stack Exchange, Available: https://math.stackexchange.com.
     \item Wikipedia, Available: https://en.wikipedia.org.
     \item \textrm{나무위키}, Available: https://namu.wiki.
 \end{enumerate}
+\rmfamily
