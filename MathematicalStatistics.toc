@@ -3,5 +3,5 @@
 \contentsline {chapter}{\numberline {2}Probability Theory}{5}
 \contentsline {section}{\numberline {2.1}Probability Spaces}{5}
 \contentsline {section}{\numberline {2.2}Random Variables and Random Vectors}{13}
-\contentsline {section}{\numberline {2.3}Expectation}{22}
-\contentsline {section}{\numberline {2.4}Moments}{27}
+\contentsline {section}{\numberline {2.3}Expectation}{23}
+\contentsline {section}{\numberline {2.4}Moments}{29}
