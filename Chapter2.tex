@@ -654,7 +654,7 @@
     우선 $|X|^p\leq|X|^q\ind_{\{|X|\geq1\}}+\ind_{\{|X|<1\}}\leq|X|^q+1$에서 $\expect(|X|^p)$이 존재함을 안다. 이제 함수 $g:\mathbb{R}\to\mathbb{R}$를 $g:x\mapsto x^{q/p}\ind_{\mathbb{R}^+}(x)$로 두면 이는 볼록함수이므로 \texttt{Jensen}의 부등식으로부터 $[\expect(|X|^p)]^{q/p}=g(\expect(|X|^p))\leq\expect(g(|X|^p))=\expect(|X|^q)$이고, 곧 증명이 끝난다.
 \end{proof}
 
-아래의 두 부등식은 증명의 도구로 쓰일 뿐만 아니라 어떤 확률분포가 특정 값을 얼마 이상 벗어날 확률에 대한 상계로서의 가치를 지닌다. 이를 두고 아래의 두 부등식이 `\texttt{tail probability}를 \texttt{bounding}한다'고 한다.
+아래의 두 부등식은 증명의 도구로 쓰일 뿐만 아니라 어떤 확률분포가 특정 값을 얼마 이상 벗어날 확률에 대한 상계가 된다. 이를 두고 아래의 두 부등식이 `\texttt{tail probability}를 \texttt{bounding}한다'고 한다.
 
 \begin{theorem}[Markov's inequality]
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$와 $p>0$에 대해 $\expect(|X|^p)$이 존재한다면 임의의 $x>0$에 대해 $\mathbb{P}\{|X|\geq x\}\leq\expect(|X|^p)/x^p$이다.
@@ -672,7 +672,7 @@
     이는 \texttt{rv.} $X-\mu_X$에 $p=2$인 경우의 \texttt{Markov}의 부등식을 적용한 결과이다.
 \end{proof}
 
-다음은 \texttt{Chebyshev}의 부등식의 기초적인 응용으로, 분산이 $0$이라는 것의 의미를 잘 나태나준다.
+다음은 \texttt{Chebyshev}의 부등식의 기초적인 응용으로, 분산이 $0$이라는 것의 의미를 잘 나태나준다. 이 결과는 이후에 이따금씩 쓰일 것이다.
 
 \begin{proposition}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 $\var(X)=0$이면 $\expect(X)$가 존재하고 $X=\expect(X)$ (\texttt{as.})이다.
@@ -695,18 +695,87 @@
     \end{enumerate}
 \end{definition}
 
+\begin{proposition}\label{prop:momentExist}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 \texttt{TFAE}.
+    \begin{enumerate}
+        \item \texttt{Rv.} $X$의 $n$차 적률이 존재한다.
+        \item 만약 $\expect(X)$가 존재한다면 $X$의 $n$차 중심화된 적률이 존재한다.
+        \item 만약 $\var(X)$가 존재하고 $\var(X)\ne0$이면 $X$의 $n$차 표준화된 적률이 존재한다.
+        \item \texttt{Rv.} $X$의 $n$차 하향계승적률이 존재한다.
+        \item \texttt{Rv.} $X$의 $n$차 상향계승적률이 존재한다.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    i $\Leftrightarrow$ ii. 만약 $X$의 $n$차 적률이 존재하면 \texttt{Liapounov}의 부등식으로부터 모든 $i\leq n$에 대해 $X$의 $i$차 적률이 존재한다. 이로부터
+    \begin{equation*}
+        (X-\mu_X)^n=\sum_{i=0}^n(-1)^{n-i}\binom{n}{i}X^i\mu_X^{n-i}
+    \end{equation*}
+    에서 $X$의 $n$차 중심화된 적률이 존재한다. 역으로, $\expect(X)$가 존재하고 $X$의 $n$차 중심화된 적률이 존재하면 다시 \texttt{Liapounov}의 부등식으로부터 모든 $i\leq n$에 대해 $X$의 $i$차 중심화된 적률이 존재한다. 그렇다면
+    \begin{align*}
+        X^n&=(X-\mu_X+\mu_X)^n\\
+        &=\sum_{i=0}^n\binom{n}{i}(X-\mu_X)^i\mu_X^{n-i}
+    \end{align*}
+    에서 $X$의 $n$차 적률이 존재한다.
+
+    ii $\Leftrightarrow$ iii. 이는 정의로부터 자명하다.
+
+    i $\Rightarrow$ iv. \texttt{Liapounov}의 부등식으로부터 모든 $i\leq n$에 대해 $X$의 $i$차 적률이 존재한다. 한편, 적당한 $a_0,\,\cdots,\,a_n\in\mathbb{R}$에 대해 $X^{\underline{n}}=\prod_{i=0}^{n-1}(X-i)=\sum_{i=0}^na_iX^i$이므로 $X$의 $n$차 하향계승적률이 존재한다. 이제 상향계승적률에 대해서도 비슷하게 하면 된다.
+
+    iv $\Rightarrow$ i. 만약 $X$의 $n>1$차 계승하향적률이 존재한다면 $X^{\underline{n}}=X^{\underline{n-1}}(X-n+1)$에서
+    \begin{align*}
+        |X^{\underline{n-1}}|&=\bigg|\frac{X^{\underline{n}}}{X-n+1}\bigg|\ind_{\{X\ne n-1\}}+(n-1)!\ind_{\{X=n-1\}}\\
+        &\leq|X^{\underline{n-1}}|\ind_{\{|X-n+1|<1\}}+|X^{\underline{n}}|\ind_{\{|X-n+1|\geq1\}}+(n-1)!\\
+        &\leq n!+|X^{\underline{n}}|+(n-1)!
+    \end{align*}
+    이다. 여기서 마지막 부등호는 함수 $x\mapsto|x^{\underline{n-1}}|$이 $(n-2,\,\infty)$에서 증가하므로 성립한다. 이로부터 $X$의 $n-1$차 하향계승적률이 존재함을 알고, 이를 $n-2$번 반복하면 모든 $i\leq n$에 대해 $X$의 $i$차 하향계승적률이 존재함을 안다.
+
+    이제 적당한 $a_0,\,\cdots,\,a_n\in\mathbb{R}$에 대해 $X^{\underline{n}}=\prod_{i=0}^{n-1}(X-i)=\sum_{i=0}^na_iX^i$이고 $a_n=1$임이 명백하므로 $X^n=X^{\underline{n}}-\sum_{i=0}^{n-1}a_iX^i$이다. 이를 $n-1$번 반복하면 다시 적당한 $b_0,\,\cdots,\,b_n\in\mathbb{R}$에 대해 $X^n=\sum_{i=0}^nb_iX^{\underline{i}}$이고, 앞서 보인 바와 같이 모든 $i\leq n$에 대해 $X$의 $i$차 하향계승적률이 존재하므로 $X$의 $n$차 적률도 존재한다.
+
+    i $\Leftrightarrow$ v. 이는 i $\Leftrightarrow$ iv의 증명과 비슷하게 하면 된다.
+\end{proof}
+
+\begin{proposition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 만약 $X$의 $m$차 적률(혹은 중심화된 적률, 표준화된 적률, 하향계승적률, 상향계승적률)이 존재하면 $X$의 $n\leq m$차 적률(혹은 중심화된 적률, 표준화된 적률, 하향계승적률, 상향계승적률)이 존재한다.
+\end{proposition}
+
+\begin{proof}
+    이는 \texttt{Liapounov}의 부등식과 명제 \ref{prop:momentExist}로부터 자명하다.
+\end{proof}
+
 \begin{definition}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 만약 $X$의 3차 표준화된 적률이 존재한다면 이를 특별히 $X$의 \textbf{왜도(\texttt{skewness})}라 하고 $\skew(X),\,\tau_X$ 혹은 간단히 $\tau$로 쓴다. 비슷하게, $X$의 4차 표준화된 적률이 존재한다면 $\kappa_{4,\,X}-3$을 특별히 $X$의 \textbf{첨도(\texttt{kurtosis})}라 하고 $\kurt(X),\,\kappa_X$ 혹은 간단히 $\kappa$로 쓴다.
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 만약 $X$의 $3$차 표준화된 적률이 존재한다면 이를 특별히 $X$의 \textbf{왜도(\texttt{skewness})}라 하고 $\skew(X),\,\tau_X$ 혹은 간단히 $\tau$로 쓴다. 비슷하게, $X$의 $4$차 표준화된 적률이 존재한다면 $\kappa_{4,\,X}-3$을 특별히 $X$의 \textbf{첨도(\texttt{kurtosis})}라 하고 $\kurt(X),\,\kappa_X$ 혹은 간단히 $\kappa$로 쓴다.
 \end{definition}
 
 \begin{theorem}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 $\var(X)$가 존재한다면 다음이 성립한다.
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$와 임의의 $a,\,b\in\mathbb{R}$에 대해 $a\ne0$이면 다음이 성립한다.
     \begin{enumerate}
-        \item $\var(X)=\expect(X^2)-\mu_X^2$.
-        \item 임의의 $a,\,b\in\mathbb{R}$에 대해 $a\ne0$이면 $\skew(aX+b)$가 존재하고 $\skew(aX+b)=\skew(X)/a^3$이다.
-        \item 임의의 $a,\,b\in\mathbb{R}$에 대해 $a\ne0$이면 $\kurt(aX+b)$가 존재하고 $\kurt(aX+b)=\kurt(X)/a^4$이다.
+        \item 만약 $\skew(X)$가 존재하면 $\skew(aX+b)$도 존재하고 $\skew(aX+b)=\sgn(a)\skew(X)$이다.
+        \item 만약 $\kurt(X)$가 존재하면 $\kurt(aX+b)$도 존재하고 $\kurt(aX+b)=\kurt(X)$이다.
     \end{enumerate}
 \end{theorem}
+
+\begin{proof}
+    먼저 $a\ne0$이므로 $\var(aX+b)=a^2\var(X)\ne0$이다. 또한, $\skew(X)$가 존재하면 $X$의 $3$차 적률이 존재하여 곧 $\expect(X),\,\expect(X^2),\,\expect(X^3)$이 모두 존재하며, 이로부터 $\expect((aX+b)^3)=a^3\expect(X^3)+3a^2b\expect(X^2)+3ab^2\expect(X)+b^3$가 존재하므로 $\skew(aX+b)$도 존재한다. 한편,
+    \begin{align*}
+        \skew(aX+b)&=\expect\bigg(\bigg(\frac{aX+b-\mu_{aX+b}}{\sigma_{aX+b}}\bigg)^3\bigg)\\
+        &=\expect\bigg(\bigg[\frac{a(X-\mu_X)}{|a|\sigma_X}\bigg]^3\bigg)\\
+        &=\expect\bigg(\sgn(a)\bigg(\frac{X-\mu_X}{\sigma_X}\bigg)^3\bigg)\\
+        &=\sgn(a)\skew(X)
+    \end{align*}
+    에서 i이 성립한다. 비슷하게 $\kurt(X)$가 존재하면 $\kurt(aX+b)$도 존재하고
+    \begin{align*}
+        \kurt(aX+b)&=\expect\bigg(\bigg(\frac{aX+b-\mu_{aX+b}}{\sigma_{aX+b}}\bigg)^4\bigg)-3\\
+        &=\expect\bigg(\bigg[\frac{a(X-\mu_X)}{|a|\sigma_X}\bigg]^4\bigg)-3\\
+        &=\expect\bigg(\bigg(\frac{X-\mu_X}{\sigma_X}\bigg)^4\bigg)-3\\
+        &=\kurt(X)
+    \end{align*}
+    에서 ii가 성립한다.
+\end{proof}
+
+\begin{definition}
+    
+\end{definition}
 
 \section*{Notes}
 \footnotesize
@@ -714,5 +783,4 @@
     \item 여기서 $\lim_{x_i\to-\infty}F_X(x)=0$은 임의의 $\cdots,\,x_{i-1},\,x_{i+1},\,\cdots\in\mathbb{R}$와 임의의 $\epsilon>0$에 대해 적당한 $M\in\mathbb{R}$이 존재하여 $x_i<M$인 임의의 $x_i\in\mathbb{R}$에 대해 $F_X(x)<\epsilon$이라는 의미이다.
     \item 여기서 $\lim_{x_1,\,\cdots,\,x_n\to\infty}F_X(x)=1$은 임의의 $\epsilon>0$에 대해 적당한 $M\in\mathbb{R}$이 존재하여 $x\geq M\ind$인 임의의 $x\in\mathbb{R}^n$에 대해 $|F_\mu(x)-1|<\epsilon$이라는 의미이다.
     \item 집합 $A\subseteq\mathbb{R}^m$에서 정의된 함수 $f:A\to\mathbb{R}^n$와 한 점 $x_0\in\mathrm{acc}\,A$에 대해 극한 $\lim_{x\uparrow x_0}f(x)$가 존재하는 경우 그 값을 $f(x_0-)$로 쓴다. 한편, 여기서 $\lim_{x\uparrow x_0}f(x)=f(x_0-)$는 임의의 $\epsilon>0$에 대해 적당한 $\delta>0$가 존재하여 $||x-x_0||<\delta$이고 $x<x_0$인 임의의 $x\in A$에 대해 $||f(x)-f(x_0-)||<\epsilon$이라는 의미이다. 이제 $f(x_0+)$도 비슷하게 정의된다.
-    \item 
 \end{enumerate}
