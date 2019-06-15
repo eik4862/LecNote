@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.5.13)  14 JUN 2019 17:49
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.5.13)  15 JUN 2019 10:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1181,11 +1181,10 @@ Overfull \hbox (10.06827pt too wide) in paragraph at lines 256--257
 []\EU1/BareunBatangL(0)/m/n/10 임 의 의 $\OML/ztmcm/m/it/10 A \OMS/ztmcm/m/n/10 2 B[]$ \EU1/BareunBatangL(0)/m/n/10 에 대 해 $\OT1/ptm/b/n/10 P[]\OT1/ztmcm/m/n/10 (\OML/ztmcm/m/it/10 A\OT1/ztmcm/m/n/10 ) = \U/msb/m/n/10 P\OT1/ztmcm/m/n/10 ((\OML/ztmcm/m/it/10 g \OMS/ztmcm/m/n/10 ^^N \OML/ztmcm/m/it/10 X\OT1/ztmcm/m/n/10 )[](\OML/ztmcm/m/it/10 A\OT1/ztmcm/m/n/10 )) = \U/msb/m/n/10 P\OT1/ztmcm/m/n/10 (\OML/ztmcm/m/it/10 X[]\OT1/ztmcm/m/n/10 (\OML/ztmcm/m/it/10 g[]\OT1/ztmcm/m/n/10 (\OML/ztmcm/m/it/10 A\OT1/ztmcm/m/n/10 ))) = \OT1/ptm/b/n/10 P[]\OT1/ztmcm/m/n/10 (\OML/ztmcm/m/it/10 g[]\OT1/ztmcm/m/n/10 (\OML/ztmcm/m/it/10 A\OT1/ztmcm/m/n/10 )) =
  []
 
-[15] [16]
+[15] [16] [17]
 
-LaTeX Warning: Reference `thm:distributionProp' on page 17 undefined on input line 313.
+LaTeX Warning: Reference `thm:distributionProp' on page 18 undefined on input line 313.
 
-[17]
 
 LaTeX Warning: Reference `thm:distributionProp' on page 18 undefined on input line 329.
 
@@ -1204,10 +1203,10 @@ LaTeX Warning: Reference `thm:distributionProp' on page 18 undefined on input li
 
 LaTeX Warning: Reference `cor:zeroAeIntegral' on page 21 undefined on input line 409.
 
-
-LaTeX Warning: Reference `thm:intRistriction' on page 21 undefined on input line 428.
-
 [21]
+
+LaTeX Warning: Reference `thm:intRistriction' on page 22 undefined on input line 428.
+
 
 LaTeX Warning: Reference `thm:intRistriction' on page 22 undefined on input line 430.
 
@@ -1250,7 +1249,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  29942 strings out of 493632
  565377 string characters out of 6144722
- 563536 words of memory out of 5000000
+ 560536 words of memory out of 5000000
  32907 multiletter control sequences out of 15000+600000
  42222 words of font info for 170 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191

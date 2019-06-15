@@ -153,7 +153,7 @@
 \end{theorem}
 
 \begin{proof}
-    집합족 $\{\mathcal{C}_\alpha\}$에서 임의로 유한개의 원소를 택하여 이를 $\mathcal{C}_1,\,\cdots,\,\mathcal{C}_k$라 하고 이들이 생성하는 $\sigma$-대수 $\sigma(\mathcal{C}_1),\,\cdots,\,\sigma(\mathcal{C}_k)$가 서로 독립임을 보이면 증명은 충분하다. 이를 위해 사건 $E_2\in\mathcal{C}_2,\,\cdots,\,E_k\in\mathcal{C}_k$를 임의로 택하고 집합족 $\mathcal{L}=\{F\in\mathcal{F}:E,\,E_2,\,\cdots,\,E_k\textrm{가 서로 독립}\}$을 생각하면 주어진 조건으로부터 $\mathcal{C}_1\subseteq\mathcal{L}$임은 분명하다. 나아가 $\Omega\in\mathcal{L}$ 또한 분명하고, 임의의 $F\in\mathcal{L}$에 대해 $F,\,E_2,\,\cdots,\,E_k$가 서로 독립이면 $F^c,\,E_2,\,\cdots,\,E_k$도 서로 독립임을 쉽게 보일 수 있으므로 $F^c\in\mathcal{L}$이다. 비슷한 방법으로 $\mathcal{L}$에 속하는 임의의 서로소인 사건열 $\{F_i\}$에 대해 $\bigsqcup_{i=1}^\infty F_i,\,E_2,\,\cdots,\,E_k$가 서로 독립임을 보일 수 있으므로 $\bigsqcup_{i=1}^\infty F_i\in\mathcal{L}$도 성립한다. 이로부터 $\mathcal{L}$은 $\lambda$-\texttt{system}이 되어 $\mathcal{C}_1$이 $\pi$-\texttt{system}이라는 사실과 \texttt{Dynkin}의 $\pi$-$\lambda$ 정리로부터 $\sigma(\mathcal{C}_1)=\lambda(\mathcal{C}_1)\subseteq\mathcal{L}$이고, 곧 $\sigma(\mathcal{C}_1),\,\mathcal{C}_2,\,\cdots,\,\mathcal{C}_k$는 서로 독립이다. 이제 이를 $k-1$번 반복하면 $\sigma(\mathcal{C}_1),\,\cdots,\,\sigma(\mathcal{C}_k)$가 서로 독립임을 보일 수 있고, 증명이 끝난다.
+    집합족 $\{\mathcal{C}_\alpha\}$에서 임의로 유한개의 원소를 택하여 이를 $\mathcal{C}_1,\,\cdots,\,\mathcal{C}_k$라 하고 이들이 생성하는 $\sigma$-대수 $\sigma(\mathcal{C}_1),\,\cdots,\,\sigma(\mathcal{C}_k)$가 서로 독립임을 보이면 증명은 충분하다. 이를 위해 사건 $E_2\in\mathcal{C}_2,\,\cdots,\,E_k\in\mathcal{C}_k$를 임의로 택하고 집합족 $\mathcal{L}=\{F\in\mathcal{F}:F,\,E_2,\,\cdots,\,E_k\textrm{가 서로 독립}\}$을 생각하면 주어진 조건으로부터 $\mathcal{C}_1\subseteq\mathcal{L}$임은 분명하다. 나아가 $\Omega\in\mathcal{L}$ 또한 분명하고, 임의의 $F\in\mathcal{L}$에 대해 $F,\,E_2,\,\cdots,\,E_k$가 서로 독립이면 $F^c,\,E_2,\,\cdots,\,E_k$도 서로 독립임을 쉽게 보일 수 있으므로 $F^c\in\mathcal{L}$이다. 비슷한 방법으로 $\mathcal{L}$에 속하는 임의의 서로소인 사건열 $\{F_i\}$에 대해 $\bigsqcup_{i=1}^\infty F_i,\,E_2,\,\cdots,\,E_k$가 서로 독립임을 보일 수 있으므로 $\bigsqcup_{i=1}^\infty F_i\in\mathcal{L}$도 성립한다. 이로부터 $\mathcal{L}$은 $\lambda$-\texttt{system}이 되어 $\mathcal{C}_1$이 $\pi$-\texttt{system}이라는 사실과 \texttt{Dynkin}의 $\pi$-$\lambda$ 정리로부터 $\sigma(\mathcal{C}_1)=\lambda(\mathcal{C}_1)\subseteq\mathcal{L}$이고, 곧 $\sigma(\mathcal{C}_1),\,\mathcal{C}_2,\,\cdots,\,\mathcal{C}_k$는 서로 독립이다. 이제 이를 $k-1$번 반복하면 $\sigma(\mathcal{C}_1),\,\cdots,\,\sigma(\mathcal{C}_k)$가 서로 독립임을 보일 수 있고, 증명이 끝난다.
 \end{proof}
 
 위의 정리는 서로 독립인 사건의 모임들이 생성하는 $\sigma$-대수도 서로 독립임을 함의하는데, 잠시 이 결과의 의미에 대해 생각해보자. 독립성은 기본적으로 `정보'에 대한 이야기이다. 가장 기본적인 형태로 두 사건 $E,\,F$가 서로 독립인 경우를 살펴보면, 이는 사건 $E$의 발생여부에 대한 정보가 주어지더라도 사건 $F$의 발생여부에 대한 정보는 일체 추론해 낼 수 없음을 의미한다. 이는 2개 이상의 사건, 나아가 무한개의 사건의 독립에 대해서도 마찬가지이다. 예컨대 앞서 든 수지와 이제훈의 예시에서 $E,\,F,\,G$는 서로 독립이 아니었는데, 이는 수지가 고백편지를 넣는 사건 $E$와 이제훈이 고백편지를 넣는 사건 $F$의 발생여부에 대한 정보가 사건 $G$의 발생여부에 대한 정보를 100\% 함의하기 때문이다.
@@ -304,13 +304,13 @@
 
 이러한 이유로 이론 전개에 있어서는 \texttt{mixed type rv.}를 고려할 필요 없이 연속확률벡터, 이산확률벡터, 특이확률벡터의 세 가지 \texttt{rv.}만 생각하면 되고, \texttt{mixed type rv.}는 이 세 종류의 \texttt{rv.}의 성질들을 적당히 섞어 가질 뿐이다. 이러니 고등학교 시절부터 연속확률벡터, 이산확률벡터의 두 가지 종류에만 지대한 관심을 가진 것이 너무나 당연하다. 이론적으로 다루기 힘든 특이확률벡터를 제외하면 이 둘을 다룸으로써 우리는 고등학교때부터 우리도 모르는 사이에 사실상 온갖 종류의 \texttt{rv.}를 모두 다루고 있던 셈이다!
 
-이제 클라이막스의 여운을 느끼며 \texttt{\texttt{CDF}}와 \texttt{PDF}를 도입하는 것을 끝으로 이번 절을 마무리하자.
+이제 클라이막스의 여운을 뒤로 하고, \texttt{CDF}를 살펴볼 순서이다. 흔히 교양 통계학에서는 \texttt{PDF}를 배운 뒤 \texttt{CDF}를 배우므로 \texttt{PDF}의 개념을 도입하지도 않고 \texttt{CDF}를 정의하는 것이 의아할 수 있다. 하지만, 적어도 이론적으로는 \texttt{CDF}가 \texttt{PDF}보다 더 기본적인 개념이기에 이를 먼저 도입한다.
 
 \begin{definition}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 \texttt{rv.} $X$의 \textbf{(누적)분포함수((\texttt{cumulative}) \texttt{distribution function})}를 $F_X:\mathbb{R}^n\to\mathbb{R}$로 쓰고 $F_X:x\mapsto\prob_X(\prod_{i=1}^n(-\infty,\,x_i])$로 정의한다. 특별히, $n\geq2$인 경우 $F_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합(누적)분포함수(\texttt{joint} (\texttt{cumulative}) \texttt{distribution function})}라 하고 $F_{X_1,\,\cdots,\,X_n}$으로 쓰기도 한다.
 \end{definition}
 
-\texttt{CDF}의 기본적인 성질은 측도론에서 정리 \ref{thm:distributionProp}를 잘 증명해둔 덕에 아주 쉽게 얻어진다.
+\texttt{CDF}의 기본적인 성질은 정리 \ref{thm:distributionProp}로부터 대부분 자명하게 유도된다.
 
 \begin{theorem}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 다음이 성립한다.
@@ -347,7 +347,7 @@
     정리 \ref{thm:finiteBorelSpecify}로부터 적당한 $\mathcal{B}_n$ 위의 측도 $\mu$가 존재하여 임의의 $x\in\mathbb{R}^n$에 대해 $F(x)=\mu(\prod_{i=1}^n(-\infty,\,x_i])$이다. 그런데 정리 \ref{thm:distributionProp}의 vii와 주어진 조건으로부터 $\mu(\mathbb{R}^n)=1$이 되어 $\mu$는 확률측도이고, 곧 정리 \ref{thm:probSpaceRv}로부터 적당한 확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$ 위의 $n$차원 \texttt{rv.} $X$가 존재하여 $\mu=\prob_X$이다. 이상으로부터 임의의 $x\in\mathbb{R}^n$에 대해 $F(x)=\mu(\prod_{i=1}^n(-\infty,\,x_i])=\prob_X(\prod_{i=1}^n(-\infty,\,x_i])=F_X(x)$가 성립한다. 한편, 이때 $(\Omega,\,\mathcal{F})=(\mathbb{R}^n,\,\mathcal{B}_n)$이도록 잡을 수 있음은 정리 \ref{thm:probSpaceRv}로부터 자명하다.
 \end{proof}
 
-\texttt{CDF}의 연속성에 대한 다음 정리들도 꽤나 흥미롭다.
+곧 우리는 \texttt{CDF}가 될 수 있는 함수를 위의 정리의 조건 i - iii으로 완벽히 \texttt{characterize}할 수 있다. 한편, \texttt{CDF}의 연속성에 대한 다음 정리들도 꽤나 흥미롭다.
 
 \begin{theorem}\label{thm:CDFContinuous}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$와 한 점 $x_0\in\mathbb{R}^n$ 대해 $B_{x_0}=\prod_{i=1}^n(-\infty,\,x_0^i]$라 하면 \texttt{TFAE}.
