@@ -1859,7 +1859,7 @@
     각각 \texttt{MCT}와 \texttt{DCT}로부터 자명하다. 특히 ii의 경우 모든 $k\in\mathbb{N}$에 대해 $\sum_{i=1}^kf_i$가 적분가능하므로 곧 임의의 $i\in\mathbb{N}$에 대해 $f_i=\sum_{j=1}^if_j-\sum_{j=1}^{i-1}f_j$가 적분가능함을 안다.
 \end{proof}
 
-\begin{corollary}\label{cor:integralDerivative}
+\begin{corollary}\label{cor:integralContinuous}
     측도공간 $(X,\,\mathcal{A},\,\mu)$와 열린집합 $U\subseteq\mathbb{R}^n$ 대해 함수 $f:X\times U\to\mathbb{R}$가 다음을 조건을 만족한다고 하자.
     \begin{enumerate}
         \item 임의의 $y\in U$에 대해 함수 $x\mapsto f(x,\,y)$가 적분가능하다.
@@ -1896,12 +1896,12 @@
             0&\texttt{ow.}
         \end{dcases*}
     \end{align*}
-    로 정의하면 이는 \texttt{well-define}되고, 만약 이가 따름정리 \ref{cor:integralDerivative}의 조건을 모두 만족함을 보일 수 있으면 곧바로
+    로 정의하면 이는 \texttt{well-define}되고, 만약 이가 따름정리 \ref{cor:integralContinuous}의 조건을 모두 만족함을 보일 수 있으면 곧바로
     \begin{align*}
         \lim_{h\to 0}\int_X\frac{f(x,\,y+h)-f(x,\,y)}{h}\,d\mu(x)&=\lim_{h\to 0}\int_Xk(x,\,h)\,d\mu(x)\\
         &=\int_X\frac{\partial}{\partial y}f(x,\,y)\,d\mu(x)
     \end{align*}
-    가 되어 증명이 끝난다. 그런데 주어진 조건으로부터 따름정리 \ref{cor:integralDerivative}의 조건 i, ii가 만족됨은 자명하므로 iii이 만족됨을 보이는 것만 보이자. 임의의 $(x,\,h)\in X\times V$에 대해 만약 $f_x$가 미분가능하지 않다면 $k(x,\,h)=0$에서 $|k(x,\,h)|\leq g(x)$임이 분명하므로 $f_x$가 미분가능하다고 하자. 그렇다면 $h=0$인 경우에는 가정으로부터 $|k(x,\,h)|=|(\partial f/\partial y)(x,\,y)|\leq g(x)$이고, 그렇지 않은 경우에는 \texttt{MVT}에서 $y$와 $y+h$ 사이의 적당한 $z\in U$가 존재하여 $|k(x,\,h)|=|(\partial f/\partial y)(x,\,z)|\leq g(x)$가 되어 iii이 만족된다. 증명은 이로써 충분하다.
+    가 되어 증명이 끝난다. 그런데 주어진 조건으로부터 따름정리 \ref{cor:integralContinuous}의 조건 i, ii가 만족됨은 자명하므로 iii이 만족됨을 보이는 것만 보이자. 임의의 $(x,\,h)\in X\times V$에 대해 만약 $f_x$가 미분가능하지 않다면 $k(x,\,h)=0$에서 $|k(x,\,h)|\leq g(x)$임이 분명하므로 $f_x$가 미분가능하다고 하자. 그렇다면 $h=0$인 경우에는 가정으로부터 $|k(x,\,h)|=|(\partial f/\partial y)(x,\,y)|\leq g(x)$이고, 그렇지 않은 경우에는 \texttt{MVT}에서 $y$와 $y+h$ 사이의 적당한 $z\in U$가 존재하여 $|k(x,\,h)|=|(\partial f/\partial y)(x,\,z)|\leq g(x)$가 되어 iii이 만족된다. 증명은 이로써 충분하다.
 \end{proof}
 
 측도를 이용해 적분을 정의한 것과 반대로 적분을 이용해 새로운 측도를 유도할 수도 있다. 이러한 기법은 확률론에서 널리 쓰이므로 여기서 잠시 살펴보는 것이 좋을 것 같다.
@@ -4492,7 +4492,7 @@ f
 \end{corollary}
 
 \begin{proof}
-    이는 셈측도에 각각 따름정리 \ref{cor:integralDerivative}, \texttt{Leibniz}의 법칙을 적용한 결과로 정리 \ref{thm:countingMeasrueInt}와 가측공간 $(\mathbb{N},\,\mathcal{P}(\mathbb{N}))$ 위에서 정의된 함수 $f:\mathbb{N}\to\overline{\mathbb{R}}$는 모두 가측이라는 점에서 자명하다.
+    이는 셈측도에 각각 따름정리 \ref{cor:integralContinuous}, \texttt{Leibniz}의 법칙을 적용한 결과로 정리 \ref{thm:countingMeasrueInt}와 가측공간 $(\mathbb{N},\,\mathcal{P}(\mathbb{N}))$ 위에서 정의된 함수 $f:\mathbb{N}\to\overline{\mathbb{R}}$는 모두 가측이라는 점에서 자명하다.
 \end{proof}
 
 마지막으로, \texttt{Radon-Nikod\'ym} 도함수가 셈측도에 대해 어떻게 적용되는지를 살펴보자.

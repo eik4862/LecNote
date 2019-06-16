@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.5.13)  15 JUN 2019 19:55
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.5.13)  16 JUN 2019 13:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1054,70 +1054,70 @@ Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
 ) (./MathematicalStatistics.aux)
 \openout1 = `MathematicalStatistics.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 58.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 59.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 59.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    ... okay on input line 59.
 \symmathhangul=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `mathhangul' in version `bold'
-(Font)                  EU1/BareunBatangL(0)/m/n --> EU1/BareunBatangL(0)/bx/n on input line 58.
+(Font)                  EU1/BareunBatangL(0)/m/n --> EU1/BareunBatangL(0)/bx/n on input line 59.
  ABD: EveryShipout initializing macros [1
 
 ] [2
 
 
 ]
-LaTeX Font Info:    Calculating math sizes for size <16> on input line 67.
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 67.
+LaTeX Font Info:    Calculating math sizes for size <16> on input line 68.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 68.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 67.
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 68.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 67.
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 68.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 67.
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 68.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 67.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 68.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 67.
+(Font)              size <17.28> substituted on input line 68.
 
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 67.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 68.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 67.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11.84009> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 67.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9.6001> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 67.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
  [5
 
 
@@ -1231,19 +1231,34 @@ LaTeX Warning: Reference `cor:zeroAeIntegral' on page 27 undefined on input line
 LaTeX Warning: Reference `thm:zeroAeIntegral' on page 27 undefined on input line 620.
 
 [27] [28] [29] [30] [31]
-LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 783.
+
+LaTeX Warning: Reference `cor:zeroAeIntegral' on page 32 undefined on input line 805.
+
+[32] [33] [34]
+
+LaTeX Warning: Reference `cor:integralContinuous' on page 35 undefined on input line 893.
+
+[35]
+LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 931.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8.5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 783.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 931.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.29004> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 783.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 931.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5.10005> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 783.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 931.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 931.
 
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <8.5> not available
-(Font)              size <8> substituted on input line 783.
+(Font)              size <8> substituted on input line 931.
 
-) [32]
+[36]) [37] [38
+
+
+]
 \tf@thm=\write6
 \openout6 = `MathematicalStatistics.thm'.
 
@@ -1260,12 +1275,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 29957 strings out of 493632
- 565622 string characters out of 6144722
+ 29974 strings out of 493632
+ 565854 string characters out of 6144722
  560536 words of memory out of 5000000
- 32922 multiletter control sequences out of 15000+600000
- 42222 words of font info for 170 fonts, out of 8000000 for 9000
+ 32937 multiletter control sequences out of 15000+600000
+ 43727 words of font info for 175 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  56i,12n,61p,10481b,2248s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on MathematicalStatistics.pdf (40 pages).
+Output written on MathematicalStatistics.pdf (46 pages).

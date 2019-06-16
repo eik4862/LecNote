@@ -225,7 +225,7 @@
 이어서, 측도론에서 \texttt{FTC}를 일반화하는 과정에서 잠시 스쳐 지나갔던 \texttt{pushfowarding}이 다시 등장한다. 비록 측도론에서의 \texttt{pushfowarding}은 도구 역할에 그쳤지만, 확률론에서의 \texttt{pushfowarding}은 빼놓을 수 없는 핵심적인 개념이다.
 
 \begin{definition}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 \texttt{pushfoward} 측도 $X_*\mathbb{P}$를 \texttt{rv.} $X$의 \textbf{분포(\texttt{distribution})}라 하고 $\prob_X$로 쓴다. 특별히, $n\geq2$인 경우 $\prob_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합분포(\texttt{joint distribution})}라 하고 $\prob_{X_1,\,\cdots,\,X_n}$으로 쓰기도 한다.
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 \texttt{pushfoward} 측도 $X_*\mathbb{P}$를 \texttt{rv.} $X$의 \textbf{분포(\texttt{distribution})}라 하고 $\prob_X$로 쓴다. 특별히, $n\geq2$인 경우 $\prob_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합분포(\texttt{joint distribution})}라 하기도 한다.
 \end{definition}
 
 교양 통계학에서 배운 \texttt{PDF}나 \texttt{\texttt{CDF}}와 같이 확률론에는 방금 정의한 분포와 쉽게 혼동될 법한 개념들이 많고, 실제로 각자의 정의도 서로 긴밀히 연결되어 있다. 여기에 한술 더 떠서 문헌마다 조금씩 용어를 다르게 쓰는 바람에 혼란이 가중되는 부분이 없지 않지만, 대부분 논의의 맥락으로 적당히 구별할 수 있다. 아무튼 구태여 혼란을 초래할 필요는 없기에, 이 책에서는 용어를 최대한 잘 구별하여 사용하였다.
@@ -307,7 +307,7 @@
 이제 클라이막스의 여운을 뒤로 하고, \texttt{CDF}를 살펴볼 순서이다. 흔히 교양 통계학에서는 \texttt{PDF}를 배운 뒤 \texttt{CDF}를 배우므로 \texttt{PDF}의 개념을 도입하지도 않고 \texttt{CDF}를 정의하는 것이 의아할 수 있다. 하지만, 적어도 이론적으로는 \texttt{CDF}가 \texttt{PDF}보다 더 기본적인 개념이기에 이를 먼저 도입한다.
 
 \begin{definition}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 \texttt{rv.} $X$의 \textbf{(누적)분포함수((\texttt{cumulative}) \texttt{distribution function})}를 $F_X:\mathbb{R}^n\to\mathbb{R}$로 쓰고 $F_X:x\mapsto\prob_X(\prod_{i=1}^n(-\infty,\,x_i])$로 정의한다. 특별히, $n\geq2$인 경우 $F_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합(누적)분포함수(\texttt{joint} (\texttt{cumulative}) \texttt{distribution function})}라 하고 $F_{X_1,\,\cdots,\,X_n}$으로 쓰기도 한다.
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 \texttt{rv.} $X$의 \textbf{(누적)분포함수((\texttt{cumulative}) \texttt{distribution function})}를 $F_X:\mathbb{R}^n\to\mathbb{R}$로 쓰고 $F_X:x\mapsto\prob_X(\prod_{i=1}^n(-\infty,\,x_i])$로 정의한다. 특별히, $n\geq2$인 경우 $F_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합(누적)분포함수(\texttt{joint} (\texttt{cumulative}) \texttt{distribution function})}라 하기도 한다.
 \end{definition}
 
 \texttt{CDF}의 기본적인 성질은 정리 \ref{thm:distributionProp}로부터 대부분 자명하게 유도된다.
@@ -385,7 +385,7 @@
 이제 \texttt{PDF}를 도입하는 것으로 이번 절을 마무리하자. 측도론으로 \texttt{PDF}를 도입하는데 핵심적인 역할을 하는 것은 다름아닌 \texttt{Radon-Nikod\'ym} 도함수의 개념이다.
 
 \begin{definition}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 적당한 $\mathcal{B}_n$ 위의 $\sigma$-유한 측도 $\mu$가 존재하여 $\prob_X\ll\mu$라 하자. 이때 \texttt{Radon-Nikod\'ym} 도함수 $d\prob_X/d\mu$를 $X$의 $\mu$에 대한 \textbf{(확률)밀도함수((\texttt{probability}) \texttt{density function})}라 하고 $f_X$로 쓴다. 특별히, $n\geq2$인 경우 $f_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합(확률)밀도함수(\texttt{joint} (\texttt{probability}) \texttt{density function})}라 하고 $f_{X_1,\,\cdots,\,X_n}$으로 쓰기도 한다.
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 적당한 $\mathcal{B}_n$ 위의 $\sigma$-유한 측도 $\mu$가 존재하여 $\prob_X\ll\mu$라 하자. 이때 \texttt{Radon-Nikod\'ym} 도함수 $d\prob_X/d\mu$를 $X$의 $\mu$에 대한 \textbf{(확률)밀도함수((\texttt{probability}) \texttt{density function})}라 하고 $f_X$로 쓴다. 특별히, $n\geq2$인 경우 $f_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합(확률)밀도함수(\texttt{joint} (\texttt{probability}) \texttt{density function})}라 하기도 한다.
 \end{definition}
 
 이렇게 \texttt{Radon-Nikod\'ym} 도함수로 \texttt{PDF}를 정의하면서 이번에도 우리가 \texttt{PDF}에 대해 당연하게 생각하던 사실들에 미묘한 혼란이 생겨나게 된다. 우선, \texttt{Radon-Nikod\'ym} 도함수가 유일하기는 하지만 그 유일성이 `$\mu$-거의 어디서나 같은 함수를 하나로 볼 때' 성립하는 것이므로 엄밀히는 유일하지 않다. 즉, $\mu$-영집합에서 조금씩 다른 무한히 많은 함수들이 모두 하나의 \texttt{rv.}의 \texttt{PDF}가 될 수 있으므로 일반적으로 특정 점에서의 \texttt{PDF}의 값을 물어보는 것은 의미가 없다. 그러나 \texttt{Radon-Nikod\'ym} 도함수를 추상적인 도구로만 사용했던 측도론에서와 달리 확률론에서는 \texttt{PDF}를 구체적인 함수로 다루어야 할 필요가 있으므로 혼란을 피하기 위해 \texttt{PDF}가 될 수 있는 무한히 많은, $\mu$-거의 어디서나 같은 함수 중 특정한 하나를 \texttt{PDF}의 \textbf{\texttt{version}}이라 한다. 물론, 표기상의 편의를 이유로 논의의 대상이 \texttt{PDF}인지, \texttt{PDF}의 \texttt{version}인지를 명시적으로 밝히지 않는 경우가 대부분이지만, $L^p$ 공간에서 동치류로서의 $f$와 구체적인 함수 $f$를 논의의 맥락으로 큰 혼란 없이 구분하였듯이 이 둘 또한 구분에 큰 어려움은 없을 것이다.
@@ -685,58 +685,60 @@
 \section{Moments}
 
 \begin{definition}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$와 $n\in\mathbb{N}$에 대해 다음을 정의한다.
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$와 $k\in\mathbb{N}_0$에 대해 다음을 정의한다.
     \begin{enumerate}
-        \item 만약 $\expect(X^n)$이 존재한다면 이를 $X$의 \textbf{$n$차 적률($n$\texttt{th moment})}이라 하고 $\mu_{n,\,X}$ 혹은 간단히 $\mu_n$으로 쓴다.
-        \item 만약 $\expect((X-\mu_X)^n)$이 존재한다면 이를 $X$의 \textbf{$n$차 중심화된 적률($n$\texttt{th centeral moment})}이라 하고 $\tau_{n,\,X}$ 혹은 간단히 $\tau_n$으로 쓴다.
-        \item 만약 $\expect([(X-\mu_X)/\sigma_X]^n)$이 존재한다면 이를 $X$의 \textbf{$n$차 표준화된 적률($n$\texttt{th standardized moment})}이라 하고 $\kappa_{n,\,X}$ 혹은 간단히 $\kappa_n$으로 쓴다.
-        \item 만약 $\expect(X^{\underline{n}})$이 존재한다면 이를 $X$의 \textbf{$n$차 (하향)계승적률($n$\texttt{th} (\texttt{falling}) \texttt{factorial moment})}이라 하고 $\mu_{\underline{n},\,X}$ 혹은 간단히 $\mu_{\underline{n}}$으로 쓴다.
-        \item 만약 $\expect(X^{\overline{n}})$이 존재한다면 이를 $X$의 \textbf{$n$차 (상향)계승적률($n$\texttt{th} (\texttt{rising}) \texttt{factorial moment})}이라 하고 $\mu_{\overline{n},\,X}$ 혹은 간단히 $\mu_{\overline{n}}$으로 쓴다.
+        \item 만약 $\expect(X^k)$이 존재한다면 이를 $X$의 \textbf{$k$차 적률($k$\texttt{th moment})}이라 하고 $\mu_{k,\,X}$ 혹은 간단히 $\mu_k$으로 쓴다.
+        \item 만약 $\expect((X-\mu_X)^k)$이 존재한다면 이를 $X$의 \textbf{$k$차 중심화된 적률($n$\texttt{th centeral moment})}이라 하고 $\tau_{k,\,X}$ 혹은 간단히 $\tau_k$으로 쓴다.
+        \item 만약 $\expect([(X-\mu_X)/\sigma_X]^k)$이 존재한다면 이를 $X$의 \textbf{$k$차 표준화된 적률($k$\texttt{th standardized moment})}이라 하고 $\kappa_{k,\,X}$ 혹은 간단히 $\kappa_k$으로 쓴다.
+        \item 만약 $\expect(X^{\underline{k}})$이 존재한다면 이를 $X$의 \textbf{$k$차 (하향)계승적률($k$\texttt{th} (\texttt{falling}) \texttt{factorial moment})}이라 하고 $\mu_{\underline{k},\,X}$ 혹은 간단히 $\mu_{\underline{k}}$으로 쓴다.
+        \item 만약 $\expect(X^{\overline{k}})$이 존재한다면 이를 $X$의 \textbf{$k$차 (상향)계승적률($n$\texttt{th} (\texttt{rising}) \texttt{factorial moment})}이라 하고 $\mu_{\overline{k},\,X}$ 혹은 간단히 $\mu_{\overline{k}}$으로 쓴다.
     \end{enumerate}
 \end{definition}
 
 \begin{proposition}\label{prop:momentExist}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 \texttt{TFAE}.
     \begin{enumerate}
-        \item \texttt{Rv.} $X$의 $n$차 적률이 존재한다.
-        \item 만약 $\expect(X)$가 존재한다면 $X$의 $n$차 중심화된 적률이 존재한다.
-        \item 만약 $\var(X)$가 존재하고 $\var(X)\ne0$이면 $X$의 $n$차 표준화된 적률이 존재한다.
-        \item \texttt{Rv.} $X$의 $n$차 하향계승적률이 존재한다.
-        \item \texttt{Rv.} $X$의 $n$차 상향계승적률이 존재한다.
+        \item \texttt{Rv.} $X$의 $k$차 적률이 존재한다.
+        \item 만약 $\expect(X)$가 존재한다면 $X$의 $k$차 중심화된 적률이 존재한다.
+        \item 만약 $\var(X)$가 존재하고 $\var(X)\ne0$이면 $X$의 $k$차 표준화된 적률이 존재한다.
+        \item \texttt{Rv.} $X$의 $k$차 하향계승적률이 존재한다.
+        \item \texttt{Rv.} $X$의 $k$차 상향계승적률이 존재한다.
     \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-    i $\Leftrightarrow$ ii. 만약 $X$의 $n$차 적률이 존재하면 \texttt{Liapounov}의 부등식으로부터 모든 $i\leq n$에 대해 $X$의 $i$차 적률이 존재한다. 이로부터
+    만약 $k=0$이면 명제가 자명하므로 $k>0$이라 하자.
+
+    i $\Leftrightarrow$ ii. 만약 $X$의 $k$차 적률이 존재하면 \texttt{Liapounov}의 부등식으로부터 모든 $i\leq k$에 대해 $X$의 $i$차 적률이 존재한다. 이로부터
     \begin{equation*}
-        (X-\mu_X)^n=\sum_{i=0}^n(-1)^{n-i}\binom{n}{i}X^i\mu_X^{n-i}
+        (X-\mu_X)^k=\sum_{i=0}^k(-1)^{k-i}\binom{k}{i}X^i\mu_X^{k-i}
     \end{equation*}
-    에서 $X$의 $n$차 중심화된 적률이 존재한다. 역으로, $\expect(X)$가 존재하고 $X$의 $n$차 중심화된 적률이 존재하면 다시 \texttt{Liapounov}의 부등식으로부터 모든 $i\leq n$에 대해 $X$의 $i$차 중심화된 적률이 존재한다. 그렇다면
+    에서 $X$의 $k$차 중심화된 적률이 존재한다. 역으로, $\expect(X)$가 존재하고 $X$의 $k$차 중심화된 적률이 존재하면 다시 \texttt{Liapounov}의 부등식으로부터 모든 $i\leq k$에 대해 $X$의 $i$차 중심화된 적률이 존재한다. 그렇다면
     \begin{align*}
-        X^n&=(X-\mu_X+\mu_X)^n\\
-        &=\sum_{i=0}^n\binom{n}{i}(X-\mu_X)^i\mu_X^{n-i}
+        X^k&=(X-\mu_X+\mu_X)^k\\
+        &=\sum_{i=0}^k\binom{k}{i}(X-\mu_X)^i\mu_X^{k-i}
     \end{align*}
     에서 $X$의 $n$차 적률이 존재한다.
 
     ii $\Leftrightarrow$ iii. 이는 정의로부터 자명하다.
 
-    i $\Rightarrow$ iv. \texttt{Liapounov}의 부등식으로부터 모든 $i\leq n$에 대해 $X$의 $i$차 적률이 존재한다. 한편, 적당한 $a_0,\,\cdots,\,a_n\in\mathbb{R}$에 대해 $X^{\underline{n}}=\prod_{i=0}^{n-1}(X-i)=\sum_{i=0}^na_iX^i$이므로 $X$의 $n$차 하향계승적률이 존재한다. 이제 상향계승적률에 대해서도 비슷하게 하면 된다.
+    i $\Rightarrow$ iv. \texttt{Liapounov}의 부등식으로부터 모든 $i\leq k$에 대해 $X$의 $i$차 적률이 존재한다. 한편, 적당한 $a_0,\,\cdots,\,a_k\in\mathbb{R}$에 대해 $X^{\underline{k}}=\prod_{i=0}^{k-1}(X-i)=\sum_{i=0}^ka_iX^i$이므로 $X$의 $k$차 하향계승적률이 존재한다. 이제 상향계승적률에 대해서도 비슷하게 하면 된다.
 
-    iv $\Rightarrow$ i. 만약 $X$의 $n>1$차 계승하향적률이 존재한다면 $X^{\underline{n}}=X^{\underline{n-1}}(X-n+1)$에서
+    iv $\Rightarrow$ i. 만약 $X$의 $k>1$차 계승하향적률이 존재한다면 $X^{\underline{k}}=X^{\underline{k-1}}(X-k+1)$에서
     \begin{align*}
-        |X^{\underline{n-1}}|&=\bigg|\frac{X^{\underline{n}}}{X-n+1}\bigg|\ind_{\{X\ne n-1\}}+(n-1)!\ind_{\{X=n-1\}}\\
-        &\leq|X^{\underline{n-1}}|\ind_{\{|X-n+1|<1\}}+|X^{\underline{n}}|\ind_{\{|X-n+1|\geq1\}}+(n-1)!\\
-        &\leq n!+|X^{\underline{n}}|+(n-1)!
+        |X^{\underline{k-1}}|&=\bigg|\frac{X^{\underline{k}}}{X-k+1}\bigg|\ind_{\{X\ne k-1\}}+(k-1)!\ind_{\{X=k-1\}}\\
+        &\leq|X^{\underline{k}}|\ind_{\{|X-k+1|\geq1\}}+|X^{\underline{k-1}}|\ind_{\{|X-k+1|<1\}}+(k-1)!\\
+        &<|X^{\underline{k}}|+2k!
     \end{align*}
-    이다. 여기서 마지막 부등호는 함수 $x\mapsto|x^{\underline{n-1}}|$이 $(n-2,\,\infty)$에서 증가하므로 성립한다. 이로부터 $X$의 $n-1$차 하향계승적률이 존재함을 알고, 이를 $n-2$번 반복하면 모든 $i\leq n$에 대해 $X$의 $i$차 하향계승적률이 존재함을 안다.
+    이다. 여기서 마지막 부등호는 함수 $x\mapsto|x^{\underline{k-1}}|$이 $(k-2,\,\infty)$에서 증가하므로 성립한다. 이로부터 $X$의 $k-1$차 하향계승적률이 존재함을 알고, 이를 $k-2$번 반복하면 모든 $i\leq k$에 대해 $X$의 $i$차 하향계승적률이 존재함을 안다.
 
-    이제 적당한 $a_0,\,\cdots,\,a_n\in\mathbb{R}$에 대해 $X^{\underline{n}}=\prod_{i=0}^{n-1}(X-i)=\sum_{i=0}^na_iX^i$이고 $a_n=1$임이 명백하므로 $X^n=X^{\underline{n}}-\sum_{i=0}^{n-1}a_iX^i$이다. 이를 $n-1$번 반복하면 다시 적당한 $b_0,\,\cdots,\,b_n\in\mathbb{R}$에 대해 $X^n=\sum_{i=0}^nb_iX^{\underline{i}}$이고, 앞서 보인 바와 같이 모든 $i\leq n$에 대해 $X$의 $i$차 하향계승적률이 존재하므로 $X$의 $n$차 적률도 존재한다.
+    이제 적당한 $a_0,\,\cdots,\,a_k\in\mathbb{R}$에 대해 $X^{\underline{k}}=\prod_{i=0}^{k-1}(X-i)=\sum_{i=0}^ka_iX^i$이고 이때 $a_k=1$임이 명백하므로 $X^k=X^{\underline{k}}-\sum_{i=0}^{k-1}a_iX^i$이다. 이를 $k-1$번 반복하면 다시 적당한 $b_0,\,\cdots,\,b_k\in\mathbb{R}$에 대해 $X^k=\sum_{i=0}^kb_iX^{\underline{i}}$이고, 앞서 보인 바와 같이 모든 $i\leq k$에 대해 $X$의 $i$차 하향계승적률이 존재하므로 $X$의 $k$차 적률도 존재한다.
 
     i $\Leftrightarrow$ v. 이는 i $\Leftrightarrow$ iv의 증명과 비슷하게 하면 된다.
 \end{proof}
 
 \begin{proposition}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 만약 $X$의 $m$차 적률(혹은 중심화된 적률, 표준화된 적률, 하향계승적률, 상향계승적률)이 존재하면 $X$의 $n\leq m$차 적률(혹은 중심화된 적률, 표준화된 적률, 하향계승적률, 상향계승적률)이 존재한다.
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 만약 $X$의 $k$차 적률(혹은 중심화된 적률, 표준화된 적률, 하향계승적률, 상향계승적률)이 존재하면 $X$의 $l\leq k$차 적률(혹은 중심화된 적률, 표준화된 적률, 하향계승적률, 상향계승적률)이 존재한다.
 \end{proposition}
 
 \begin{proof}
@@ -774,7 +776,153 @@
 \end{proof}
 
 \begin{definition}
-    
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$와 $k\in\mathbb{N}_0^n$에 대해 다음을 정의한다.
+    \begin{enumerate}
+        \item 만약 $\expect(\prod_{i=1}^nX_i^{k_i})$가 존재한다면 이를 $X$의 \textbf{$k$차 (결합)적률($k$\texttt{th} (\texttt{joint}) \texttt{moment})}이라 하고 $\mu_{k,\,X}$ 혹은 간단히 $\mu_k$으로 쓴다.
+        \item 만약 $\expect(\prod_{i=1}^n(X_i-\mu_{X_i})^{k_i})$가 존재한다면 이를 $X$의 \textbf{$k$차 중심화된 (결합)적률($n$\texttt{th} (\texttt{joint}) \texttt{centeral moment})}이라 하고 $\tau_{k,\,X}$ 혹은 간단히 $\tau_k$으로 쓴다.
+        \item 만약 $\expect(\prod_{i=1}^n[(X_i-\mu_{X_i})/\sigma_{X_i}]^{k_i})$가 존재한다면 이를 $X$의 \textbf{$k$차 표준화된 (결합)적률($k$\texttt{th} (\texttt{joint}) \texttt{standardized moment})}이라 하고 $\kappa_{k,\,X}$ 혹은 간단히 $\kappa_k$으로 쓴다.
+        \item 만약 $\expect(\prod_{i=1}^nX_i^{\underline{k_i}})$가 존재한다면 이를 $X$의 \textbf{$k$차 (하향결합)계승적률($k$\texttt{th} (\texttt{joint falling}) \texttt{factorial moment})}이라 하고 $\mu_{\underline{k},\,X}$ 혹은 간단히 $\mu_{\underline{k}}$으로 쓴다.
+        \item 만약 $\expect(\prod_{i=1}^nX_i^{\overline{k_i}})$가 존재한다면 이를 $X$의 \textbf{$k$차 (상향결합)계승적률($n$\texttt{th} (\texttt{joint rising}) \texttt{factorial moment})}이라 하고 $\mu_{\overline{k},\,X}$ 혹은 간단히 $\mu_{\overline{k}}$으로 쓴다.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$와 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$이 존재하여 임의의 $t\in U$에 대해 $\expect(e^{t^\trans X})$가 존재하면 \texttt{rv.} $X$의 \textbf{적률생성함수(\texttt{moment generating function})}를 $M_X:U\to\mathbb{R}$로 쓰고 $M_X:t\mapsto\expect(e^{t^\trans X})$로 정의한다. 특별히, $n\geq2$인 경우 $M_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합적률생성함수(\texttt{joint moment generating function})}라 하기도 한다.
+\end{definition}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 적당한 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$ 위에서 존재하면 다음이 성립한다.
+    \begin{enumerate}
+        \item $M_X(0)=1$.
+        \item $M_X>0$.
+        \item \texttt{MGF} $M_X$는 \texttt{log}-볼록하다.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    i. 이는 $M_X(0)=\expect(1)=1$에서 자명하다.
+
+    ii. 따름정리 \ref{cor:zeroAeIntegral}의 iii으로부터 임의의 $t\in\mathbb{R}^n$에 대해 $M_X(t)=\expect(e^{t^\trans X})>\expect(0)=0$이므로 이는 자명하다.
+
+    iii. 임의의 $s,\,t\in U$와 $\lambda\in(0,\,1)$에 대해 \texttt{H\"older}의 부등식으로부터 $M_X(\lambda s+(1-\lambda)t)=\expect(e^{[\lambda s+(1-\lambda)t]^\trans X})\leq[\expect(e^{s^\trans X})]^\lambda[\expect(e^{t^\trans X})]^{1-\lambda}=M_X(s)^\lambda M_X(t)^{1-\lambda}$가 되고, ii로부터 $M_X>0$이므로 양변에 \texttt{log}를 취하면 $\log M_X(\lambda s+(1-\lambda)t)\leq\lambda\log M_X(s)+(1-\lambda)\log M_X(t)$이다. 이 부등식이 $\lambda=0,\,1$인 경우에도 성립함이 자명하므로 $M_X$는 \texttt{log}-볼록하다.
+\end{proof}
+
+\begin{lemma}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$ 위에서 존재하면, 적당한 $0$의 근방 $V\subseteq U$가 존재하여 임의의 $t\in V$에 대해 $\expect(e^{|t|^\trans|X|})$가 존재한다. 특별히, $U=\mathbb{R}^n$이면 $V=\mathbb{R}^n$으로 잡을 수 있으며, 여기서 임의의 $x\in\mathbb{R}^n$에 대해 $|x|:=(|x_i|)$이다.
+\end{lemma}
+
+\begin{proof}
+    먼저 $V:=B(||t_0||)\subseteq U$인 $0$이 아닌 $t_0\in U$를 택하고, 이어서 모든 성분이 음이 아닌 임의의 $t\in V$를 택하고, $\mathbb{R}^n$을 $2^n$개의 사분공간으로 나누어 각각을 $A_1,\,\cdots,\,A_{2^n}$이라 하자. (이때 각 사분면의 경계도 적당히 나눈다.) 이제 임의의 $A_j$를 고정하고 임의의 $x\in A_j^\circ$에 대해 $v=(\sgn(x_i))$라 하면 이는 $x$의 선택에 무관하게 \texttt{well-define}된다. 그렇다면 $s=(v_it_i)\in V$임이 명백하므로
+    \begin{align*}
+        \int_\Omega e^{t^\trans|X|}\ind_{A_j}(X)\,d\mathbb{P}&=\int_{A_j}e^{t^\trans|x|}\,d\prob_X\\
+        &=\int_{A_j}\exp\bigg(\sum_{i=1}^nv_it_ix_i\bigg)\,d\prob_X\\
+        &=\int_{A_j}e^{s^\trans x}\,d\prob_X\\
+        &\leq\int_{\mathbb{R}^n}e^{s^\trans x}\,d\prob_X\\
+        &=\expect(e^{s^\trans X})
+    \end{align*}
+    에서 $e^{t^\trans|X|}\ind_{A_j}(X)$가 적분가능하고, 곧 $e^{t^\trans|X|}=\sum_{j=1}^{2^n}e^{t^\trans|X|}\ind_{A_j}(X)$도 적분가능하여 $\expect(e^{t^\trans|X|})$가 존재한다. 그렇다면 이는 임의의 $t\in V$에 대해 $\expect(e^{|t|^\trans|X|})$가 존재함을 함의하는 한편, $U=\mathbb{R}^n$인 경우에는 이상의 논의에서 $V=\mathbb{R}^n$으로 택할 수 있음이 자명하므로 증명이 끝난다.
+\end{proof}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$ 위에서 존재하면 임의의 $k\in\mathbb{N}_0^n$에 대해 $X$의 $k$차 적률이 존재한다. 나아가, 적당한 $0$의 근방 $V\subseteq U$가 존재하여 임의의 $t\in V$에 대해 
+    \begin{equation*}
+        M_X(t)=\sum_{k\in\mathbb{N}_0^n}\expect\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)\prod_{i=1}^n\frac{t_i^{k_i}}{k_i!}
+    \end{equation*}
+    이다. 여기서 우변의 합은 절대수렴하여 \texttt{well-define}된다.
+\end{theorem}
+
+\begin{proof}
+    먼저 임의의 $k\in\mathbb{N}_0^n$에 대해 $k$차 적률이 존재함을 보이자. 이를 위해 $K=\sum_{i=1}^nk_i$로 두고 각 성분이 양수인 $t\in U$를 택하면
+    \begin{align*}
+        \bigg|\prod_{i=1}^nX_i^{k_i}\bigg|&=\prod_{i=1}^nt_i|X_i|^{k_i}\bigg/\prod_{i=1}^nt_i^{k_i}\\
+        &\leq\bigg(\sum_{i=1}^nt_i|X_i|\bigg)^K\bigg/\bigg(\prod_{i=1}^nt_i^{k_i}\bigg)\binom{K}{k_1\,\cdots\,k_n}\\
+        &=\bigg(\prod_{i=1}^n\frac{k_i!}{t_i^{k_i}}\bigg)\frac{(t^\trans|X|)^K}{K!}\\
+        &\leq\bigg(\prod_{i=1}^n\frac{k_i!}{t_i^{k_i}}\bigg)\sum_{j=0}^\infty\frac{(t^\trans|X|)^j}{j!}\\
+        &=\bigg(\prod_{i=1}^n\frac{k_i!}{t_i^{k_i}}\bigg)e^{t^\trans|X|}
+    \end{align*}
+    인데, 보조정리로부터 $t$를 충분히 작게 잡아주면 $\expect(e^{t^\trans|X|})$가 존재하므로 $X$의 $k$차 적률도 존재함을 안다.
+
+    다음으로, 임의의 $l\in\mathbb{N}_0$와 $t\in U$에 대해
+    \begin{align*}
+        \bigg|\sum_{j=0}^l\frac{(t^\trans X)^j}{j!}\bigg|&\leq\sum_{j=0}^l\frac{|t^\trans X|^j}{j!}\\
+        &\leq\sum_{j=0}^\infty\frac{|t^\trans X|^j}{j!}\\
+        &=e^{|t^\trans X|}\\
+        &\leq e^{t^\trans X}\ind_{\{t^\trans X\geq0\}}+\ind_{\{t^\trans X<0\}}\\
+        &\leq e^{t^\trans X}+1
+    \end{align*}
+    이므로 \texttt{DCT}에서
+    \begin{align*}
+        M_X(t)&=\expect\bigg(\sum_{j=0}^\infty\frac{(t^\trans X)^j}{j!}\bigg)\\
+        &=\sum_{j=0}^\infty\frac{\expect((t^\trans X)^j)}{j!}\\
+        &=\sum_{j=0}^\infty\frac{1}{j!}\sum_{k_1+\cdots+k_n=j}\binom{j}{k_1\,\cdots\,k_n}\expect\bigg(\prod_{i=1}^n(t_iX_i)^{k_i}\bigg)\\
+        &=\sum_{j=0}^\infty\sum_{k_1+\cdots+k_n=j}\expect\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)\prod_{i=1}^n\frac{t_i^{k_i}}{k_i!}&\qquad\qquad\qquad\qquad\qquad\qquad(*)
+    \end{align*}
+    이다. 이제 $V:=B(||t_0||)\subseteq U$인 $0$이 아닌 $t_0\in U$를 택하자. 그렇다면
+    \begin{equation*}
+        \sum_{j=0}^\infty\sum_{k_1+\cdots+k_n=j}\bigg|\expect\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)\prod_{i=1}^n\frac{t_i^{k_i}}{k_i!}\bigg|\leq\sum_{j=0}^\infty\sum_{k_1+\cdots+k_n=j}\expect\bigg(\prod_{i=1}^n|X_i|^{k_i}\bigg)\prod_{i=1}^n\frac{|t_i|^{k_i}}{k_i!}
+    \end{equation*}
+    이므로 보조정리로부터 $t_0$를 충분히 작게 잡아주면 $\expect(e^{|t|^{\,\trans}|X|})$가 존재하고, (*)에서와 비슷하게 하여 (*)의 급수가 절대수렴함을 쉽게 보일 수 있다. 이로부터 (*)의 급수에서의 합의 순서를 바꿀 수 있으므로 원하는 형태의 식을 얻고, 증명이 끝난다.
+\end{proof}
+
+\begin{definition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 \texttt{rv.} $X$의 \textbf{특성함수(\texttt{characteristic function})}를 $\varphi_X:\mathbb{R}^n\to\mathbb{C}$로 쓰고 $\varphi_X:t\mapsto\expect(e^{\imag\,t^\trans X})$로 정의한다. 특별히, $n\geq2$인 경우 $\varphi_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합특성함수(\texttt{joint characteristic function})}라 하기도 한다.
+\end{definition}
+
+\begin{proposition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$와 임의의 $t\in\mathbb{R}^n$에 대해 $\expect(e^{\imag\,t^\trans X})$가 항상 존재한다. 따라서 $\varphi_X$는 \texttt{well-define}된다.
+\end{proposition}
+
+\begin{proof}
+    함수 $e^{\imag\,t^\trans X}$의 실수부 $\cos t^\trans X$와 허수부 $\sin t^\trans X$가 모두 적분가능함을 보이면 되는데, 이는 $|\cos t^\trans X|,\,|\sin t^\trans X|\leq1$에서 자명하다.
+\end{proof}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item $\varphi_X(0)=1$.
+        \item $|\varphi_X|\leq1$.
+        \item $\varphi_X$는 균등연속이다.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    i. 이는 $\varphi_X(0)=\expect(1)=1$에서 자명하다.
+
+    ii. 임의의 $t\in\mathbb{R}^n$에 대해 $|\varphi_X(t)|=|\expect(e^{\imag\,t^\trans X})|\leq\expect(|e^{\imag\,t^\trans X}|)=\expect(1)=1$이므로 이는 자명하다.
+
+    iii. 함수 $f:\Omega\times\mathbb{R}^n$를 $f:(\omega,\,t)\mapsto|e^{\imag\,t^\trans X(\omega)}-1|$로 두면 임의의 $\omega\in\Omega$에 대해 $f_\omega$는 연속이다. 또한, 임의의 $(\omega,\,t)\in\Omega\times\mathbb{R}^n$에 대해 $|e^{\imag\,t^\trans X(\omega)}-1|\leq|e^{\imag\,t^\trans X(\omega)}|+1=2$이므로 임의의 $t\in\mathbb{R}^n$에 대해 $f^t$는 적분가능하고 $|f|\leq2$이다. 이상으로부터 $f$가 따름정리 \ref{cor:integralContinuous}의 조건을 모두 만족시킴을 알 수 있으므로 함수 $t\mapsto\int_\Omega|e^{\imag\,t^\trans X(\omega)}-1|\,d\mathbb{P}=\expect(|e^{\imag\,t^\trans X}-1|)$는 연속이다. 특히 이가 $0$에서 연속이므로 $t\to0$이면 $\expect(|e^{\imag\,t^\trans X}-1|)\to0$이고, 곧 임의의 $\epsilon>0$을 택하면 적당한 $\delta>0$가 존재하여 $|t|<\delta$이면 $\expect(|e^{\imag\,t^\trans X}-1|)<\epsilon$이다. 이로부터 $||s-t||<\delta$인 임의의 $s,\,t\in\mathbb{R}^n$에 대해 $|\varphi_X(s)-\varphi_X(t)|=|\expect(e^{\imag\,s^\trans X}-e^{\imag\,t^\trans X})|\leq\expect(|e^{\imag\,t^\trans X}(e^{\imag(s-t)^\trans X}-1)|)=\expect(|e^{\imag(s-t)^\trans X}-1|)<\epsilon$이 되어 $\varphi_X$가 균등연속임을 안다.
+\end{proof}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 $\mathbb{R}^n$ 위에서 존재하면 임의의 $t\in\mathbb{R}^n$에 대해
+    \begin{equation*}
+        \varphi_X(t)=\sum_{k\in\mathbb{N}_0^n}\imag^{k_1+\cdots+k_n}\expect\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)\prod_{i=1}^n\frac{t_i^{k_i}}{k_i!}
+    \end{equation*}
+    이다. 여기서 우변의 합은 절대수렴하여 \texttt{well-define}된다.
+\end{theorem}
+
+\begin{proof}
+    \texttt{Taylor}의 정리로부터 임의의 $x\in\mathbb{R}^n$에 대해 임의의 $t\in\mathbb{R}^n$과 $k\in\mathbb{N}$를 택하면
+    \begin{align*}
+        e^{\imag\,t^\trans x}&=\sum_{j=0}^{k-1}\imag^j\frac{(t^\trans x)^j}{j!}+\imag^k\frac{(t^\trans x)^k}{(k-1)!}\int_0^1(1-s)^{k-1}e^{\imag\,st^\trans x}\,ds\\
+        &=\sum_{j=0}^k\imag^j\frac{(t^\trans x)^j}{j!}+\imag^k\frac{(t^\trans x)^k}{(k-1)!}\int_0^1(1-s)^{k-1}(e^{\imag\,st^\trans x}-1)\,ds
+    \end{align*}
+    이다. 여기서 마지막 등호는 $\int_0^1(1-s)^{k-1}\,ds=1/k$에서 성립한다. 이로부터
+    \begin{align*}
+        \bigg|e^{\imag\,t^\trans X}-\sum_{j=0}^k\imag^j\frac{(t^\trans X)^j}{j!}\bigg|&=\bigg|\imag^k\frac{(t^\trans x)^k}{(k-1)!}\int_0^1(1-s)^{k-1}e^{\imag\,st^\trans x}\,ds\bigg|
+    \end{align*}
+    이고
+    \begin{align*}
+        \bigg|e^{\imag\,t^\trans X}-\sum_{j=0}^k\imag^j\frac{(t^\trans X)^j}{j!}\bigg|&=\bigg|\imag^k\frac{(t^\trans X)^k}{(k-1)!}\int_0^1(1-s)^{k-1}(e^{\imag\,st^\trans X}-1)\,ds\bigg|\\
+        &\leq\frac{(t^\trans X)^k}{(k-1)!}\int_0^1(1-s)^{k-1}|e^{\imag\,st^\trans X}-1|\,ds\\
+        &\leq\frac{(t^\trans X)^k}{(k-1)!}\int_0^1(1-s)^{k-1}(|e^{\imag\,st^\trans X}|+1)\,ds\\
+        &=\frac{(t^\trans X)^k}{(k-1)!}\int_0^12(1-s)^{k-1}\,ds\\
+        &=\frac{2(t^\trans X)^k}{k!}\\
+    \end{align*}
+\end{proof}
+
+\begin{definition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X:U\to\mathbb{R}$가 존재하면 \texttt{rv.} $X$의 \textbf{누율생성함수(\texttt{cumulant generating function})}를 $C_X:U\to\mathbb{R}$로 쓰고 $C_X=\log M_X$로 정의한다. 특별히, $n\geq2$인 경우 $C_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합누율생성함수(\texttt{joint cumulant generating function})}라 하기도 한다.
 \end{definition}
 
 \section*{Notes}
