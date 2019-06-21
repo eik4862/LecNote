@@ -38,6 +38,8 @@
 \newcommand{\io}{\,\,\,\mathrm{io.}}
 \newcommand{\sgn}{\mathrm{sgn}}
 \newcommand{\trans}{\mathsf{T}}
+\newcommand{\argmax}{\mathrm{argmax}}
+\newcommand{\tr}{\mathrm{tr}\,}
 
 \newcommand{\erf}{\mathrm{erf}}
 \newcommand{\Be}{\mathrm{B}}
@@ -48,7 +50,6 @@
 \renewcommand{\skew}{\mathbf{Skew}}
 \newcommand{\kurt}{\mathbf{Kurt}}
 \newcommand{\iid}{\stackrel{\mathrm{iid}}{\sim}}
-\newcommand{\deq}{\stackrel{d}{=}}
 \newcommand{\Bern}{\mathsf{Bernoulli}}
 \newcommand{\Bi}{\mathsf{B}}
 \newcommand{\BBeta}{\mathsf{Beta}}
@@ -95,6 +96,7 @@
     \item[\texttt{\textbf{CDF}}]{누적분포함수(\texttt{Cumulative Distribution Function})}
     \item[\texttt{\textbf{MGF}}]{적률생성함수(\texttt{Moment Generating Function})}
     \item[\texttt{\textbf{CF}}]{특성함수(\texttt{Characteristic Function})}
+    \item[\texttt{\textbf{CGF}}]{누율생성함수(\texttt{Cumulant Generating Function})}
     \item[\texttt{\textbf{PGF}}]{확률생성함수(\texttt{Probability Generating Function})}
     \item[\texttt{\textbf{iid.}}]{\texttt{Independent and Identically Distributed rv.}}
     \item[\texttt{\textbf{io.}}]{\texttt{Infinitely Often}}
@@ -105,11 +107,17 @@
 
 \mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\part{Preliminary}
+
+\chapter{Preliminary}
+
+\input{Preliminary.tex}
+
 \part{Probability and Measure}
 
 \chapter{Measure Theory}
 
-%\input{Chapter1.tex}
+\input{Chapter1.tex}
 
 \chapter{Probability Theory}
 

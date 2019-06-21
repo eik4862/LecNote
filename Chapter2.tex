@@ -368,7 +368,7 @@
     iii $\Rightarrow$ i. $0$으로 수렴하는 $\mathbb{R}^n$에 속하는 임의의 수열 $\{h_j\}$를 택하여 각 $j\in\mathbb{N}$에 대해 $a_j=\min_{i=1}^nh_j^i,\,b_j=\max_{i=1}^nh_j^i$라 하면 $F_X(x_0+a_j\ind)\leq F_X(x_0+h_j)\leq F_X(x_0+b_j\ind)$이고 $a_j,\,b_j\to 0$이다. 따라서 함수 $f:\mathbb{R}\to[0,\,1]$를 $f:x\mapsto F_X(x_0+x\ind)$로 두고 이가 $0$에서 연속임을 보이는 것으로 증명은 충분한데, \texttt{CDF}의 성질로부터 $\lim_{x\downarrow0}f(x)=f(0)$임은 이미 알고 있으므로 $\lim_{x\uparrow0}f(x)=f(0)$이라는 사실만 보이면 된다. 이를 위해 $x_j\uparrow0$인 임의의 실수열 $\{x_j\}$를 택하여 집합열 $\{A_j\}$를 $A_j=\prod_{i=1}^n(-\infty,\,x_0^i+x_j^i]$로 두면 이는 $B_{x_0}^\circ$로 수렴하는 증가하는 집합열이다. 그렇다면 가정으로부터 $f(x_j)=F_X(x_0+x_j\ind)=\prob_X(A_j)\uparrow\prob_X(B_{x_0}^\circ)=\prob_X(B_{x_0})=F_X(x_0)=f(0)$이고, 증명이 끝난다.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lem:monotoneDiscontinuity}
     단조함수 $f:\mathbb{R}\to\mathbb{R}$는 가산개의 불연속점만을 가진다.
 \end{lemma}
 
@@ -376,7 +376,7 @@
     우선 $f$가 증가함수라 하고 집합 $A=\{x\in\mathbb{R}:f\textrm{가 $x$에서 불연속}\}$를 생각하자. 그렇다면 임의의 $x\in A$에 대해 $f(x-)<f(x+)$이므로 $f(x-)<p_x<f(x+)$인 적당한 $p_x\in\mathbb{Q}$를 택할 수 있고, 이로써 함수 $g:A\to\mathbb{Q}$를 $g:x\mapsto p_x$로 두자. 한편, 임의의 $x,\,y\in A$에 대해 $x<y$인데 $f(y-)<f(x+)$이면 $z=(x+y)/2$에 대해 $f(z)\leq f(y-)<f(x+)\leq f(z)$의 모순이 발생하므로 $(f(x-),\,f(x+))$와 $(f(y-),\,f(y+))$는 서로소가 되어 $g$는 단사이고, 곧 $A$는 가산이다.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{thm:CDFContinuousDense}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $F_X$의 연속점의 집합은 조밀하다. 나아가, $n=1$인 경우 $F_X$가 가산개의 불연속점만을 가진다.
 \end{theorem}
 
@@ -453,7 +453,7 @@
 
 비슷하게, 다음 정리는 어떤 확률벡터가 연속인지를 판단할 때 유용하다.
 
-\begin{theorem}
+\begin{theorem}\label{thm:rvContinuous}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 \texttt{TFAE}.
     \begin{enumerate}
         \item \texttt{Rv.} $X$는 연속확률벡터이다.
@@ -564,6 +564,27 @@
     가정으로부터 $\prob_X$의 가산 지지집합 $A\in\mathcal{B}_n$가 존재하여 \texttt{WLOG}, 필요하다면 몇몇 원소를 제거하여 임의의 $x\in A$에 대해 $\prob_X\{x\}>0$이라 해도 된다. 표기의 편의를 위해 $\mathcal{A}=\mathcal{B}_n\vert_A$라 하면 $\#_A\vert_\mathcal{A}=\#\vert_\mathcal{A}$는 가측공간 $(A,\,\mathcal{A})$ 위의 셈측도이므로 위의 정리와 $f_X$의 \texttt{version}을 택하는 관례 그리고 정리 \ref{thm:intRistriction}의 iii으로부터 $\expect(g(X))=\int_{\mathbb{R}^n}f_Xg\,d\#_A=\int_Af_Xg\,d\#_A=\int_A(f_Xg)\vert_A\,d\#\vert_\mathcal{A}=\sum_{x\in A}f_X(x)g(x)=\sum_{x\in\mathbb{R}^n}f_X(x)g(x)$이다.
 \end{proof}
 
+만약 확률변수가 음이 아니라면 \texttt{CDF}를 사용하여 기댓값을 계산할 수도 있다.
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 음이 아닌 \texttt{rv.} $X:\Omega\to\mathbb{R}_0^+$에 대해 $\expect(X)$가 존재하면 $1-F_X$는 $\mathbb{R}_0^+$에서 $\mu_1$-적분가능하고 $\expect(X)=\int_{\mathbb{R}_0^+}1-F_X\,d\mu_1$이다.
+\end{theorem}
+
+\begin{proof}
+    함수 $\ind_{\{0\leq x<y\}}(x,\,y)$가 음이 아닌 \texttt{Borel}이므로 \texttt{Fubini}의 정리로부터
+    \begin{align*}
+        \expect(X)&=\int_\mathbb{R}x\,d\prob_X(x)\\
+        &=\int_{\mathbb{R}_0^+}x\,d\prob_X(x)\\
+        &=\int_{\mathbb{R}_0^+}\bigg(\int_{[0,\,x]}\,d\mu_1\bigg)\,d\prob_X(x)\\
+        &=\int_{\mathbb{R}_0^+}\bigg(\int_{\mathbb{R}_0^+}\ind_{[0,\,x)}(y)\,d\mu_1(y)\bigg)\,d\prob_X(x)\\
+        &=\int_{\mathbb{R}_0^+}\bigg(\int_{\mathbb{R}_0^+}\ind_{[0,\,x)}(y)\,d\prob_X(x)\bigg)\,d\mu_1(y)\\
+        &=\int_{\mathbb{R}_0^+}\bigg(\int_{\mathbb{R}_0^+}\ind_{(y,\,\infty)}(x)\,d\prob_X(x)\bigg)\,d\mu_1(y)\\
+        &=\int_{\mathbb{R}_0^+}\prob_X((y,\,\infty))\,d\mu_1(y)\\
+        &=\int_{\mathbb{R}_0^+}1-F_X(y)\,d\mu_1(y)
+    \end{align*}
+    이고 이때 $1-F_X$는 $\mathbb{R}_0^+$에서 $\mu_1$-적분가능하다.
+\end{proof}
+
 다음으로 넘어가기 전에, 기댓값에 대해 한 가지 유념해야 할 점이 있다. 기댓값의 정의에는 이가 마치 어떤 확률변수의 특성인 것처럼 쓰여 있지만 사실 기댓값은 확률변수의 특성이 아닌, 분포의 특성이어서 서로 다른 확률공간에서 정의된 서로다른 확률변수라도 그 분포가 같다면 기댓값도 같다. 실제로 확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$와 $(\Omega',\,\mathcal{F}',\,\mathbb{P}')$에서 각각 정의된 확률변수 $X:\Omega\to\mathbb{R},\,Y:\Omega'\to\mathbb{R}$에 대해 만약 $X\equiv Y$라면 정리 \ref{thm:expectDistribution}로부터 $\expect(X)=\int_{\mathbb{R}^n}x\,d\prob_X(x)=\expect(Y)$이다. 이러한 사실은 기댓값이 분포의 정보를 요약하여 전달하는 통계량이라는 점에서 어떻게 보면 당연한 것이다.
 
 기댓값에 이어 살펴볼 통계량은 분산이다. 기댓값이 분포의 정보를 요약하여 전달하는 좋은 통계량인 것은 사실이지만, 이가 분포의 정보를 완벽하게 전달하지는 못한다. 이때 발생하는 정보의 손실이 크게 중요하지 않은 경우도 있지만, 때로는 기댓값만으로는 부족한 경우도 있다. 이에 기댓값만을 전달할 때 손실되는 정보를 보충할 목적으로 보조적인 통계량을 제공할 수 있는데, 보통 분포가 기댓값으로부터 퍼져있는 정도를 의미하는 분산이나 표준편차를 제공한다. (이와 같이 분포가 퍼져있는 정도를 의미하는 통계량을 그 분포의 산포도라 하며 분산과 표준편차 이외에도 평균절대편차(\texttt{MAD}; \texttt{Mean Absolute Deviation}), 사분위수범위(\texttt{IQR}; \texttt{InterQuartile Range}) 등이 있다.) 이러한 분산은 기본적으로 기댓값으로 정의된다.
@@ -611,6 +632,16 @@
 \end{proof}
 
 기댓값과 분산의 성질로부터 $\var(X)$가 존재하고 $0$이 아니라면 $(X-\mu_X)/\sigma_X$의 기댓값과 분산은 항상 각각 $0,\,1$이다. 이렇게 원래의 확률변수에서 그 기댓값을 빼고, 그 표준편차로 나누는 것을 \textbf{표준화(\texttt{standardization})}라 하며, 기댓값과 분산이 서로다른 분포를 비교할 때 자주 사용되는 방법이다.
+
+한편, 기댓값과 분산은 각각 다음과 같이 $\expect((X-x)^2)$가 최솟값을 갖도록 하는 값과 그 최솟값으로 정의할 수도 있다.
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 $\var(X)$가 존재하면 함수 $x\mapsto\expect((X-x)^2)$는 \texttt{well-define}되고 $\expect(X)$에서 최솟값 $\var(X)$를 가진다.
+\end{theorem}
+
+\begin{proof}
+    가정으로부터 $\expect(X)$와 $\expect(X^2)$이 존재하고 곧 임의의 $x\in\mathbb{R}$에 대해 $(X-x)^2=X^2-2xX+x^2$에서 $\expect((X-x)^2)$이 존재하므로 함수 $x\mapsto\expect((X-x)^2)$가 \texttt{well-define}된다. 한편, 임의의 $x\in\mathbb{R}$에 대해 $(X-x)^2=(X-\mu_X)^2+2(X-\mu_X)(\mu_X-x)+(\mu_X-x)^2$이므로 $\expect((X-x)^2)=\expect((X-\mu_X)^2)+2(\mu_X-x)\expect(X-\mu_X)+(\mu_X-x)^2=\var(X)+(\mu_X-x)^2$에서 정리가 성립한다.
+\end{proof}
 
 이제 기댓값에 관한 다양한 부등식을 알아보는 것으로 이번 절을 마무리하자. 이러한 부등식은 이후 확률론의 다양한 정리를 증명할 때에 약방의 감초와 같이 사용될 것이다.
 
@@ -688,6 +719,8 @@
 
 \section{Moments}
 
+이번 절에서는 적률이라는 통계량에 대해 알아본다. 앞서 어떤 분포에 대한 정보를 간단히 전달하기 위해 기댓값이나 분산을 사용하였듯이 적률 또한 어떤 분포의 정보를 전달하기 위해 사용한다. 당장에 기댓값과 분산도 적률의 일종이다. 형식적으로 $k$차 적률은 확률변수 $X$의 $k$제곱의 기댓값으로 정의되는데, 기댓값이나 분산이 그 자체로 나름의 의미를 가지는 것과 달리 $k$차 적률 그 자체의 의미를 해석하는 것은 쉽지 않다. 그럼에도 불구하고, 하나의 절을 할애하여 적률에 대해 논하는 까닭은 많은 경우에 적률은 분포의 정보를 `손실 없이' 전달할 수 있기 때문이다. 즉, 모든 차수의 적률을 수열의 형태로 전달하면 그것만으로 분포를 완벽하게 복원해낼 수 있고, 정확히 언제 이가 가능한지를 밝히고, 증명하는 것이 이번 절의 주된 목표이다. 그렇다면 적률의 정의부터 시작하자.
+
 \begin{definition}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$와 $k\in\mathbb{N}_0$에 대해 다음을 정의한다.
     \begin{enumerate}
@@ -699,12 +732,28 @@
     \end{enumerate}
 \end{definition}
 
+곧 기댓값은 $1$차 위에서 정의한 적률을 제외하고도 많은 종류의 적률이 존재하는데, 이는 계산상의 편의를 위한 목적이 크다. 나아가 중심화된 적률과 표준화된 적률은 그 이름에서도 알 수 있듯이 각각 원래 확률변수의 평행이동과 \texttt{Affine} 변환에 대해 불변이라는 유용한 특성을 가지기도 한다. 한편, 적률의 존재성을 따지는 데에는 다음 두 명제가 유용하다.
+
+\begin{proposition}\label{prop:lowerMomentExist}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 만약 $X$의 $k$차 적률(혹은 중심화된 적률, 표준화된 적률, 하향계승적률, 상향계승적률)이 존재하면 $X$의 $l\leq k$차 적률(혹은 중심화된 적률, 표준화된 적률, 하향계승적률, 상향계승적률)이 존재한다.
+\end{proposition}
+
+\begin{proof}
+    적률의 경우 \texttt{Liapounov}의 부등식으로부터 자명하고, 이로부터 중심화된 적률과 표준화된 적률에 대해서도 명제가 자명해진다. 다음으로 하향계승적률의 경우, 만약 $X$의 $k>1$차 하향계승적률이 존재한다면 $X^{\underline{k}}=X^{\underline{k-1}}(X-k+1)$에서
+    \begin{align*}
+        |X^{\underline{k-1}}|&=\bigg|\frac{X^{\underline{k}}}{X-k+1}\bigg|\ind_{\{X\ne k-1\}}+(k-1)!\ind_{\{X=k-1\}}\\
+        &\leq|X^{\underline{k}}|\ind_{\{|X-k+1|\geq1\}}+|X^{\underline{k-1}}|\ind_{\{|X-k+1|<1\}}+(k-1)!\\
+        &<|X^{\underline{k}}|+2k!
+    \end{align*}
+    이다. 여기서 마지막 부등호는 함수 $x\mapsto|x^{\underline{k-1}}|$이 $(k-2,\,\infty)$에서 증가하므로 성립한다. 이로부터 $X$의 $k-1$차 하향계승적률이 존재함을 알고, 이를 $k-2$번 반복하면 모든 $l\leq k$에 대해 $X$의 $l$차 하향계승적률이 존재함을 안다. 마지막으로 상향계승적률의 경우에는 하향계승적률과 비슷하게 하면 된다.
+\end{proof}
+
 \begin{proposition}\label{prop:momentExist}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 \texttt{TFAE}.
     \begin{enumerate}
         \item \texttt{Rv.} $X$의 $k$차 적률이 존재한다.
         \item 만약 $\expect(X)$가 존재한다면 $X$의 $k$차 중심화된 적률이 존재한다.
-        \item 만약 $\var(X)$가 존재하고 $\var(X)\ne0$이면 $X$의 $k$차 표준화된 적률이 존재한다.
+        \item 만약 $\var(X)$가 존재하고 $0$이 아니면 $X$의 $k$차 표준화된 적률이 존재한다.
         \item \texttt{Rv.} $X$의 $k$차 하향계승적률이 존재한다.
         \item \texttt{Rv.} $X$의 $k$차 상향계승적률이 존재한다.
     \end{enumerate}
@@ -713,45 +762,37 @@
 \begin{proof}
     만약 $k=0$이면 명제가 자명하므로 $k>0$이라 하자.
 
-    i $\Leftrightarrow$ ii. 만약 $X$의 $k$차 적률이 존재하면 \texttt{Liapounov}의 부등식으로부터 모든 $i\leq k$에 대해 $X$의 $i$차 적률이 존재한다. 이로부터
+    i $\Leftrightarrow$ ii. 만약 $X$의 $k$차 적률이 존재하면 명제 \ref{prop:lowerMomentExist}로부터 $X$의 모든 $l\leq k$차 적률이 존재한다. 이로부터
     \begin{equation*}
         (X-\mu_X)^k=\sum_{i=0}^k(-1)^{k-i}\binom{k}{i}X^i\mu_X^{k-i}
     \end{equation*}
-    에서 $X$의 $k$차 중심화된 적률이 존재한다. 역으로, $\expect(X)$가 존재하고 $X$의 $k$차 중심화된 적률이 존재하면 다시 \texttt{Liapounov}의 부등식으로부터 모든 $i\leq k$에 대해 $X$의 $i$차 중심화된 적률이 존재한다. 그렇다면
+    에서 $X$의 $k$차 중심화된 적률이 존재한다. 역으로, $\expect(X)$가 존재하고 $X$의 $k$차 중심화된 적률이 존재하면 다시 명제 \ref{prop:lowerMomentExist}로부터 $X$의 모든 $l\leq k$차 중심화된 적률이 존재한다. 그렇다면
     \begin{align*}
         X^k&=(X-\mu_X+\mu_X)^k\\
         &=\sum_{i=0}^k\binom{k}{i}(X-\mu_X)^i\mu_X^{k-i}
     \end{align*}
-    에서 $X$의 $n$차 적률이 존재한다.
+    에서 $X$의 $k$차 적률이 존재한다.
 
     ii $\Leftrightarrow$ iii. 이는 정의로부터 자명하다.
 
-    i $\Rightarrow$ iv. \texttt{Liapounov}의 부등식으로부터 모든 $i\leq k$에 대해 $X$의 $i$차 적률이 존재한다. 한편, 적당한 $a_0,\,\cdots,\,a_k\in\mathbb{R}$에 대해 $X^{\underline{k}}=\prod_{i=0}^{k-1}(X-i)=\sum_{i=0}^ka_iX^i$이므로 $X$의 $k$차 하향계승적률이 존재한다. 이제 상향계승적률에 대해서도 비슷하게 하면 된다.
+    i $\Rightarrow$ iv. 명제 \ref{prop:lowerMomentExist}로부터 $X$의 모든 $l\leq k$차 적률이 존재한다. 한편, 적당한 $a_0,\,\cdots,\,a_k\in\mathbb{R}$에 대해 $X^{\underline{k}}=\prod_{i=0}^{k-1}(X-i)=\sum_{i=0}^ka_iX^i$이므로 $X$의 $k$차 하향계승적률이 존재한다.
 
-    iv $\Rightarrow$ i. 만약 $X$의 $k>1$차 계승하향적률이 존재한다면 $X^{\underline{k}}=X^{\underline{k-1}}(X-k+1)$에서
-    \begin{align*}
-        |X^{\underline{k-1}}|&=\bigg|\frac{X^{\underline{k}}}{X-k+1}\bigg|\ind_{\{X\ne k-1\}}+(k-1)!\ind_{\{X=k-1\}}\\
-        &\leq|X^{\underline{k}}|\ind_{\{|X-k+1|\geq1\}}+|X^{\underline{k-1}}|\ind_{\{|X-k+1|<1\}}+(k-1)!\\
-        &<|X^{\underline{k}}|+2k!
-    \end{align*}
-    이다. 여기서 마지막 부등호는 함수 $x\mapsto|x^{\underline{k-1}}|$이 $(k-2,\,\infty)$에서 증가하므로 성립한다. 이로부터 $X$의 $k-1$차 하향계승적률이 존재함을 알고, 이를 $k-2$번 반복하면 모든 $i\leq k$에 대해 $X$의 $i$차 하향계승적률이 존재함을 안다.
-
-    이제 적당한 $a_0,\,\cdots,\,a_k\in\mathbb{R}$에 대해 $X^{\underline{k}}=\prod_{i=0}^{k-1}(X-i)=\sum_{i=0}^ka_iX^i$이고 이때 $a_k=1$임이 명백하므로 $X^k=X^{\underline{k}}-\sum_{i=0}^{k-1}a_iX^i$이다. 이를 $k-1$번 반복하면 다시 적당한 $b_0,\,\cdots,\,b_k\in\mathbb{R}$에 대해 $X^k=\sum_{i=0}^kb_iX^{\underline{i}}$이고, 앞서 보인 바와 같이 모든 $i\leq k$에 대해 $X$의 $i$차 하향계승적률이 존재하므로 $X$의 $k$차 적률도 존재한다.
+    iv $\Rightarrow$ i. 명제 \ref{prop:lowerMomentExist}로부터 $X$의 모든 $l\leq k$차 하향계승적률이 존재한다. 이제 적당한 $a_0,\,\cdots,\,a_k\in\mathbb{R}$에 대해 $X^{\underline{k}}=\prod_{i=0}^{k-1}(X-i)=\sum_{i=0}^ka_iX^i$이고 이때 $a_k=1$임이 명백하므로 $X^k=X^{\underline{k}}-\sum_{i=0}^{k-1}a_iX^i$이다. 이를 $k-1$번 반복하면 다시 적당한 $b_0,\,\cdots,\,b_k\in\mathbb{R}$에 대해 $X^k=\sum_{i=0}^kb_iX^{\underline{i}}$이고, 곧 $X$의 $k$차 적률도 존재한다.
 
     i $\Leftrightarrow$ v. 이는 i $\Leftrightarrow$ iv의 증명과 비슷하게 하면 된다.
 \end{proof}
 
-\begin{proposition}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 만약 $X$의 $k$차 적률(혹은 중심화된 적률, 표준화된 적률, 하향계승적률, 상향계승적률)이 존재하면 $X$의 $l\leq k$차 적률(혹은 중심화된 적률, 표준화된 적률, 하향계승적률, 상향계승적률)이 존재한다.
-\end{proposition}
-
-\begin{proof}
-    이는 \texttt{Liapounov}의 부등식과 명제 \ref{prop:momentExist}로부터 자명하다.
-\end{proof}
+앞서 적률 그 자체에 의미를 해석하는 것은 쉽지 않다고 했는데, 특별히 $3$차와 $4$차 표준화된 적률에 대해서는 어느정도 널리 받아들여지는 해석이 있어 잠시 소개한다.
 
 \begin{definition}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 만약 $X$의 $3$차 표준화된 적률이 존재한다면 이를 특별히 $X$의 \textbf{왜도(\texttt{skewness})}라 하고 $\skew(X),\,\tau_X$ 혹은 간단히 $\tau$로 쓴다. 비슷하게, $X$의 $4$차 표준화된 적률이 존재한다면 $\kappa_{4,\,X}-3$을 특별히 $X$의 \textbf{첨도(\texttt{kurtosis})}라 하고 $\kurt(X),\,\kappa_X$ 혹은 간단히 $\kappa$로 쓴다.
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 만약 $X$의 $3$차 표준화된 적률이 존재한다면 이를 특별히 $X$의 \textbf{왜도(\texttt{skewness})}라 하고 $\skew(X),\,\tau_X$ 혹은 간단히 $\tau$로 쓴다. 비슷하게, $X$의 $4$차 표준화된 적률이 존재한다면 $\kappa_{4,\,X}-3$을 특별히 $X$의 \textbf{(\texttt{excess}) 첨도(- \texttt{kurtosis})}라 하고 $\kurt(X),\,\kappa_X$ 혹은 간단히 $\kappa$로 쓴다.
 \end{definition}
+
+왜도는 분포가 얼마나 치우쳤는가, 즉 얼마나 비대칭인가에 대한 척도이다. 정규분포와 같이 분포가 기댓값을 기준으로 정확히 대칭을 이루면 왜도는 $0$이 되고, 기댓값이 분포의 중앙값보다 작아서 분포가 왼쪽으로 치우쳐 있으면 왜도는 양수가 되며 이때 그 분포는 \textbf{\texttt{positively skewed}}되었다고 한다. 반대로 기댓값이 분포의 중앙값보다 커서 분포가 오른쪽으로 치우쳐 있으면 왜도는 음수가 되며 이때 그 분포는 \textbf{\texttt{negatively skewed}}되었다고 한다.
+
+첨도는 분포가 얼마나 뾰족한가, 즉 분포의 꼬리가 얼마나 두꺼운가에 대한 척도이다. 왜도와는 달리 $4$차 표준화된 적률에서 $3$을 뺀 것으로 정의되어 있는데, 이는 표준정규분포의 $4$차 표준화된 적률이 $3$이어서 비교의 기준이 되는 표준정규분포의 첨도를 $0$으로 만들기 위함이다. 표준정규분포와 같이 첨도가 $0$이면 이때 그 분포는 \textbf{\texttt{mesokurtic}}하다고 하고, 표준정규분포보다 얇은 꼬리를 가지면 첨도는 양수가 되며 이때 그 분포는 \textbf{\texttt{leptokurtic}}하다고 한다. 반대로 표준정규분포보다 두꺼운 꼬리를 가지면 첨도는 음수가 되며 이때 그 분포는 \textbf{\texttt{platykurtic}}하다고 한다. 일반적으로 꼬리의 두께는 \texttt{outlier}와 같은 극단적 사건의 발생확률을 의미하므로 \texttt{leptokurtic}한 분포와 \texttt{platykurtic}한 분포는 표준정규분포에 비해 극단적 사건의 확률이 각각 더 낮고 높다.
+
+한편, 왜도와 첨도는 모두 \texttt{Affine} 변환에 대해 불변이다. 다만, 왜도의 경우 부호 정도의 영향은 받으며, 이는 그 정의를 생각해보면 당연하다.
 
 \begin{theorem}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$와 임의의 $a,\,b\in\mathbb{R}$에 대해 $a\ne0$이면 다음이 성립한다.
@@ -779,27 +820,79 @@
     에서 ii가 성립한다.
 \end{proof}
 
+적률은 확률벡터인 경우로 보다 일반적으로 정의할 수도 있다. 물론, 이렇게 확률벡터에 대해 정의된 적률에 대해서도 명제 \ref{prop:momentExist}, \ref{prop:lowerMomentExist}는 비슷하게 성립한다.
+
 \begin{definition}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$와 $k\in\mathbb{N}_0^n$에 대해 다음을 정의한다.
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$와 $k\in\mathbb{N}_0^n$에 대해 $K=\sum_{i=1}^nk_i$라 하고 다음을 정의한다.
     \begin{enumerate}
-        \item 만약 $\expect(\prod_{i=1}^nX_i^{k_i})$가 존재한다면 이를 $X$의 \textbf{$k$차 (결합)적률($k$\texttt{th} (\texttt{joint}) \texttt{moment})}이라 하고 $\mu_{k,\,X}$ 혹은 간단히 $\mu_k$으로 쓴다.
-        \item 만약 $\expect(\prod_{i=1}^n(X_i-\mu_{X_i})^{k_i})$가 존재한다면 이를 $X$의 \textbf{$k$차 중심화된 (결합)적률($n$\texttt{th} (\texttt{joint}) \texttt{centeral moment})}이라 하고 $\tau_{k,\,X}$ 혹은 간단히 $\tau_k$으로 쓴다.
-        \item 만약 $\expect(\prod_{i=1}^n[(X_i-\mu_{X_i})/\sigma_{X_i}]^{k_i})$가 존재한다면 이를 $X$의 \textbf{$k$차 표준화된 (결합)적률($k$\texttt{th} (\texttt{joint}) \texttt{standardized moment})}이라 하고 $\kappa_{k,\,X}$ 혹은 간단히 $\kappa_k$으로 쓴다.
-        \item 만약 $\expect(\prod_{i=1}^nX_i^{\underline{k_i}})$가 존재한다면 이를 $X$의 \textbf{$k$차 (하향결합)계승적률($k$\texttt{th} (\texttt{joint falling}) \texttt{factorial moment})}이라 하고 $\mu_{\underline{k},\,X}$ 혹은 간단히 $\mu_{\underline{k}}$으로 쓴다.
-        \item 만약 $\expect(\prod_{i=1}^nX_i^{\overline{k_i}})$가 존재한다면 이를 $X$의 \textbf{$k$차 (상향결합)계승적률($n$\texttt{th} (\texttt{joint rising}) \texttt{factorial moment})}이라 하고 $\mu_{\overline{k},\,X}$ 혹은 간단히 $\mu_{\overline{k}}$으로 쓴다.
+        \item 만약 $\expect(\prod_{i=1}^nX_i^{k_i})$가 존재한다면 이를 $X$의 \textbf{$K$차 (결합)적률($K$\texttt{th} (\texttt{joint}) \texttt{moment})}이라 하고 $\mu_{k,\,X}$ 혹은 간단히 $\mu_k$으로 쓴다.
+        \item 만약 $\expect(\prod_{i=1}^n(X_i-\mu_{X_i})^{k_i})$가 존재한다면 이를 $X$의 \textbf{$K$차 중심화된 (결합)적률($n$\texttt{th} (\texttt{joint}) \texttt{centeral moment})}이라 하고 $\tau_{k,\,X}$ 혹은 간단히 $\tau_k$으로 쓴다.
+        \item 만약 $\expect(\prod_{i=1}^n[(X_i-\mu_{X_i})/\sigma_{X_i}]^{k_i})$가 존재한다면 이를 $X$의 \textbf{$K$차 표준화된 (결합)적률($K$\texttt{th} (\texttt{joint}) \texttt{standardized moment})}이라 하고 $\kappa_{k,\,X}$ 혹은 간단히 $\kappa_k$으로 쓴다.
+        \item 만약 $\expect(\prod_{i=1}^nX_i^{\underline{k_i}})$가 존재한다면 이를 $X$의 \textbf{$K$차 (하향결합)계승적률($K$\texttt{th} (\texttt{joint falling}) \texttt{factorial moment})}이라 하고 $\mu_{\underline{k},\,X}$ 혹은 간단히 $\mu_{\underline{k}}$으로 쓴다.
+        \item 만약 $\expect(\prod_{i=1}^nX_i^{\overline{k_i}})$가 존재한다면 이를 $X$의 \textbf{$K$차 (상향결합)계승적률($n$\texttt{th} (\texttt{joint rising}) \texttt{factorial moment})}이라 하고 $\mu_{\overline{k},\,X}$ 혹은 간단히 $\mu_{\overline{k}}$으로 쓴다.
     \end{enumerate}
 \end{definition}
+
+\begin{proposition}\label{prop:loewrJointMomentExist}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 만약 $X$의 $K$차 적률(혹은 중심화된 적률, 표준화된 적률, 하향계승적률, 상향계승적률)이 존재하면 $X$의 $L\leq K$차 적률(혹은 중심화된 적률, 표준화된 적률, 하향계승적률, 상향계승적률)이 존재한다.
+\end{proposition}
+
+\begin{proof}
+    적률에 대해서는 수학적 귀납법을 사용하자. 우선 각 $i\leq n$에 대해 $\expect(X_i^K)$가 존재하므로 $\expect(X_i)$도 존재하여 모든 $1$차 적률이 존재한다. 이제 귀납가정으로서 $L<K$에 대해 모든 $1,\,\cdots,\,L$차 적률이 존재한다고 하고 $L+1=\sum_{i=1}^nl_i$인 임의의 $l\in\mathbb{N}_0^n$을 택하여 \texttt{WLOG}, $l_1\ne0$이라 하면 $\prod_{i=1}^n|X_i|^{l_i}\leq|X_1|^{l_1+K-L}\prod_{i=2}^n|X_i|^{l_i}\ind_{\{|X_1|\geq1\}}+\prod_{i=2}^n|X_i|^{l_i}\ind_{\{|X_1|\geq1\}}\leq|X_1|^{l_1+K-L}\prod_{i=2}^n|X_i|^{l_i}+\prod_{i=2}^n|X_i|^{l_i}$에서 $\expect(\prod_{i=1}^n|X_i|^{l_i})$가 존재함을 알고, 곧 모든 $L+1$차 적률이 존재하여 모든 $L\leq K$차 적률이 존재함을 안다. 그리고 이로부터 중심화된 적률과 표준화된 적률에 대해서는 명제가 자명해진다.
+
+    다음으로 $X$의 하향계승적률에 대해서도 수학적 귀납법을 사용하자. 우선 각 $i\leq n$에 대해 $\expect(X_i^{\underline{K}})$가 존재하므로 $\expect(X_i)$도 존재하여 모든 $1$차 하향계승적률이 존재한다. 이제 귀납가정으로서 $L<K$에 대해 모든 $1,\,\cdots,\,L$차 적률이 존재한다고 하고 $L+1=\sum_{i=1}^nl_i$인 임의의 $l\in\mathbb{N}_0^n$을 택하여 \texttt{WLOG}, $l_1\ne0$이라 하면
+    \begin{align*}
+        \prod_{i=1}^n&|X_i^{\underline{l_i}}|\\
+        &\leq\frac{|X_1^{\underline{l_1+K-L}}|}{|(X_1-l_1)^{\underline{K-L}}|}\bigg(\prod_{i=2}^n|X_i^{\underline{l_i}}|\bigg)\bigg(\prod_{j=l_1}^{l_1+K-L-1}\ind_{\{X_1\ne j\}}\bigg)+\sum_{j=l_1}^{l_1+K-L-1}j^{\underline{l_1}}\bigg(\prod_{i=2}^n|X_i^{\underline{l_i}}|\bigg)\ind_{\{X_1=j\}}
+    \end{align*}
+    이다. 한편, 함수 $f:\mathbb{R}\to\mathbb{R}$를 $f:x\mapsto|(x-l_1)^{\underline{K-L}}|$로 두면 이는 적당한 $M>l_1+K-L-1$이 존재하여 $(-\infty,\,-M)$와 $(M,\,\infty)$에서 $f$는 각각 감소하고 증가하며 $f(-M),\,f(M)\geq1$이다. 이상으로부터
+    \begin{align*}
+        \prod_{i=1}^n|X_i^{\underline{l_i}}|&\leq|X_1^{\underline{l_1+K-L}}|\bigg(\prod_{i=2}^n|X_i^{\underline{l_i}}|\bigg)\ind_{\{|X_1|\geq M\}}+\bigg(\prod_{i=1}^n|X_i^{\underline{l_i}}|\bigg)\bigg(\prod_{j=l_1}^{l_1+K-L-1}\ind_{\{X_1\ne j\}}\bigg)\ind_{\{|X_1|<M\}}\\
+        &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad+\sum_{j=l_1}^{l_1+K-L-1}j^{\underline{l_1}}\bigg(\prod_{i=2}^n|X_i^{\underline{l_i}}|\bigg)\ind_{\{X_1=j\}}\\
+        &\leq|X_1^{\underline{l_1+K-L}}|\prod_{i=2}^n|X_i^{\underline{l_i}}|+M^{\underline{l_1}}\prod_{i=2}^n|X_i^{\underline{l_i}}|+\sum_{j=l_1}^{l_1+K-L-1}M^{\underline{l_1}}\prod_{i=2}^n|X_i^{\underline{l_i}}|\\
+        &=|X_1^{\underline{l_1+K-L}}|\prod_{i=2}^n|X_i^{\underline{l_i}}|+(K-L+1)M^{\underline{l_1}}\prod_{i=2}^n|X_i^{\underline{l_i}}|
+    \end{align*}
+    이다. 여기서 두 번째 부등호는 함수 $x\mapsto|x^{\underline{l_1}}|$이 $(l_1-1,\,\infty)$에서 증가하므로 성립한다. 이로부터 $\expect(\prod_{i=1}^n|X_i^{\underline{l_i}}|)$가 존재함을 알고, 곧 모든 $L+1$차 계승하항적률이 존재하여 모든 $L\leq K$의 하향계승적률이 존재함을 안다.
+\end{proof}
+
+\begin{proposition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 \texttt{TFAE}.
+    \begin{enumerate}
+        \item \texttt{Rv.} $X$의 모든 $K$차 적률이 존재한다.
+        \item 각 $i\leq n$에 대해 $\expect(X_i)$가 존재한다면 $X$의 모든 $K$차 중심화된 적률이 존재한다.
+        \item 각 $i\leq n$에 대해 $\var(X_i)$가 존재하고 $0$이 아니면 $X$의 모든 $K$차 표준화된 적률이 존재한다.
+        \item \texttt{Rv.} $X$의 모든 $K$차 하향계승적률이 존재한다.
+        \item \texttt{Rv.} $X$의 모든 $K$차 상향계승적률이 존재한다.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    만약 $K=0$이면 명제가 자명하므로 $K>0$이라 하자.
+
+    i $\Leftrightarrow$ ii. 명제 \ref{prop:loewrJointMomentExist}로부터 $X$의 모든 $L\leq K$차 적률이 존재한다. 이제 $K=\sum_{i=1}^nk_i$인 임의의 $k\in\mathbb{N}_0^n$에 대해 $\prod_{i=1}^n(X_i-\mu_{X_i})^{k_i}$의 전개식에서 $\prod_{i=1}^nX_i^{k_i}$가 최고차항임을 생각해보면 충분조건임이 자명하고, 필요조건임도 이와 비슷하게 보일 수 있다.
+
+    ii $\Leftrightarrow$ iii. 이는 정의로부터 자명하다.
+
+    i $\Rightarrow$ iv. 명제 \ref{prop:loewrJointMomentExist}로부터 $X$의 모든 $L\leq K$차 적률이 존재한다. 이제 $K=\sum_{i=1}^nk_i$인 임의의 $k\in\mathbb{N}_0^n$에 대해 $\prod_{i=1}^nX_i^{\underline{k_i}}=\prod_{i=1}^n\prod_{j=0}^{k_i-1}(X_i-j)$의 전개식에서 $\prod_{i=1}^nX_i^{k_i}$가 최고차항임을 생각해보면 명제가 자명하다.
+
+    iv $\Rightarrow$ i. 수학적 귀납법을 사용하자. 우선 $K=1$이면 명제 \ref{prop:momentExist}로부터 자명하다. 이제 귀납가정으로서 모든 $L<K$에 대해 명제가 성립한다고 하고 모든 $L+1$차 하향계승적률이 존재한다고 하자. 또한 $L+1=\sum_{i=1}^nl_i$인 임의의 $l\in\mathbb{N}_0^n$을 택하자. 그렇다면 명제 \ref{prop:loewrJointMomentExist}로부터 $X$의 모든 $M\leq L+1$차 하향계승적률이 존재하고, $\prod_{i=1}^nX_i^{\underline{l_i}}=\prod_{i=1}^n\prod_{j=0}^{l_i-1}(X_i-j)$의 전개식에서 $\prod_{i=1}^nX_i^{l_i}$가 최고차항이므로 $\prod_{i=1}^nX_i^{l_i}$는 $\prod_{i=1}^nX_i^{\underline{k_i}}$와 $1,\,\cdots,\,L$차항 그리고 상수항의 선형결합으로 쓸 수 있어서 $\expect(\prod_{i=1}^nX_i^{l_i})$가 존재하고, 곧 명제가 성립한다.
+
+    i $\Leftrightarrow$ v. 이는 i $\Leftrightarrow$ iv의 증명과 비슷하게 하면 된다.
+\end{proof}
+
+보통 적률에 대한 이론을 전개할 때에는 적률을 그 자체로 다루는 것보다 아래의 \texttt{MGF}를 통해 다루는 것이 더 편리하다.
 
 \begin{definition}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$와 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$이 존재하여 임의의 $t\in U$에 대해 $\expect(e^{t^\trans X})$가 존재하면 \texttt{rv.} $X$의 \textbf{적률생성함수(\texttt{moment generating function})}를 $M_X:U\to\mathbb{R}$로 쓰고 $M_X:t\mapsto\expect(e^{t^\trans X})$로 정의한다. 특별히, $n\geq2$인 경우 $M_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합적률생성함수(\texttt{joint moment generating function})}라 하기도 한다.
 \end{definition}
 
-\begin{theorem}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 적당한 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$ 위에서 존재하면 다음이 성립한다.
+\begin{theorem}\label{thm:MGFProp}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$ 위에서 존재하면 다음이 성립한다.
     \begin{enumerate}
         \item $M_X(0)=1$.
         \item $M_X>0$.
         \item \texttt{MGF} $M_X$는 \texttt{log}-볼록하다.
+        \item 임의의 $a\in\mathbb{R}$와 임의의 $b\in\mathbb{R}^n$에 대해 $M_{aX+b}$가 적당한 $0$의 근방 $V\subseteq\mathbb{R}^n$에서 존재하고, $at\in U$인 임의의 $t\in V$에 대해 $M_{aX+b}(t)=e^{t^\trans b}M_X(at)$이다.
     \end{enumerate}
 \end{theorem}
 
@@ -809,10 +902,14 @@
     ii. 따름정리 \ref{cor:zeroAeIntegral}의 iii으로부터 임의의 $t\in\mathbb{R}^n$에 대해 $M_X(t)=\expect(e^{t^\trans X})>\expect(0)=0$이므로 이는 자명하다.
 
     iii. 임의의 $s,\,t\in U$와 $\lambda\in(0,\,1)$에 대해 \texttt{H\"older}의 부등식으로부터 $M_X(\lambda s+(1-\lambda)t)=\expect(e^{[\lambda s+(1-\lambda)t]^\trans X})\leq[\expect(e^{s^\trans X})]^\lambda[\expect(e^{t^\trans X})]^{1-\lambda}=M_X(s)^\lambda M_X(t)^{1-\lambda}$가 되고, ii로부터 $M_X>0$이므로 양변에 \texttt{log}를 취하면 $\log M_X(\lambda s+(1-\lambda)t)\leq\lambda\log M_X(s)+(1-\lambda)\log M_X(t)$이다. 이 부등식이 $\lambda=0,\,1$인 경우에도 성립함이 자명하므로 $M_X$는 \texttt{log}-볼록하다.
+
+    iv. 집합 $V=\{t\in\mathbb{R}^n:at\in U\}$를 생각하면 이는 명백히 $0$의 근방이고, 임의의 $t\in V$에 대해 $\expect(e^{t^\trans(aX+b)})=e^{t^\trans b}\expect(e^{(at)^\trans X})=e^{t^\trans b}M_X(at)$에서 정리가 성립한다.
 \end{proof}
 
+그러나 \texttt{MGF}의 정의만 보아서는 이와 적률 사이의 관계를 눈치채기가 쉽지 않다. 이에 다음 정리는 \texttt{MGF}와 적률의 관계를 명시적으로 잘 보여준다.
+
 \begin{lemma}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$ 위에서 존재하면, 적당한 $0$의 근방 $V\subseteq U$가 존재하여 임의의 $t\in V$에 대해 $\expect(e^{|t|^\trans|X|})$가 존재한다. 특별히, $U=\mathbb{R}^n$이면 $V=\mathbb{R}^n$으로 잡을 수 있으며, 여기서 임의의 $x\in\mathbb{R}^n$에 대해 $|x|:=(|x_i|)$이다.
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$ 위에서 존재하면, 적당한 $0$의 근방 $V\subseteq U$가 존재하여 임의의 $t\in V$에 대해 $\expect(e^{|t|^\trans|X|})$가 존재한다. 특별히, $U=\mathbb{R}^n$이면 $V=\mathbb{R}^n$으로 잡을 수 있다.
 \end{lemma}
 
 \begin{proof}
@@ -828,7 +925,7 @@
 \end{proof}
 
 \begin{theorem}\label{thm:MGFTaylor}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$ 위에서 존재하면 임의의 $k\in\mathbb{N}_0^n$에 대해 $X$의 $k$차 적률이 존재한다. 나아가, 적당한 $0$의 근방 $V\subseteq U$가 존재하여 임의의 $t\in V$에 대해 
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$ 위에서 존재하면 $X$의 모든 적률이 존재하고, 적당한 $0$의 근방 $V\subseteq U$가 존재하여 임의의 $t\in V$에 대해 
     \begin{equation*}
         M_X(t)=\sum_{j=0}^\infty\sum_{k_1+\cdots+k_n=j}\expect\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)\prod_{i=1}^n\frac{t_i^{k_i}}{k_i!}=\sum_{k\in\mathbb{N}_0^n}\expect\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)\prod_{i=1}^n\frac{t_i^{k_i}}{k_i!}
     \end{equation*}
@@ -836,7 +933,7 @@
 \end{theorem}
 
 \begin{proof}
-    먼저 임의의 $k\in\mathbb{N}_0^n$에 대해 $k$차 적률이 존재함을 보이자. 이를 위해 $K=\sum_{i=1}^nk_i$로 두고 각 성분이 양수인 $t\in U$를 택하면
+    먼저 임의의 $k\in\mathbb{N}_0^n$에 대해 $\expect(\prod_{i=1}^nX_i^{k_i})$가 존재함을 보이자. 이를 위해 $K=\sum_{i=1}^nk_i$로 두고 각 성분이 양수인 $t\in U$를 택하면
     \begin{align*}
         \bigg|\prod_{i=1}^nX_i^{k_i}\bigg|&=\prod_{i=1}^nt_i|X_i|^{k_i}\bigg/\prod_{i=1}^nt_i^{k_i}\\
         &\leq\bigg(\sum_{i=1}^nt_i|X_i|\bigg)^K\bigg/\bigg(\prod_{i=1}^nt_i^{k_i}\bigg)\binom{K}{k_1\,\cdots\,k_n}\\
@@ -844,7 +941,7 @@
         &\leq\bigg(\prod_{i=1}^n\frac{k_i!}{t_i^{k_i}}\bigg)\sum_{j=0}^\infty\frac{(t^\trans|X|)^j}{j!}\\
         &=\bigg(\prod_{i=1}^n\frac{k_i!}{t_i^{k_i}}\bigg)e^{t^\trans|X|}
     \end{align*}
-    인데, 보조정리로부터 $t$를 충분히 작게 잡아주면 $\expect(e^{t^\trans|X|})$가 존재하므로 $X$의 $k$차 적률도 존재함을 안다.
+    인데, 보조정리로부터 $t$를 충분히 작게 잡아주면 $\expect(e^{t^\trans|X|})$가 존재하므로 $\expect(\prod_{i=1}^nX_i^{k_i})$도 존재함을 알고, 곧 $X$의 모든 적률이 존재한다.
 
     다음으로, 임의의 $l\in\mathbb{N}_0$와 $t\in U$에 대해
     \begin{align*}
@@ -868,25 +965,27 @@
     이므로 보조정리로부터 $t_0$를 충분히 작게 잡아주면 $\expect(e^{|t|^{\,\trans}|X|})$가 존재하고, (*)에서와 비슷하게 하여 (*)의 급수가 절대수렴함을 쉽게 보일 수 있다. 이로부터 (*)의 급수에서의 합의 순서를 바꿀 수 있으므로 원하는 형태의 식을 얻고, $U=\mathbb{R}^n$인 경우에는 이상의 논의에서 $V=\mathbb{R}^n$으로 택할 수 있음이 자명하므로 증명이 끝난다.
 \end{proof}
 
+한편, \texttt{MGF}는 적률을 계산하는 방법으로도 유용하게 쓰인다.
+
 \begin{theorem}\label{thm:MGFDifferentiation}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$ 위에서 존재한다고 하자. 그렇다면 임의의 $k\in\mathbb{N}_0^n$와 임의의 $t\in U$에 대해 $K=\sum_{i=1}^nk_i$라 하면 $\expect((\prod_{i=1}^nX_i^{k_i})e^{t^\trans X})$가 존재하고
-    \begin{equation*}
-        \frac{\partial^K}{\partial t_1^{k_1}\cdots\partial t_n^{k_n}}M_X(t)=\expect\bigg(\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)e^{t^\trans X}\bigg)
-    \end{equation*}
-    이다.
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$ 위에서 존재한다고 하자. 그렇다면 임의의 $k\in\mathbb{N}_0^n$에 대해 $K=\sum_{i=1}^nk_i$라 하면 $\expect(\prod_{i=1}^nX_i^{k_i})=(\partial^K/\partial t_1^{k_1}\cdots\partial t_n^{k_n})M_X(0)$이다. 이때, 편미분의 순서는 중요하지 않다.
 \end{theorem}
 
 \begin{proof}
-    간결한 논의를 위해 $k_n\ne0$이라 하자. ($k_n=0$인 경우에도 이와 비슷하게 하면 된다.) 임의의 $t\in U$를 고정하면 적당한 $0$의 근방 $V\subseteq\mathbb{R}$가 존재하여 임의의 $h\in V$에 대해 $t+h\mathbf{e}_n\in U$이다. 이제 함수 $f:\Omega\times V$를 $f:(\omega,\,h)\mapsto e^{(t+h\mathbf{e}_n)^\trans X(\omega)}$로 두면 임의의 $(\omega,\,h)\in\Omega\times V$에 대해 $|(\partial/\partial h)f(\omega,\,h)|=|X_n(\omega)e^{(t+h\mathbf{e}_n)^\trans X(\omega)}|=|X_n(\omega)|$이고 $\expect(X_n)$이 존재하므로 $f$가 \texttt{Leibniz}의 법칙의 모든 조건을 만족시킨다. 따라서 함수 $h\mapsto\int_\Omega e^{(t+h\mathbf{e}_n)^\trans X}\,d\mathbb{P}=M_X(t+h\mathbf{e}_n)$는 미분가능하고 $\expect(X_ne^{t^\trans X})$가 존재하며, $(\partial/\partial t_n)M_X(t)=(d/dh)M_X(t+h\mathbf{e}_n)\vert_{h=0}=\int_\Omega X_ne^{t^\trans X}\,d\mathbb{P}=\expect(X_ne^{t^\trans X})$이다. 이제 이와 비슷하게 $K-1$번 반복하면 원하는 결과를 얻는다.
+    정리 \ref{thm:MGFTaylor}로부터 적당햔 $0$의 근방 $V\subseteq U$가 존재하여 임의의 $t\in V$에 대해
+    \begin{equation*}
+        M_X(t)=\sum_{l\in\mathbb{N}_0^n}\expect\bigg(\prod_{i=1}^nX_i^{l_i}\bigg)\prod_{i=1}^n\frac{t_i^{l_i}}{l_i!}
+    \end{equation*}
+    인데, 이가 멱급수이므로
+    \begin{align*}
+        \frac{\partial^K}{\partial t_1^{k_1}\cdots\partial t_n^{k_n}}M_X(0)&=\sum_{l\in\mathbb{N}_0^n}\expect\bigg(\prod_{i=1}^nX_i^{l_i}\bigg)\frac{\partial^K}{\partial t_1^{k_1}\cdots\partial t_n^{k_n}}\prod_{i=1}^n\frac{t_i^{l_i}}{l_i!}\bigg\vert_{t=0}\\
+        &=\sum_{k\leq l\in\mathbb{N}_0^n}\expect\bigg(\prod_{i=1}^nX_i^{l_i}\bigg)\prod_{i=1}^n\frac{t_i^{l_i-k_i}}{(l_i-k_i)!}\bigg\vert_{t=0}\\
+        &=\expect\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)
+    \end{align*}
+    이다.
 \end{proof}
 
-\begin{corollary}
-    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$ 위에서 존재한다고 하자. 그렇다면 임의의 $k\in\mathbb{N}_0^n$에 대해 $K=\sum_{i=1}^nk_i$라 하면 $\expect(\prod_{i=1}^nX_i^{k_i})=(\partial^K/\partial t_1^{k_1}\cdots\partial t_n^{k_n})M_X(0)$이다. 이때, 편미분의 순서는 중요하지 않다.
-\end{corollary}
-
-\begin{proof}
-    이는 위의 정리로부터 자명하다.
-\end{proof}
+이렇게 적률과 긴밀하게 연결되어 있는 \texttt{MGF}이지만 이는 그 존재성이 항상 보장되지 않는다는 큰 단점을 가진다. 이론 전개에 있어 이러한 단점은 많은 귀찮음을 유발하므로 자연스럽게 항상 존재하면서도 \texttt{MGF}의 역할을 해 줄수 있는 대체재를 생각해내기에 이르렀는데, 그것이 바로 확률벡터의 \texttt{PDF}의 \texttt{Fourier} 변환인 \texttt{CF}이다. 아래의 정의에서 기댓값에 복소함수가 들어갔는데, 측도론의 에필로그에서 논한 복소함수의 적분에 대한 내용을 그대로 적용하면 된다. 즉, 확률변수 $X,\,Y$에 대해 $\expect(X)$와 $\expect(Y)$가 존재한다면 $\expect(X+\imag Y)=\expect(X)+\imag\expect(Y)$이다.
 
 \begin{definition}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 \texttt{rv.} $X$의 \textbf{특성함수(\texttt{characteristic function})}를 $\varphi_X:\mathbb{R}^n\to\mathbb{C}$로 쓰고 $\varphi_X:t\mapsto\expect(e^{\imag\,t^\trans X})$로 정의한다. 특별히, $n\geq2$인 경우 $\varphi_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합특성함수(\texttt{joint characteristic function})}라 하기도 한다.
@@ -900,12 +999,15 @@
     함수 $e^{\imag\,t^\trans X}$의 실수부 $\cos t^\trans X$와 허수부 $\sin t^\trans X$가 모두 적분가능함을 보이면 되는데, 이는 $|\cos t^\trans X|,\,|\sin t^\trans X|\leq1$에서 자명하다.
 \end{proof}
 
+\texttt{CF}는 항상 존재한다는 장점과 더불어 함수로서도 훌륭한 성질들을 가진다.
+
 \begin{theorem}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 다음이 성립한다.
     \begin{enumerate}
         \item $\varphi_X(0)=1$.
         \item $|\varphi_X|\leq1$.
         \item $\varphi_X$는 균등연속이다.
+        \item 임의의 $a\in\mathbb{R}$와 임의의 $b,\,t\in\mathbb{R}^n$에 대해 $\varphi_{aX+b}(t)=e^{\imag\,t^\trans b}\varphi_X(at)$이다.
     \end{enumerate}
 \end{theorem}
 
@@ -915,9 +1017,49 @@
     ii. 임의의 $t\in\mathbb{R}^n$에 대해 $|\varphi_X(t)|=|\expect(e^{\imag\,t^\trans X})|\leq\expect(|e^{\imag\,t^\trans X}|)=\expect(1)=1$이므로 이는 자명하다.
 
     iii. 함수 $f:\Omega\times\mathbb{R}^n$를 $f:(\omega,\,t)\mapsto|e^{\imag\,t^\trans X(\omega)}-1|$로 두면 임의의 $\omega\in\Omega$에 대해 $f_\omega$는 연속이다. 또한, 임의의 $(\omega,\,t)\in\Omega\times\mathbb{R}^n$에 대해 $|e^{\imag\,t^\trans X(\omega)}-1|\leq|e^{\imag\,t^\trans X(\omega)}|+1=2$이므로 임의의 $t\in\mathbb{R}^n$에 대해 $f^t$는 적분가능하고 $|f|\leq2$이다. 이상으로부터 $f$가 따름정리 \ref{cor:integralContinuous}의 조건을 모두 만족시킴을 알 수 있으므로 함수 $t\mapsto\int_\Omega|e^{\imag\,t^\trans X}-1|\,d\mathbb{P}=\expect(|e^{\imag\,t^\trans X}-1|)$는 연속이다. 특히 이가 $0$에서 연속이므로 $t\to0$이면 $\expect(|e^{\imag\,t^\trans X}-1|)\to0$이고, 곧 임의의 $\epsilon>0$을 택하면 적당한 $\delta>0$가 존재하여 $|t|<\delta$이면 $\expect(|e^{\imag\,t^\trans X}-1|)<\epsilon$이다. 이로부터 $||s-t||<\delta$인 임의의 $s,\,t\in\mathbb{R}^n$에 대해 $|\varphi_X(s)-\varphi_X(t)|=|\expect(e^{\imag\,s^\trans X}-e^{\imag\,t^\trans X})|\leq\expect(|e^{\imag\,t^\trans X}(e^{\imag(s-t)^\trans X}-1)|)=\expect(|e^{\imag(s-t)^\trans X}-1|)<\epsilon$이 되어 $\varphi_X$가 균등연속임을 안다.
+
+    iv. 이는 $\expect(e^{\imag\,t^\trans(aX+b)})=e^{\imag\,t^\trans b}\expect(e^{\imag\,(at)^\trans X})=e^{\imag\,t^\trans b}\varphi_X(at)$에서 자명하다.
 \end{proof}
 
-\begin{theorem}
+나아가, \texttt{MGF}와 적률의 관계를 잘 보여주었던 정리 \ref{thm:MGFTaylor}, \ref{thm:MGFDifferentiation}가 \texttt{CF}에 대해서도 거의 비슷하게 (사실은 더 잘) 성립한다.
+
+\begin{lemma}\label{lem:expComplex}
+    임의의 $x,\,y\in\mathbb{R}^n$와 $k\in\mathbb{N}$에 대해
+    \begin{equation*}
+        \bigg|e^{\imag x^\trans y}-\sum_{i=0}^k\imag^i\frac{(x^\trans y)^i}{i!}\bigg|\leq\min\bigg\{\frac{(|x|^\trans|y|)^{k+1}}{(k+1)!},\,\frac{2(|x|^\trans|y|)^k}{k!}\bigg\}
+    \end{equation*}
+    이다.
+\end{lemma}
+
+\begin{proof}
+    \texttt{Taylor}의 정리로부터
+    \begin{align*}
+        e^{\imag\,x^\trans y}&=\sum_{i=0}^{k-1}\imag^i\frac{(x^\trans y)^i}{i!}+\imag^k\frac{(x^\trans y)^k}{(k-1)!}\int_0^1(1-t)^{k-1}e^{\imag\,tx^\trans y}\,dt\\
+        &=\sum_{i=0}^k\imag^i\frac{(x^\trans y)^i}{i!}+\imag^k\frac{(x^\trans y)^k}{(k-1)!}\int_0^1(1-t)^{k-1}(e^{\imag\,tx^\trans y}-1)\,dt
+    \end{align*}
+    이다. 여기서 마지막 등호는 $\int_0^1(1-t)^{k-1}\,dt=1/k$에서 성립한다. 이로부터
+    \begin{align*}
+        \bigg|e^{\imag\,x^\trans y}-\sum_{i=0}^k\imag^i\frac{(x^\trans y)^i}{i!}\bigg|&=\bigg|\imag^{k+1}\frac{(x^\trans y)^{k+1}}{k!}\int_0^1(1-t)^ke^{\imag\,tx^\trans y}\,dt\bigg|\\
+        &\leq\frac{(|x|^\trans|y|)^{k+1}}{k!}\int_0^1(1-t)^k|e^{\imag\,tx^\trans y}|\,dt\\
+        &=\frac{(|x|^\trans|y|)^{k+1}}{k!}\int_0^1(1-t)^k\,dt\\
+        &=\frac{(|x|^\trans|y|)^{k+1}}{(k+1)!}
+    \end{align*}
+    이고
+    \begin{align*}
+        \bigg|e^{\imag\,x^\trans y}-\sum_{i=0}^k\imag^i\frac{(x^\trans y)^i}{i!}\bigg|&=\bigg|\imag^k\frac{(x^\trans y)^k}{(k-1)!}\int_0^1(1-t)^{k-1}(e^{\imag\,tx^\trans y}-1)\,dt\bigg|\\
+        &\leq\frac{(|x|^\trans|y|)^k}{(k-1)!}\int_0^1(1-t)^{k-1}|e^{\imag\,tx^\trans y}-1|\,dt\\
+        &\leq\frac{(|x|^\trans|y|)^k}{(k-1)!}\int_0^1(1-t)^{k-1}(|e^{\imag\,tx^\trans y}|+1)\,dt\\
+        &=\frac{(|x|^\trans|y|)^k}{(k-1)!}\int_0^12(1-t)^{k-1}\,dt\\
+        &=\frac{2(|x|^\trans|y|)^k}{k!}
+    \end{align*}
+    이므로
+    \begin{equation*}
+        \bigg|e^{\imag\,x^\trans y}-\sum_{i=0}^k\imag^i\frac{(x^\trans y)^i}{i!}\bigg|\leq\min\bigg\{\frac{(|x|^\trans|y|)^{k+1}}{(k+1)!},\,\frac{2(|x|^\trans|y|)^k}{k!}\bigg\}
+    \end{equation*}
+    이다.
+\end{proof}
+
+\begin{theorem}\label{thm:CFTaylor}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X$가 $\mathbb{R}^n$ 위에서 존재하면 임의의 $t\in\mathbb{R}^n$에 대해
     \begin{equation*}
         \varphi_X(t)=\sum_{j=0}^\infty\imag^j\sum_{k_1+\cdots+k_n=j}\expect\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)\prod_{i=1}^n\frac{t_i^{k_i}}{k_i!}=\sum_{k\in\mathbb{N}_0^n}\imag^{k_1+\cdots+k_n}\expect\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)\prod_{i=1}^n\frac{t_i^{k_i}}{k_i!}
@@ -926,31 +1068,7 @@
 \end{theorem}
 
 \begin{proof}
-    \texttt{Taylor}의 정리로부터 임의의 $x\in\mathbb{R}^n$와 임의의 $k\in\mathbb{N}$에 대해 임의의 $t\in\mathbb{R}^n$를 택하면
-    \begin{align*}
-        e^{\imag\,t^\trans x}&=\sum_{j=0}^{k-1}\imag^j\frac{(t^\trans x)^j}{j!}+\imag^k\frac{(t^\trans x)^k}{(k-1)!}\int_0^1(1-s)^{k-1}e^{\imag\,st^\trans x}\,ds\\
-        &=\sum_{j=0}^k\imag^j\frac{(t^\trans x)^j}{j!}+\imag^k\frac{(t^\trans x)^k}{(k-1)!}\int_0^1(1-s)^{k-1}(e^{\imag\,st^\trans x}-1)\,ds
-    \end{align*}
-    이다. 여기서 마지막 등호는 $\int_0^1(1-s)^{k-1}\,ds=1/k$에서 성립한다. 이로부터 임의의 $K\in\mathbb{N}$를 택하면
-    \begin{align*}
-        \bigg|e^{\imag\,t^\trans X}-\sum_{j=0}^K\imag^j\frac{(t^\trans X)^j}{j!}\bigg|&=\bigg|\imag^{K+1}\frac{(t^\trans X)^{K+1}}{K!}\int_0^1(1-s)^Ke^{\imag\,st^\trans X}\,ds\bigg|\\
-        &\leq\frac{(|t|^\trans|X|)^{K+1}}{K!}\int_0^1(1-s)^K|e^{\imag\,st^\trans X}|\,ds\\
-        &=\frac{(|t|^\trans|X|)^{K+1}}{K!}\int_0^1(1-s)^K\,ds\\
-        &=\frac{(|t|^\trans|X|)^{K+1}}{(K+1)!}
-    \end{align*}
-    이고
-    \begin{align*}
-        \bigg|e^{\imag\,t^\trans X}-\sum_{j=0}^K\imag^j\frac{(t^\trans X)^j}{j!}\bigg|&=\bigg|\imag^K\frac{(t^\trans X)^K}{(K-1)!}\int_0^1(1-s)^{K-1}(e^{\imag\,st^\trans X}-1)\,ds\bigg|\\
-        &\leq\frac{(|t|^\trans|X|)^K}{(K-1)!}\int_0^1(1-s)^{K-1}|e^{\imag\,st^\trans X}-1|\,ds\\
-        &\leq\frac{(|t|^\trans|X|)^K}{(K-1)!}\int_0^1(1-s)^{K-1}(|e^{\imag\,st^\trans X}|+1)\,ds\\
-        &=\frac{(|t|^\trans|X|)^K}{(K-1)!}\int_0^12(1-s)^{K-1}\,ds\\
-        &=\frac{2(|t|^\trans|X|)^K}{K!}
-    \end{align*}
-    이므로
-    \begin{equation*}
-        \bigg|e^{\imag\,t^\trans X}-\sum_{j=0}^K\imag^j\frac{(t^\trans X)^j}{j!}\bigg|\leq\min\bigg\{\frac{(|t|^\trans|X|)^{K+1}}{(K+1)!},\,\frac{2(|t|^\trans|X|)^K}{K!}\bigg\}
-    \end{equation*}
-    이다. 이는 곧
+    위의 보조정리로부터 임의의 $t\in\mathbb{R}^n$와 임의의 $K\in\mathbb{N}$를 택하면
     \begin{align*}
         \bigg|\varphi_X(t)&-\sum_{j=0}^K\imag^j\sum_{k_1+\cdots+k_n=j}\expect\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)\prod_{i=1}^n\frac{t_i^{k_i}}{k_i!}\bigg|\\
         &=\bigg|\varphi_X(t)-\sum_{j=0}^K\frac{\imag^j}{j!}\sum_{k_1+\cdots+k_n=j}\binom{j}{k_1\,\cdots\,k_n}\expect\bigg(\prod_{i=1}^nt_iX_i\bigg)\bigg|\\
@@ -961,10 +1079,10 @@
         &\leq\min\bigg\{\frac{1}{(K+1)!}\sum_{k_1+\cdots+k_n=K+1}\binom{K+1}{k_1\,\cdots\,k_n}\expect\bigg(\prod_{i=1}^n|X_i|^{k_i}\bigg)\prod_{i=1}^nt_i^{k_i},\\
         &\qquad\qquad\qquad\qquad\qquad\qquad\frac{2}{K!}\sum_{k_1+\cdots+k_n=K}\binom{l}{k_1\,\cdots\,k_n}\expect\bigg(\prod_{i=1}^n|X_i|^{k_i}\bigg)\prod_{i=1}^nt_i^{k_i}\bigg\}
     \end{align*}
-    를 함의하는데, $M_X$가 $\mathbb{R}^n$ 위에서 존재하므로 정리 \ref{thm:MGFTaylor}로부터 $l\to\infty$이면 우변의 두 항이 모두 $0$으로 수렴하여 $\varphi_X(t)=\sum_{j=0}^\infty\imag^j\sum_{k_1+\cdots+k_n=j}\expect(\prod_{i=1}^nX_i^{k_i})\prod_{i=1}^nt_i^{k_i}/k_i!$임을 안다. 한편, 다시 정리 \ref{thm:MGFTaylor}로부터 이 급수가 졀대수렴함을 알고, 곧 합의 순서를 바꿀 수 있으므로 원하는 형태의 식을 얻는다.
+    인데, $M_X$가 $\mathbb{R}^n$ 위에서 존재하므로 정리 \ref{thm:MGFTaylor}로부터 $l\to\infty$이면 우변의 두 항이 모두 $0$으로 수렴하여 $\varphi_X(t)=\sum_{j=0}^\infty\imag^j\sum_{k_1+\cdots+k_n=j}\expect(\prod_{i=1}^nX_i^{k_i})\prod_{i=1}^nt_i^{k_i}/k_i!$임을 안다. 한편, 다시 정리 \ref{thm:MGFTaylor}로부터 이 급수가 졀대수렴함을 알고, 곧 합의 순서를 바꿀 수 있으므로 원하는 형태의 식을 얻는다.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{thm:CFDifferentiation}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$와 $k\in\mathbb{N}_0^n$에 대해 $X$의 $k$차 적률이 존재한다고 하자. 그렇다면 $K=\sum_{i=1}^nk_i$와 임의의 $t\in\mathbb{R}^n$에 대해 $\expect((\prod_{i=1}^nX_i^{k_i})e^{\imag\,t^\trans X})$가 존재하고
     \begin{equation*}
         \frac{\partial^K}{\partial t_1^{k_1}\cdots\partial t_n^{k_n}}\varphi_X(t)=\imag^K\expect\bigg(\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)e^{\imag\,t^\trans X}\bigg)
@@ -973,7 +1091,7 @@
 \end{theorem}
 
 \begin{proof}
-    증명은 정리 \ref{thm:MGFDifferentiation}의 증명과 거의 똑같다. 간결한 논의를 위해 $k_n\ne0$이라 하자. ($k_n=0$인 경우에도 이와 비슷하게 하면 된다.) 임의의 $t\in\mathbb{R}^n$를 고정하고 함수 $f:\Omega\times\mathbb{R}$를 $f:(\omega,\,h)\mapsto e^{\imag(t+h\mathbf{e}_n)^\trans X(\omega)}$로 두면 임의의 $(\omega,\,h)\in\Omega\times\mathbb{R}$에 대해 $|(\partial/\partial h)f(\omega,\,h)|=|\imag X_n(\omega)e^{\imag(t+h\mathbf{e}_n)^\trans X(\omega)}|=|X_n(\omega)|$이고 $\expect(X_n)$이 존재하므로 $f$가 \texttt{Leibniz}의 법칙의 모든 조건을 만족시킨다. 따라서 함수 $h\mapsto\int_\Omega e^{\imag(t+h\mathbf{e}_n)^\trans X}\,d\mathbb{P}=\varphi_X(t+h\mathbf{e}_n)$는 미분가능하고 $\expect(X_ne^{\imag\,t^\trans X})$가 존재하며, $(\partial/\partial t_n)\varphi_X(t)=(d/dh)\varphi_X(t+h\mathbf{e}_n)\vert_{h=0}=\int_\Omega\imag X_ne^{\imag\,t^\trans X}\,d\mathbb{P}=\imag\expect(X_ne^{\imag\,t^\trans X})$이다. 이제 이와 비슷하게 $K-1$번 반복하면 원하는 결과를 얻는다.
+    간결한 논의를 위해 $k_n\ne0$이라 하자. ($k_n=0$인 경우에도 이와 비슷하게 하면 된다.) 임의의 $t\in\mathbb{R}^n$를 고정하고 함수 $f:\Omega\times\mathbb{R}$를 $f:(\omega,\,h)\mapsto e^{\imag(t+h\mathbf{e}_n)^\trans X(\omega)}$로 두면 임의의 $(\omega,\,h)\in\Omega\times\mathbb{R}$에 대해 $|(\partial/\partial h)f(\omega,\,h)|=|\imag X_n(\omega)e^{\imag(t+h\mathbf{e}_n)^\trans X(\omega)}|=|X_n(\omega)|$이고 $\expect(X_n)$이 존재하므로 $f$가 \texttt{Leibniz}의 법칙의 모든 조건을 만족시킨다. 따라서 함수 $h\mapsto\int_\Omega e^{\imag(t+h\mathbf{e}_n)^\trans X}\,d\mathbb{P}=\varphi_X(t+h\mathbf{e}_n)$는 미분가능하고 $\expect(X_ne^{\imag\,t^\trans X})$가 존재하며, $(\partial/\partial t_n)\varphi_X(t)=(d/dh)\varphi_X(t+h\mathbf{e}_n)\vert_{h=0}=\int_\Omega\imag X_ne^{\imag\,t^\trans X}\,d\mathbb{P}=\imag\expect(X_ne^{\imag\,t^\trans X})$이다. 이제 이와 비슷하게 $K-1$번 반복하면 원하는 결과를 얻는다.
 \end{proof}
 
 \begin{corollary}
@@ -984,9 +1102,313 @@
     이는 위의 정리로부터 자명하다.
 \end{proof}
 
+앞서 적률을 도입하며 이를 이용하면 분포의 정보를 손실 없이 전달할 수 있다고 하였는데, 지금부터는 이에 대해 조금 자세히 알아보도록 하자. 분포의 정보를 손실 없이 전달할 수 있다고 함은 곧 적률만 알면 그 분포를 다시 복원해 낼 수 있음을 의미하는데, 기껏해야 가산개인 적률로써 $\mathcal{B}_n$ 위의 측도인 분포를 유일하게 특정해 내는 것은 결코 쉬운 일이 아니며, 이와 같은 문제를 흔히 \textbf{\texttt{problem of moments}}라 한다. 다음의 정리는 사실상 \texttt{Fourier} 역변환 공식으로 이 문제를 공략하는 좋은 출발점이 된다.
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$와 유계인 $B=\prod_{i=1}^n(x_i,\,y_i)\in\mathcal{S}_n$에 대해 $\prob_X(\partial B)=0$이면
+    \begin{equation*}
+        \prob_X(B)=\lim_{M\to\infty}\frac{1}{(2\pi)^n}\int_{[-M,\,M]^n}\bigg(\prod_{i=1}^n\frac{e^{-\imag\,t_ix_i}-e^{-\imag\,t_iy_i}}{\imag t_i}\bigg)\varphi_X(t)\,d\mu_n(t)
+    \end{equation*}
+    이다.
+\end{theorem}
+
+\begin{proof}
+    $0$을 성분으로 가지지 않는 임의의 $t\in\mathbb{R}^n$를 고정하면 임의의 $u\in\mathbb{R}^n$에 대해
+    \begin{align*}
+        \bigg(\prod_{i=1}^n\frac{e^{-\imag\,t_ix_i}-e^{-\imag\,t_iy_i}}{\imag t_i}\bigg)e^{\imag\,t^\trans u}&=\prod_{i=1}^n\frac{e^{-\imag\,t_ix_i}-e^{-\imag\,t_iy_i}}{\imag t_i}e^{\imag\,t_iu_i}\\
+        &=\prod_{i=1}^n\frac{e^{\imag\,t_i(u_i-x_i)}-e^{\imag\,t_i(u_i-y_i)}}{\imag t_i}
+    \end{align*}
+    이므로
+    \begin{align*}
+        \bigg|\bigg(\prod_{i=1}^n\frac{e^{-\imag\,t_ix_i}-e^{-\imag\,t_iy_i}}{\imag t_i}\bigg)e^{\imag\,t^\trans u}\bigg|&=\prod_{i=1}^n\frac{|e^{\imag\,t_i(u_i-x_i)}-e^{\imag\,t_i(u_i-y_i)}|}{|\imag t_i|}\\
+        &=\prod_{i=1}^n\frac{|e^{\imag\,t_i(u_i-x_i)}||1-e^{\imag\,t_i(x_i-y_i)}|}{|t_i|}\\
+        &\leq\prod_{i=1}^n\frac{|t_i(x_i-y_i)|}{|t_i|}\\
+        &=\prod_{i=1}^n(y_i-x_i)\\
+        &=\mu_n(B)\\
+        &<\infty
+    \end{align*}
+    이다. 여기서 첫번째 부등호는 보조정리 \ref{lem:expComplex}로부터 성립한다. 이제 임의의 $M>0$을 택하여 $\mathcal{A}=\mathcal{B}_n\vert_{[-M,\,M]^n}$이라 하면 $\prob_X\otimes\mu_n\vert_\mathcal{A}$이 유한하므로 함수 $(u,\,t)\mapsto[\prod_{i=1}^n(e^{-\imag\,t_ix_i}-e^{-\imag\,t_iy_i})/\imag t_i]e^{\imag\,t^\trans u}$가 $\prob_X\otimes\mu_n\vert_\mathcal{A}$-적분가능하고, 곧 \texttt{Fubini}의 정리로부터
+    \begin{align*}
+        \int_{[-M,\,M]^n}\bigg(\prod_{i=1}^n&\frac{e^{-\imag\,t_ix_i}-e^{-\imag\,t_iy_i}}{\imag t_i}\bigg)\varphi_X(t)\,d\mu_n(t)\\
+        &=\int_{[-M,\,M]^n}\bigg(\prod_{i=1}^n\frac{e^{-\imag\,t_ix_i}-e^{-\imag\,t_iy_i}}{\imag t_i}\bigg)\varphi_X(t)\,d\mu_n\vert_\mathcal{A}(t)\\
+        &=\int_{\mathbb{R}^n\times[-M,\,M]^n}\bigg(\prod_{i=1}^n\frac{e^{-\imag\,t_ix_i}-e^{-\imag\,t_iy_i}}{\imag t_i}\bigg)e^{\imag\,t^\trans u}\,d(\prob_X\otimes\mu_n\vert_\mathcal{A})(u,\,t)\\
+        &=\int_{\mathbb{R}^n}\bigg(\int_{[-M,\,M]^n}\prod_{i=1}^n\frac{e^{\imag\,t_i(u_i-x_i)}-e^{\imag\,t_i(u_i-y_i)}}{\imag t_i}\,d\mu_n\vert_\mathcal{A}(t)\bigg)\,d\prob_X(u)\\
+        &=\int_{\mathbb{R}^n}\bigg(\int_{[-M,\,M]^n}\prod_{i=1}^n\frac{e^{\imag\,t_i(u_i-x_i)}-e^{\imag\,t_i(u_i-y_i)}}{\imag t_i}\,d\mu_n(t)\bigg)\,d\prob_X(u)\\
+        &=\int_{\mathbb{R}^n}\prod_{i=1}^n\bigg(\int_{[-M,\,M]}\frac{e^{\imag\,t_i(u_i-x_i)}-e^{\imag\,t_i(u_i-y_i)}}{\imag t_i}\,d\mu_1(t_i)\bigg)\,d\prob_X(u)
+    \end{align*}
+    인데, 여기서 각 $i\leq n$에 대해
+    \begin{align*}
+        \int_{[-M,\,M]}&\frac{e^{\imag\,t_i(u_i-x_i)}-e^{\imag\,t_i(u_i-y_i)}}{\imag t_i}\,d\mu_1(t_i)\\
+        &=\int_{[-M,\,M]}\frac{\cos t(u_i-x_i)+\imag\sin t(u_i-x_i)-\cos t(u_i-y_i)-\imag\sin t(u_i-y_i)}{\imag t}\,d\mu_1(t)\\
+        &=2\int_{[0,\,M]}\frac{\sin t(u_i-x_i)}{t}\,d\mu_1(t)-2\int_{[0,\,M]}\frac{\sin t(u_i-y_i)}{t}\,d\mu_1(t)\\
+        &=2\sgn(u_i-x_i)\int_{[0,\,M|u_i-x_i|]}\frac{\sin t}{t}\,d\mu_1(t)-2\sgn(u_i-y_i)\int_{[0,\,M|u_i-y_i|]}\frac{\sin t}{t}\,d\mu_1(t)
+    \end{align*}
+    이다. 표기의 편의를 위해 함수 $\mathrm{Si}:\mathbb{R}^+_0\to\mathbb{R}$를 $\mathrm{Si}:x\mapsto\int_{[0,\,x]}\sin t/t\,d\mu_1(t)$로 두면 이는 \texttt{FTC}로부터 연속이고 $x\to\infty$일 때 $\pi/2$로 수렴하므로 곧 $\mathrm{Si}$는 적당한 $N>0$에 대해 유계이다. 이로부터 $M_j\to\infty$인 임의의 수열 $\{M_j\}$를 생각하여 $j\in\mathbb{N}$가 충분히 크다고 하면
+    \begin{align*}
+        \bigg|\int_{[-M_j,\,M_j]}&\frac{e^{\imag\,t_i(u_i-x_i)}-e^{\imag\,t_i(u_i-y_i)}}{\imag t_i}\,d\mu_1(t_i)\bigg|\\
+        &=|2\sgn(u_i-x_i)\mathrm{Si}(M_j|u_i-x_i|)-2\sgn(u_i-y_i)\mathrm{Si}(M_j|u_i-y_i|)|\\
+        &\leq2|\mathrm{Si}(M_j|u_i-x_i|)|+2|\mathrm{Si}(M_j|u_i-y_i|)|\\
+        &\leq4N
+    \end{align*}
+    이 되어 \texttt{DCT}에서
+    \begin{align*}
+        \lim_{j\to\infty}&\int_{[-M_j,\,M_j]^n}\bigg(\prod_{i=1}^n\frac{e^{-\imag\,t_ix_i}-e^{-\imag\,t_iy_i}}{\imag t_i}\bigg)\varphi_X(t)\,d\mu_n(t)\\
+        &=\int_{\mathbb{R}^n}\lim_{j\to\infty}\prod_{i=1}^n\bigg(\int_{[-M_j,\,M_j]}\frac{e^{\imag\,t_i(u_i-x_i)}-e^{\imag\,t_i(u_i-y_i)}}{\imag t_i}\,d\mu_1(t_i)\bigg)\,d\prob_X(u)\\
+        &=\int_{\mathbb{R}^n}\lim_{j\to\infty}\prod_{i=1}^n[2\sgn(u_i-x_i)\mathrm{Si}(M_j|u_i-x_i|)-2\sgn(u_i-y_i)\mathrm{Si}(M_j|u_i-y_i|)]\,d\prob_X(u)\\
+        &=\int_{\mathbb{R}^n}\prod_{i=1}^n\pi[\sgn(u_i-x_i)-\sgn(u_i-y_i)]\,d\prob_X(u)\\
+        &=\int_{B^\circ}(2\pi)^n\,d\prob_X(u)+\int_{\partial B}\prod_{i=1}^n\pi[\sgn(u_i-x_i)-\sgn(u_i-y_i)]\,d\prob_X(u)\\
+        &=(2\pi)^n\prob_X(B)
+    \end{align*}
+    이고, 증명이 끝난다. 여기서 마지막 등호는 $\prob_X(\partial B)=0$이므로 성립한다.
+\end{proof}
+
+위의 정리는 \texttt{CF}를 알면 이를 통해 그 분포를 (거의) 알 수 있음을 의미한다. 여기서 이론적인 기교를 조금 더 부리면 다음 따름정리를 얻는다.
+
+\begin{lemma}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $\mathbb{R}^n$의 각 축에 수직인 초평면 중에 $\prob_X$-영집합이 아닌 것은 가산개이다.
+\end{lemma}
+
+\begin{proof}
+    임의의 $i\leq n$에 대해 \texttt{CDF} $F_{X_i}$가 $x_0\in\mathbb{R}$에서 연속이라면 $\prob_X(\mathbb{R}^{i-1}\times\{x_0\}\times\mathbb{R}^{n-i})=\mathbb{P}\{X_i=x_0\}=\prob_{X_i}\{x_0\}=F_{X_i}(x_0)-F_{X_i}(x_0-)=0$이므로 초평면 $\pi:x_i=x_0$는 $\prob_X$-영집합이다. 그런데 \ref{thm:CDFContinuousDense}로부터 각 $i\leq n$에 대해 $F_{X_i}$는 가산개의 불연속점만을 가지고, 곧 보조정리가 성립한다.
+\end{proof}
+
+\begin{corollary}\label{cor:CFEquivalent}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P}),\,(\Omega',\,\mathcal{F}',\,\mathbb{P}')$에서 각각 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n,\,Y:\Omega'\to\mathbb{R}^n$에 대해 $X\equiv Y$일 필요충분조건은 $\varphi_X=\varphi_Y$인 것이다.
+\end{corollary}
+
+\begin{proof}
+    만약 $X\equiv Y$이면 $\prob_X=\prob_Y$에서 $\varphi_X=\varphi_Y$임이 자명하므로 역만 성립함을 보이면 된다. 이를 위해 $\varphi_X=\varphi_Y$라 하면 위의 정리로부터 유계인 $B=\prod_{i=1}^n(x_i,\,y_i]\in\mathcal{S}_n$에 대해 $\prob_X(\partial B)=\prob_Y(\partial B)=0$이면
+    \begin{align*}
+        \prob_X(B)&=\lim_{M\to\infty}\frac{1}{(2\pi)^n}\int_{[-M,\,M]^n}\bigg(\prod_{i=1}^n\frac{e^{-\imag\,t_ix_i}-e^{-\imag\,t_iy_i}}{\imag t_i}\bigg)\varphi_X(t)\,d\mu_n(t)\\
+        &=\lim_{M\to\infty}\frac{1}{(2\pi)^n}\int_{[-M,\,M]^n}\bigg(\prod_{i=1}^n\frac{e^{-\imag\,t_ix_i}-e^{-\imag\,t_iy_i}}{\imag t_i}\bigg)\varphi_Y(t)\,d\mu_n(t)\\
+        &=\prob_Y(B)
+    \end{align*}
+    이다. 따라서 만약 집합족 $\mathcal{A}=\{B\in\mathcal{S}_n:\prob_X(\partial B)=\prob_Y(\partial B)=0\}$가 $\pi$-\texttt{system}이고 $\mathcal{B}_n$의 생성자이면 정리 \ref{thm:measureUnique}로부터 증명이 끝난다. 우선 임의의 $B,\,B'\in\mathcal{A}$를 생각하면 $\partial(B\cap B')\subseteq\partial B\cup\partial B'$이므로 $\mathcal{A}$가 $\pi$-\texttt{system}임은 거의 자명하다. 한편, 임의의 $B=\prod_{i=1}^n(x_i,\,y_i]\in\mathcal{S}_n$를 택하면 위의 보조정리로부터 $\prob_X$-영집합이 아니거나 $\prob_Y$-영집합이 아닌 $\mathbb{R}^n$의 축에 수직인 초평면이 가산개이므로 적당한 수열 $\{z_j\},\,\{w_j\}$가 존재하여 각 $j\in\mathbb{N}$에 대해 $\prob_X(\partial\prod_{i=1}^n(z_j^i,\,w_j^i])=\prob_Y(\partial\prod_{i=1}^n(z_j^i,\,w_j^i])=0$이고 $z_j\downarrow x,\,w_j\downarrow y$이다. 이제 각 $j\in\mathbb{N}$에 대해 $B_j=\prod_{i=1}^n(z_j^i,\,w_j^i]\in\mathcal{A}$로 두면 $B_j\to B$이므로 $B\in\sigma(\mathcal{A})$이고, 곧 $\mathcal{S}_n\subseteq\sigma(\mathcal{A})$에서 $\mathcal{B}_n\subseteq\sigma(\mathcal{A})$인데, 그 역의 포함관계는 자명하므로 $\mathcal{A}$가 $\mathcal{B}_n$의 생성자가 되어 증명이 끝난다.
+\end{proof}
+
+위의 따름정리에 의하면 \texttt{CF}와 분포는 정확히 일대일로 대응한다. 한편, 앞서 보인 정리 \ref{thm:CFTaylor}에서 확률벡터의 모든 적률을 알면 (\texttt{MGF}가 존재한다는 가정 하에) 그로부터 \texttt{CF}를 구할 수 있으므로 이상을 종합하면 \texttt{problem of moments}에 어느 정도 만족스러운 답이 된다. 즉, 적률을 알면 \texttt{CF}를 알고, 그런 \texttt{CF}를 가지는 분포는 유일하게 특정된다. 나아가, \texttt{MGF}와 \texttt{CF}는 이론적으로 그 역할이 비슷하므로 \texttt{CF} 대신 \texttt{MGF}를 이용하는 방법도 생각해 볼 수 있다. 다음 정리와 따름정리는 이에 대한 이론적인 전개를 담고 있다.
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 이의 모든 적률이 존재하고 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$가 존재하여 임의의 $t\in U$에 대해 급수
+    \begin{equation*}
+        \sum_{j=0}^\infty\sum_{k_1+\cdots+k_n=j}\expect\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)\prod_{i=1}^n\frac{t_i^{k_i}}{k_i!}
+    \end{equation*}
+    가 절대수렴한다고 하자. 이제 확률공간 $(\Omega',\,\mathcal{F}',\,\mathbb{P}')$에서 정의된 \texttt{rv.} $Y:\Omega'\to\mathbb{R}^n$에 대해 $Y$의 모든 적률이 존재하여 $X$의 적률과 같다면 $X\equiv Y$이다.
+\end{theorem}
+
+\begin{proof}
+    먼저 $\sum_{i=1}^nk_i\to\infty$이면 모든 성분이 양수인 임의의 $h\in U$에 대해
+    \begin{equation*}
+        \expect\bigg(\prod_{i=1}^n|X_i|^{k_i}\bigg)\prod_{i=1}^n\frac{h_i^{k_i}}{k_i!}\to0
+    \end{equation*}
+    임을 보이자. 간결한 논의를 위해 $n=2$라 하고 모든 성분이 $1$보다 작은 양수인 임의의 $h\in U$를 택하면
+    \begin{equation*}
+        \sum_{j=0}^\infty\sum_{k_1+k_2=j}\expect(X_1^{k_1}X_2^{k_2})\frac{h_1^{k_1}h_2^{k_2}}{k_1!k_2!}
+    \end{equation*}
+    가 절대수렴하므로 $j\to\infty$이면 
+    \begin{equation*}
+        \sum_{k_1+k_2=j}\bigg|\expect(X_1^{k_1}X_2^{k_2})\frac{h_1^{k_1}h_2^{k_2}}{k_1!k_2!}\bigg|\to0
+    \end{equation*}
+    이고, 곧 $k_1+k_2\to\infty$이면 $\expect(X_1^{k_1}X_2^{k_2})h_1^{k_1}h_2^{k_2}/k_1!k_2!\to0$이다. ($n=1$인 경우를 포함한 일반적인 경우에도 이와 비슷하게 하면 된다.) 이로부터 적당한 $M>0$이 존재하여 임의의 $k\in\mathbb{N}_0^2$에 대해 $|\expect(X_1^{k_1}X_2^{k_2})h_1^{k_1}h_2^{k_2}/k_1!k_2!|\leq M$이고, 임의의 $\epsilon>0$을 택하면 적당한 $K\in\mathbb{N}$가 존재하여 $k_1+k_2\geq K$이면 $|\expect(X_1^{k_1}X_2^{k_2})h_1^{k_1}h_2^{k_2}/k_1!k_2!|<h_1h_2\epsilon/16$이다. 이제 $k_1+k_2\geq \max\{K+2,\,K+8M/h_1h_2\epsilon,\,8/\epsilon\}$인 임의의 $k\in\mathbb{N}_0^2$를 택하고 경우를 나누어 생각한다.
+    
+    만약 $k_1,\,k_2$가 모두 짝수라면 $\expect(|X_1|^{k_1}|X_2|^{k_2})h_1^{k_1}h_2^{k_2}/k_1!k_2!<\epsilon$임은 자명하다. 만약 $k_1$은 홀수이지만 $k_2$는 짝수라면 적당한 $l_1\in\mathbb{N}$에 대해 $k_1=2l_1-1$로 쓸 수 있고, 임의의 $x\in\mathbb{R}$에 대해 $|x|^{k_1}\leq x^{2l_1}\ind_{\{|x|\geq1\}}+\ind_{\{|x|<1\}}\leq x^{2l_1}+1$이므로
+    \begin{align*}
+        \bigg|\expect(|X_1|^{k_1}|X_2|^{k_2})\frac{h_1^{k_1}h_2^{k_2}}{k_1!k_2!}\bigg|&=\bigg[\int_{\mathbb{R}^n}|x_1|^{k_1}x_2^{k_2}\,d\prob_X(x)\bigg]\frac{h_1^{k_1}h_2^{k_2}}{k_1!k_2!}\\
+        &\leq\bigg[\int_{\mathbb{R}^n}(x_1^{2l_1}+1)x_2^{k_2}\,d\prob_X(x)\bigg]\frac{h_1^{k_1}h_2^{k_2}}{k_1!k_2!}\\
+        &=\frac{2l_1}{k_1h_1}\expect(X_1^{2l_1}X_2^{k_2})\frac{h_1^{2l_1}h_2^{k_2}}{(2l_1)!k_2!}+\frac{h_1^{k_1}}{k_1!}\expect(X_2^{k_2})\frac{h_2^{k_2}}{k_2!}\\
+        &\leq\frac{2}{h_1}\expect(X_1^{2l_1}X_2^{k_2})\frac{h_1^{2l_1}h_2^{k_2}}{(2l_1)!k_2!}+\frac{1}{k_1}\expect(X_2^{k_2})\frac{h_2^{k_2}}{k_2!}
+    \end{align*}
+    이다. 그렇다면 $2l_1+\sum_{i=2}^nk_i\geq K+1$에서 $(2/h_1)\expect(X_1^{2l_1}X_2^{k_2})h_1^{2l_1}h_2^{k_2}/(2l_1)!k_2!<h_2\epsilon/8<\epsilon/2$이고 $k_2\geq K$인 경우에는 $(1/k_1)\expect(X_2^{k_2})h_2^{k_2}/k_2!<h_1h_2\epsilon/16k_1<\epsilon/2$이며 그렇지 않은 경우에는 $k_1>8M/h_1h_2\epsilon>2M/\epsilon$에서 $(1/k_1)\expect(X_2^{k_2})h_2^{k_2}/k_2!<M/k_1<\epsilon/2$이다. 이상으로부터 $k_1$은 홀수이지만 $k_2$는 짝수라면 $\expect(|X_1|^{k_1}|X_2|^{k_2})h_1^{k_1}h_2^{k_2}/k_1!k_2!<\epsilon$임을 안다. 반대로 $k_1$은 짝수이지만 $k_2$는 홀수인 경우에도 위와 비슷하게 하면 같은 결론을 얻는다. 마지막으로 $k_1,\,k_2$ 모두 홀수인 경우에는 위의 과정을 비슷하게 한 번 더 반복하면 되는데, 적당한 $l_1,\,l_2\in\mathbb{N}$에 대해 $k_1=2l_1-1,\,k_2=2l_2-1$라 하면 위의 결과로부터
+    \begin{align*}
+        \expect&(|X_1|^{k_1}|X_2|^{k_2})\frac{h_1^{k_1}h_2^{k_2}}{k_1!k_2!}\\
+        &\leq\frac{2}{h_1}\expect(X_1^{2l_1}|X_2|^{k_2})\frac{h_1^{2l_1}h_2^{k_2}}{(2l_1)!k_2!}+\frac{1}{k_1}\expect(|X_2|^{k_2})\frac{h_2^{k_2}}{k_2!}\\
+        &\leq\frac{4}{h_1h_2}\expect(X_1^{2l_1}X_2^{2l_2})\frac{h_1^{2l_1}h_2^{2l_2}}{(2l_1)!(2l_2)!}+\frac{2}{h_1k_2}\expect(X_1^{2l_1})\frac{h_1^{2l_1}}{(2l_1)!}+\frac{2}{h_2k_1}\expect(X_2^{2l_2})\frac{h_2^{2l_2}}{(2l_2)!}+\frac{1}{k_1k_2}
+    \end{align*}
+    임을 쉽게 보일 수 있다. 그렇다면 $2l_1+2l_2\geq K$에서 $(4/h_1h_2)\expect(X_1^{2l_1}X_2^{2l_2})h_1^{2l_1}h_2^{2l_2}/(2l_1)!(2l_2)!<\epsilon/4$이고 $2l_1\geq K$인 경우에는 $(2/h_1k_2)\expect(X_1^{2l_1})h_1^{2l_1}/(2l_1)!<\epsilon/8k_2<\epsilon/4$이며 그렇지 않은 경우에는 $k_2\geq 8M/h_1h_2\epsilon>8M/h_1\epsilon$에서 $(2/h_1k_2)\expect(X_1^{2l_1})h_1^{2l_1}/(2l_1)!<2M/h_1k_2<\epsilon/4$이다. 비슷하게 $(2/h_2k_1)\expect(X_2^{2l_2})h_2^{2l_2}/(2l_2)!<\epsilon/4$임을 알고, $1/k_1k_2\leq1/\max\{k_1,\,k_2\}\leq\epsilon/4$이므로 이상으로부터 $k_1$과 $k_2$가 모두 홀수라도 $\expect(|X_1|^{k_1}|X_2|^{k_2})h_1^{k_1}h_2^{k_2}/k_1!k_2!<\epsilon$임을 안다. 곧 어떠한 경우에도 $\expect(|X_1|^{k_1}|X_2|^{k_2})h_1^{k_1}h_2^{k_2}/k_1!k_2!<\epsilon$이 되어 $k_1+k_2\to\infty$이면 $\expect(|X_1|^{k_1}|X_2|^{k_2})h_1^{k_1}h_2^{k_2}/k_1!k_2!\to0$임을 안다. 나아가, $h\in U$가 $0$인 성분을 가지더라도 이가 성립함을 위와 비슷하게 보일 수 있다.
+    
+    이제 보조정리 \ref{lem:expComplex}로부터 임의의 $K\in\mathbb{N}$와 임의의 $t\in\mathbb{R}^n$, 임의의 $h\in U$에 대해
+    \begin{align*}
+        \bigg|\varphi_X(t+h)-\sum_{j=0}^K\frac{\imag^j}{j!}\int_{\mathbb{R}^n}(h^\trans x)^je^{\imag\,t^\trans x}\,&d\prob_X(x)\bigg|\\
+        &=\bigg|\expect(e^{\imag\,(t+h)^\trans X})-\sum_{j=0}^K\frac{1}{j!}\expect((\imag h^\trans X)^je^{\imag\,t^\trans X})\bigg|\\
+        &=\bigg|\expect\bigg(e^{\imag\,(t+h)^\trans X}-\sum_{j=0}^K\frac{1}{j!}(\imag h^\trans X)^je^{\imag\,t^\trans X}\bigg)\bigg|\\
+        &\leq\expect\bigg(\bigg|e^{\imag\,(t+h)^\trans X}-\sum_{j=0}^K\frac{1}{j!}(\imag h^\trans X)^je^{\imag\,t^\trans X}\bigg|\bigg)\\
+        &=\expect\bigg(|e^{\imag\,t^\trans X}|\bigg|e^{\imag\,h^\trans X}-\sum_{j=0}^K\frac{1}{j!}(\imag h^\trans X)^j\bigg|\bigg)\\
+        &=\expect\bigg(\bigg|e^{\imag\,h^\trans X}-\sum_{j=0}^K\frac{1}{j!}(\imag h^\trans X)^j\bigg|\bigg)\\
+        &\leq\expect\bigg(\frac{(|h|^\trans|X|)^{K+1}}{(K+1)!}\bigg)\\
+        &=\frac{1}{(K+1)!}\sum_{k_1+\cdots+k_n=K+1}\binom{K+1}{k_1\,\cdots\,k_n}\expect\bigg(\prod_{i=1}^n|h_i|^{k_i}|X_i|^{k_i}\bigg)\\
+        &=\sum_{k_1+\cdots+k_n=K+1}\expect\bigg(\prod_{i=1}^n|X_i|^{k_i}\bigg)\prod_{i=1}^n\frac{|h_i|^{k_i}}{k_i!}
+    \end{align*}
+    이므로 앞선 결론으로부터 $K\to\infty$이면 위 식의 우변이 $0$으로 수렴하여 정리 \ref{thm:CFDifferentiation}로부터
+    \begin{align*}
+        \varphi_X(t+h)&=\sum_{j=0}^\infty\frac{\imag^j}{j!}\int_{\mathbb{R}^n}(h^\trans x)^je^{\imag\,t^\trans x}\,d\prob_X(x)\\
+        &=\sum_{j=0}^\infty\frac{1}{j!}\sum_{k_1+\cdots+k_n=j}\binom{j}{k_1\,\cdots\,k_n}\imag^j\int_{\mathbb{R}^n}\bigg[\prod_{i=1}^n(h_ix_i)^{k_i}\bigg]e^{\imag\,t^\trans x}\,d\prob_X(x)\\
+        &=\sum_{j=0}^\infty\frac{1}{j!}\sum_{k_1+\cdots+k_n=j}\binom{j}{k_1\,\cdots\,k_n}\imag^j\expect\bigg(\bigg[\prod_{i=1}^nX_i^{k_i}\bigg]e^{\imag\,t^\trans X}\bigg)\prod_{i=1}^nh_i^{k_i}\\
+        &=\sum_{j=0}^\infty\frac{1}{j!}\sum_{k_1+\cdots+k_n=j}\binom{j}{k_1\,\cdots\,k_n}\frac{\partial^j}{\partial t_1^{k_1}\cdots\partial t_n^{k_n}}\varphi_X(t)\prod_{i=1}^nh_i^{k_i}\\
+        &=\sum_{j=0}^\infty\frac{1}{j!}\D^j\varphi_X(t)(h,\,\cdots,\,h)
+    \end{align*}
+    이다. 이는 $Y$에 대해서도 성립하므로 임의의 $t\in\mathbb{R}^n$와 임의의 $h\in U$에 대해 $\varphi_Y(t+h)=\sum_{j=0}^\infty\D^j\varphi_Y(t)(h,\,\cdots,\,h)/j!$인데, $X$와 $Y$의 적률이 모두 같으므로 다시 정리 \ref{thm:CFDifferentiation}로부터 임의의 $j\in\mathbb{N}$에 대해 $\D^j\varphi_X(0)=\D^j\varphi_Y(0)$이고, 곧 $U$ 위에서 $\varphi_X$와 $\varphi_Y$가 일치한다. 그런데 위의 결론에서 $t\in\mathbb{R}^n$가 임의의 점이었음을 상기한다면 이는 곧 $\varphi_X=\varphi_Y$임을 의미하여 곧 따름정리 \ref{cor:CFEquivalent}로부터 $X\equiv Y$이다.
+\end{proof}
+
+\begin{corollary}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P}),\,(\Omega',\,\mathcal{F}',\,\mathbb{P}')$에서 각각 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n,\,Y:\Omega'\to\mathbb{R}^n$에 대해 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$에서 $M_X$가 존재한다고 하자. 그렇다면 $X\equiv Y$일 필요충분조건은 적당한 $0$의 근방 $V\subseteq\mathbb{R}^n$에서 $M_Y$가 존재하여 $U\cap V$에서 $M_X=M_Y$인 것이다.
+\end{corollary}
+
+\begin{proof}
+    만약 $X\equiv Y$이면 $\prob_X=\prob_Y$에서 정리가 자명하므로 역만 성립함을 보이면 된다. 이를 위해 적당한 $0$의 근방 $V\subseteq\mathbb{R}^n$에서 $M_Y$가 존재하여 $U\cap V$에서 $M_X=M_Y$라 하자. 그렇다면 정리 \ref{thm:MGFTaylor}와 \ref{thm:MGFDifferentiation}로부터 $X$와 $Y$의 모든 적률이 존재하여 서로 같으며
+    \begin{equation*}
+        \sum_{j=0}^\infty\sum_{k_1+\cdots+k_n=j}\expect\bigg(\prod_{i=1}^nX_i^{k_i}\bigg)\prod_{i=1}^n\frac{t_i^{k_i}}{k_i!}
+    \end{equation*}
+    이 적당한 $0$의 근방에서 절대수렴하므로 위의 정리로부터 $X\equiv Y$이다.
+\end{proof}
+
+\texttt{Problem of moments}에 대한 논의를 마무리하기 전에, 한 가지 유의해야 할 점이 있다. 우리가 적률을 통해 \texttt{MGF}나 \texttt{CF}를 계산할 수 있고, 곧 분포를 유일하게 특정할 수 있지만, 이는 어디까지나 \texttt{MGF}가 존재할 때에만 가능한 것이다. 따라서 어떤 확률벡터의 \texttt{MGF}가 존재하지 않는다면 적률을 모두 알아도 이로부터 분포를 특정지을 수가 없다. 즉, 그러한 적률을 만들어내는 서로다른 분포가 얼마든지 존재할 수 있다.
+
+다음으로 살펴볼 \texttt{CF}에 대한 흥미로운 주제는 연속확률벡터와 \texttt{CF}의 관계이다. 앞서 정리 \ref{thm:rvContinuous}는 어떤 확률벡터가 연속인지를 판단할 수 있는 방법을 제시했는데, 다음 정리는 \texttt{CF}를 이용한 방법을 하나 새로 제시한다.
+
+\begin{theorem}[Riemann-Lebesgue]
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 연속활률벡터 $X:\Omega\to\mathbb{R}^n$에 대해 $\lim_{|t_1|,\,\cdots,\,|t_n|\to\infty}\varphi_X(t)\to0$이다.
+\end{theorem}
+
+\begin{proof}
+    임의의 $\epsilon>0$을 택하면 $\int_{\mathbb{R}^n}f_X\,d\mu_n=1$이므로 정리 \ref{thm:integrableApprox}의 i로부터 적당한 단순함수 $g:\mathbb{R}^n\to\mathbb{R}$가 존재하여 이는 적당한 $a_1,\,\cdots,\,a_k\in\mathbb{R}$와 유계인 $B_1,\,\cdots,\,B_k\in\mathcal{S}_n$에 대해 $g=\sum_{i=1}^na_i\ind_{B_i}$로 쓸 수 있으며 $\int_{\mathbb{R}^n}|f_X-g|\,d\mu_n<\epsilon$이다. 한편, 각 $i\leq k$에 대해 적당한 $x_i,\,y_i\in\mathbb{R}^n$에 대해 $B_i=\prod_{j=1}^n(x_i^j,\,y_i^j]$이다. 이로부터 임의의 $t\in\mathbb{R}^n$에 대해 $|\int_{\mathbb{R}^n}[f_X(x)-g(x)]e^{\imag\,t^\trans x}\,d\mu_n(x)|\leq\int_{\mathbb{R}^n}|[f_X(x)-g(x)]e^{\imag\,t^\trans x}|\,d\mu_n(x)=\int_{\mathbb{R}^n}|f_X(x)-g(x)|\,d\mu_n(x)<\epsilon/2$이다. 또한 \texttt{Fubini}의 정리로부터 $0$을 성분으로 갖지 않는 임의의 $t\in\mathbb{R}^n$에 대해
+    \begin{align*}
+        \bigg|\int_{\mathbb{R}^n}g(x)e^{\imag\,t^\trans x}\,d\mu_n(x)\bigg|&=\bigg|\int_{\mathbb{R}^n}\sum_{i=1}^ka_i\ind_{B_i}e^{\imag\,t^\trans x}\,d\mu_n(x)\bigg|\\
+        &=\bigg|\sum_{i=1}^ka_i\int_{B_i}\prod_{j=1}^ne^{\imag\,t_jx_j}\,d\mu_n(x)\bigg|\\
+        &=\bigg|\sum_{i=1}^ka_i\prod_{j=1}^n\int_{x_i^j}^{y_i^j}e^{\imag\,t_jx_j}\,d\mu_1(x_j)\bigg|\\
+        &=\bigg|\sum_{i=1}^ka_i\prod_{j=1}^n\frac{e^{\imag\,t_jy_i^j}-e^{\imag\,t_jx_i^j}}{\imag t_j}\bigg|\\
+        &\leq\sum_{i=1}^k|a_i|\prod_{j=1}^n\bigg|\frac{e^{\imag\,t_jy_i^j}-e^{\imag\,t_jx_i^j}}{\imag t_j}\bigg|\\
+        &\leq\sum_{i=1}^k|a_i|\prod_{j=1}^n\frac{|e^{\imag\,t_jy_i^j}|+|e^{\imag\,t_jx_i^j}|}{|t_j|}\\
+        &=2^n\sum_{i=1}^k|a_i|\bigg/\prod_{j=1}^n|t_j|
+    \end{align*}
+    이므로 $\lim_{|t_1|,\,\cdots,\,|t_n|\to\infty}|\int_{\mathbb{R}^n}g(x)e^{\imag\,t^\trans x}\,d\mu_n(x)|=\infty$에서 적당한 $M>0$이 존재하여 $|t_1|,\,\cdots,\,|t_n|\geq M$이면 $|\int_{\mathbb{R}^n}g(x)e^{\imag\,t^\trans x}\,d\mu_n(x)|<\epsilon/2$이다. 이상으로부터 $|t_1|,\,\cdots,\,|t_n|\geq M$이면 $|\varphi_X(t)|=|\int_{\mathbb{R}^n}f_X(x)e^{\imag\,t^\trans x}\,d\mu_n(x)|\leq|\int_{\mathbb{R}^n}[f_X(x)-g(x)]e^{\imag\,t^\trans x}\,d\mu_n(x)|+|\int_{\mathbb{R}^n}g(x)e^{\imag\,t^\trans x}\,d\mu_n(x)|<\epsilon$이 되어 증명이 끝난다.
+\end{proof}
+
+심지어 \texttt{CF}를 이용해 \texttt{PDF}를 바로 구할 수도 있다.
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 연속확률벡터 $X:\Omega\to\mathbb{R}$에 대해 $\int_{\mathbb{R}^n}|\varphi_X|\,d\mu_n<\infty$이면
+    \begin{equation*}
+        f_X(x)=\frac{1}{(2\pi)^n}\int_{\mathbb{R}^n}e^{-\imag\,t^\trans x}\varphi_X(t)\,d\mu_n(t)
+    \end{equation*}
+    이다.
+\end{theorem}
+
+이제 앞서 기댓값에 대한 다양한 부등식을 소개할 때 미쳐 소개하지 못한 부등식을 하나 소개하고 \texttt{MGF}와 \texttt{CF}에 대한 내용을 마무리하자. 이 부등식도 \texttt{tail probability}를 \texttt{bounding}하는 부등식이다.
+
+\begin{theorem}[Chernoff's bound]
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 $0$의 적당한 근방 $U\in\mathbb{R}$에서 $M_X$가 존재하면 임의의 $x\in\mathbb{R}$에 대해 $\mathbb{P}\{X\geq x\}\leq\inf_{0\leq t\in U}e^{-xt}M_X(t)$이다. 비슷하게, 임의의 $x\in\mathbb{R}$에 대해 $\mathbb{P}\{X\leq x\}\leq\inf_{0\geq t\in U}e^{-xt}M_X(t)$이다.
+\end{theorem}
+
+\begin{proof}
+    임의의 $x,\,y\in\mathbb{R}$와 임의의 음이 아닌 $t\in U$에 대해 $\ind_{[x,\,\infty)}(y)\leq e^{t(y-x)}$이므로
+    \begin{align*}
+        \mathbb{P}\{X\geq x\}&=\prob_X([x,\,\infty))\\
+        &=\int_\mathbb{R}\ind_{[x,\,\infty)}\,d\prob_X\\
+        &\leq\int_\mathbb{R}e^{t(y-x)}\,d\prob_X(y)\\
+        &=\expect(e^{t(X-x)})\\
+        &=e^{-xt}M_X(t)\\
+        &\leq\inf_{0\leq t\in U}e^{-xt}M_X(t)
+    \end{align*}
+    이다. 이제 임의의 $x\in\mathbb{R}$에 대해 $\mathbb{P}\{X\leq x\}\leq\inf_{0\geq t\in U}e^{-xt}M_X(t)$임도 비슷하게 보일 수 있다.
+\end{proof}
+
+이번 절의 후반부에서는 \texttt{MGF}와 관련되거나 혹은 유사한 함수들을 간단히 살펴본다. 먼저 첫째로 볼 것은 \texttt{MGF}에 로그를 취하여 얻는 \texttt{CGF}, 그리고 이의 \texttt{Taylor} 전개의 계수로 주어지는 누율이다.
+
 \begin{definition}
     확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 $M_X:U\to\mathbb{R}$가 존재하면 \texttt{rv.} $X$의 \textbf{누율생성함수(\texttt{cumulant generating function})}를 $C_X:U\to\mathbb{R}$로 쓰고 $C_X=\log M_X$로 정의한다. 특별히, $n\geq2$인 경우 $C_X$를 \texttt{rv.} $X_1,\,\cdots,\,X_n$의 \textbf{결합누율생성함수(\texttt{joint cumulant generating function})}라 하기도 한다.
 \end{definition}
+
+\begin{proposition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$ 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$에서 $C_X$가 존재한다면 $C_X$는 $U$에서 해석적이다.
+\end{proposition}
+
+\begin{proof}
+    가정으로부터 $U$에서 $M_X$가 존재하고 정리 \ref{thm:MGFTaylor}로부터 $M_X$는 $U$에서 해석적이다. 한편, 함수 $x\mapsto\log x$가 $(0,\,\infty)$에서 해석적이므로 $C_X=\log M_X$도 $U$에서 해석적이다.
+\end{proof}
+
+\begin{definition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$에서 $C_X$가 존재한다고 하고 임의의 $k\in\mathbb{N}_0^n$에 대해 $K=\sum_{i=1}^nk_i$라 하자. 이때 $C_X(t)$의 $0$에서의 \texttt{Taylor} 전개에서 $\prod_{i=1}^nt_i^{k_i}/k_i!$의 계수를 $X$의 $K$차 \textbf{(결합)누율($k$\texttt{th} (\texttt{joint}) \texttt{cumulant})}이라 하고 $c_{k,\,X}$ 혹은 간단히 $c_k$로 쓴다.
+\end{definition}
+
+\begin{theorem}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$에서 $C_X$가 존재한다고 하면 임의의 $k\in\mathbb{N}_0^n$에 대해 $K=\sum_{i=1}^nk_i$라 하면 $c_{X,\,k}=(\partial^K/\partial t_1^{k_1}\,\cdots\,\partial t_n^{k_n})C_X(0)$이다. 이때, 편미분의 순서는 중요하지 않다.
+\end{theorem}
+
+\begin{proof}
+    이는 누율의 정의로부터 자명하다.
+\end{proof}
+
+\texttt{CGF}의 기본적인 성질들은 \texttt{MGF}의 성질들로부터 거의 자명하게 얻어진다.
+
+\begin{theorem}\label{thm:CGFProp}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}^n$에 대해 적당한 $0$의 근방 $U\subseteq\mathbb{R}^n$에서 $C_X$가 존재하면 다음이 성립한다.
+    \begin{enumerate}
+        \item $C_X(0)=0$.
+        \item \texttt{CGF} $C_X$는 볼록하다.
+        \item 임의의 $a\in\mathbb{R}$와 임의의 $b\in\mathbb{R}^n$에 대해 $C_{aX+b}$가 적당한 $0$의 근방 $V\subseteq\mathbb{R}^n$에서 존재하고, $at\in U$인 $t\in V$에 대해 $C_{aX+b}(t)=C_X(at)+t^\trans b$이다.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    i. 이는 $C_X(0)=\log M_X(0)=0$에서 자명하다.
+
+    ii. 정리 \ref{thm:MGFProp}의 iii으로부터 이는 자명하다.
+
+    iii. 정리 \ref{thm:MGFProp}의 iv로부터 적당한 $0$의 근방 $V\subseteq\mathbb{R}^n$에서 $C_{aX+b}$가 존재하고 $at\in U$인 $t\in V$에 대해 $C_{aX+b}(t)=\log M_{aX+b}(t)=\log e^{t^\trans b}M_X(at)=C_X(at)+t^\trans b$이다.
+\end{proof}
+
+앞서 배운 적률이 확률변수의 거듭제곱의 기댓값으로 깔끔하게 주어진 것에 비해, 누율과 기댓값을 깔끔하게 연결짓는 것은 쉽지 않다. 다만, 몇몇 낮은 차수의 누율의 경우 특별한 의미를 가진다. 그리고 때로는 이러한 관계를 잘 사용하면 기댓값이나 분산 등을 복잡한 계산을 피해 쉽고 간단하게 구할 수 있다.
+
+\begin{proposition}\label{prop:firstSecondCumulant}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 적당한 $0$의 근방 $U\subseteq\mathbb{R}$에서 $C_X$가 존재한다고 하면 $c_{X,\,1}=\expect(X)$이고 $c_{X,\,2}=\var(X)$이다.
+\end{proposition}
+
+\begin{proof}
+    이는 정리 \ref{thm:MGFDifferentiation}으로부터 $C_X'(0)=(\log M_X)'(0)=(M_X'/M_X)(0)=\expect(X)$이고
+    \begin{align*}
+        C_X''(0)&=(\log M_X)''(0)\\
+        &=\bigg(\frac{M_X'}{M_X}\bigg)'(0)\\
+        &=\bigg[\frac{M_X''M_X-(M_X')^2}{M_X^2}\bigg](0)\\
+        &=\expect(X^2)-[\expect(X)]^2\\
+        &=\var(X)
+    \end{align*}
+   이므로 자명하다.
+\end{proof}
+
+\begin{proposition}
+    확률공간 $(\Omega,\,\mathcal{F},\,\mathbb{P})$에서 정의된 \texttt{rv.} $X:\Omega\to\mathbb{R}$에 대해 적당한 $0$의 근방 $U\subseteq\mathbb{R}$에서 $C_X$가 존재하며 $\var(X)\ne0$이라 하자. 이제 $Z=(X-\mu_X)/\sigma_X$라 하면 적당한 $0$의 근방 $V\subseteq\mathbb{R}$에서 $C_Z$가 존재하고 $c_{Z,\,1}=0,\,c_{Z,\,2}=1,\,c_{Z,\,3}=\skew(X),\,c_{Z,\,4}=\kurt(X)$이다.
+\end{proposition}
+
+\begin{proof}
+    정리 \ref{thm:CGFProp}의 iii으로부터 적당한 $0$의 근방 $V\subseteq\mathbb{R}$에서 $C_Z$가 존재함을 안다. 이제 정리 \ref{thm:MGFDifferentiation}으로부터
+    \begin{align*}
+        &M_Z(0)=1\\
+        &M_Z'(0)=\expect\bigg(\frac{X-\mu_X}{\sigma_X}\bigg)=\frac{\expect(X)-\mu_X}{\sigma_X}=0\\
+        &M_Z''(0)=\expect\bigg(\bigg(\frac{X-\mu_X}{\sigma_X}\bigg)^2\bigg)=\frac{\var(X)}{\sigma_X^2}=1,\\
+        &M_Z'''(0)=\expect\bigg(\bigg(\frac{X-\mu_X}{\sigma_X}\bigg)^3\bigg)=\skew(X)\\
+        &M_Z^{(4)}(0)=\expect\bigg(\bigg(\frac{X-\mu_X}{\sigma_X}\bigg)^4\bigg)=\kurt(X)+3
+    \end{align*}
+    이다. 그렇다면 명제 \ref{prop:firstSecondCumulant}로부터 $C_{Z,\,1}=\expect(Z)=0,\,C_{Z,\,2}=\var(Z)=1$이고
+    \begin{align*}
+        C_Z'''(0)&=(\log M_Z)'''(0)\\
+        &=\bigg(\frac{M_Z'}{M_Z}\bigg)''(0)\\
+        &=\bigg[\frac{M_Z''M_Z-(M_Z')^2}{M_Z^2}\bigg]'(0)\\
+        &=\bigg\{\frac{(M_Z'''M_Z+M_Z''M_Z'-2M_Z'M_Z'')M_Z^2-[M_Z''M_Z-(M_Z')^2]2M_ZM_Z'}{M_Z^4}\bigg\}(0)\\
+        &=\bigg[\frac{M_Z'''M_Z^2-3M_Z''M_Z'M_Z+2(M_Z')^3}{M_Z^3}\bigg](0)\\
+        &=\skew(X)
+    \end{align*}
+    이며
+    \begin{align*}
+        C_Z^{(4)}(0)&=(\log M_Z)^{(4)}(0)\\
+        &=\bigg(\frac{M_Z'}{M_Z}\bigg)'''(0)\\
+        &=\bigg[\frac{M_Z''M_Z-(M_Z')^2}{M_Z^2}\bigg]''(0)\\
+        &=\bigg[\frac{M_Z'''M_Z^2-3M_Z''M_Z'M_Z+2(M_Z')^3}{M_Z^3}\bigg]'(0)\\
+        &=\left\{\frac{\splitfrac{[M_Z^{(4)}M_Z^2+M_Z'''2M_ZM_Z'-3M_Z'''M_Z'M_Z-3(M_Z'')^2M_Z}{-3M_Z''(M_Z')^2+6(M_Z')^2M_Z'']M_Z^3-[M_Z'''M_Z^2-3M_Z''M_Z'M_Z+2(M_Z')^3]3M_Z^2M_Z'}}{M_Z^6}\right\}(0)\\
+        &=\bigg[\frac{M_Z^{(4)}M_Z^3-4M_Z'''M_Z'M_Z^2+12M_Z''(M_Z')^2M_Z-3(M_Z'')^2M_Z^2-6(M_Z')^4}{M_Z^4}\bigg](0)\\
+        &=\kurt(X)
+    \end{align*}
+    이다.
+\end{proof}
 
 \section*{Notes}
 \footnotesize

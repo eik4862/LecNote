@@ -956,7 +956,7 @@
 마지막으로 $\mathcal{B}_n$에 관한 놀라운 결과 하나를 소개하는 것으로 이번 절을 마치도록 하자. 이러한 결과는 $\mathcal{B}_n$이 $\mathcal{M}_n$보다 작은 $\sigma$-대수로 그 구조가 비교적 명확하다는 점에 크게 기인한다. ($\mathcal{B}_n$의 생성자는 서너개 알고 있는 반면, $\mathcal{M}_n$의 생성자나 구조는 여전히 오리무중이다.)
 
 \begin{definition}
-    집합 $A\subseteq\mathbb{R}^n$에서 정의된 함수 $f:A\to\mathbb{R}$와 한 점 $x\in A$를 생각하자. 만약 임의의 $\epsilon>0$에 대해 적당한 $\delta>0$가 존재하여 $||x-y||<\delta$이고 $x\leq y$인 모든 $y\in A$에 대해 $|f(x)-f(y)|<\epsilon$이 성립하면 $f$가 \textbf{$x$에서 오른쪽 연속(\texttt{right-continuous at} $x$)} 혹은 \textbf{\texttt{continuous from above at} $x$}라 한다. 나아가, 만약 $f$가 모든 $x\in A$에서 오른쪽 연속이면 이때의 $f$를 \textbf{오른쪽 연속(\texttt{right-continuous})} 혹은 \textbf{\texttt{continuous from above}}라 한다. 여기서 $x\leq y$는 벡터 $x,\,y$의 성분별로 작거나 같음의 관계가 성립하는 것을 의미한다. 즉, $x_1\leq y_1,\,\cdots,\,x_n\leq y_n$을 뜻한다.
+    집합 $A\subseteq\mathbb{R}^n$에서 정의된 함수 $f:A\to\mathbb{R}$와 한 점 $x\in A$를 생각하자. 만약 임의의 $\epsilon>0$에 대해 적당한 $\delta>0$가 존재하여 $||x-y||<\delta$이고 $x\leq y$인 모든 $y\in A$에 대해 $|f(x)-f(y)|<\epsilon$이 성립하면 $f$가 \textbf{$x$에서 오른쪽 연속(\texttt{right-continuous at} $x$)} 혹은 \textbf{\texttt{continuous from above at} $x$}라 한다. 나아가, 만약 $f$가 모든 $x\in A$에서 오른쪽 연속이면 이때의 $f$를 \textbf{오른쪽 연속(\texttt{right-continuous})} 혹은 \textbf{\texttt{continuous from above}}라 한다. 이와 비슷하게 \textbf{$x$에서 왼쪽 연속(\texttt{left-continuous at} $x$)}과 \textbf{왼쪽 연속(\texttt{left-continuous})}도 정의된다.
 \end{definition}
 
 \begin{figure}[!ht]
@@ -1038,7 +1038,7 @@
 
     iii. 간결한 논의를 위해 $F_\mu$가 첫 번째 변수에 대해 증가한다는 것만 보이자. (다른 변수에 대해서도 이와 비슷하게 보일 수 있다.) 이제 임의의 $x\in\mathbb{R}^n$와 임의의 $h\geq0$에 대해 $B=\prod_{i=1}^n(-\infty,\,x_i],\,B'=(-\infty,\,x_1+h]\times\prod_{i=2}^{n}(-\infty,\,x_i]$라 하면 $F_\mu(x_1+h,\,\cdots)-F_\mu(x_1,\,\cdots)=\mu(B')-\mu(B)=\mu(B'\setminus B)\geq0$에서 증명이 끝난다.
 
-    iv. 임의의 $x\in\mathbb{R}^n$를 택하여 $B=\prod_{i=1}^n(-\infty,\,x_i]$라 하고, 집합열 $\{B_j\}$를 $B_j:=\prod_{i=1}^n(-\infty,\,x_i+1/j]$로 두면 이는 $B$로 수렴하는 $\mathcal{S}_n$에 속하는 감소하는 집합열이므로 정리 \ref{thm:monoSeriesMeasure}의 ii에서 $\mu(B_j)\downarrow\mu(B)=F_\mu(x)$이고, 곧 임의의 $\epsilon>0$을 택하면 적당한 $j_0\in\mathbb{N}$가 존재하여 $\mu(B_{j_0})-F_\mu(x)<\epsilon$이다.  이제 $\delta=1/j_0$라 하면 $||x-y||<\delta$이고 $x\leq y$인 모든 $y\in\mathbb{R}^n$에 대해 $B\subseteq\prod_{i=1}^n(-\infty,\,y_i]\subseteq B_{j_0}$에서 $F_\mu(x)=\mu(B)\leq F_\mu(y)=\mu(\prod_{i=1}^n(-\infty,\,y_i])\leq\mu(B_{j_0})<F_\mu(x)+\epsilon$이므로 곧 $|F_\mu(x)-F_\mu(y)|<\epsilon$이 되어 증명이 끝난다.
+    iv. 임의의 $x\in\mathbb{R}^n$를 택하여 $B=\prod_{i=1}^n(-\infty,\,x_i]$라 하고, 집합열 $\{B_j\}$를 $B_j:=\prod_{i=1}^n(-\infty,\,x_i+1/j]$로 두면 이는 $B$로 수렴하는 $\mathcal{S}_n$에 속하는 감소하는 집합열이므로 정리 \ref{thm:monoSeriesMeasure}의 ii에서 $\mu(B_j)\downarrow\mu(B)=F_\mu(x)$이고, 곧 임의의 $\epsilon>0$을 택하면 적당한 $j_0\in\mathbb{N}$가 존재하여 $\mu(B_{j_0})-F_\mu(x)<\epsilon$이다. 이제 $\delta=1/j_0$라 하면 $||x-y||<\delta$이고 $x\leq y$인 모든 $y\in\mathbb{R}^n$에 대해 $B\subseteq\prod_{i=1}^n(-\infty,\,y_i]\subseteq B_{j_0}$에서 $F_\mu(x)=\mu(B)\leq F_\mu(y)=\mu(\prod_{i=1}^n(-\infty,\,y_i])\leq\mu(B_{j_0})<F_\mu(x)+\epsilon$이므로 곧 $|F_\mu(x)-F_\mu(y)|<\epsilon$이 되어 증명이 끝난다.
 
     v. 이는 iv로부터 자명하다.
 
@@ -1378,7 +1378,7 @@
 어떤 성질 $P$가 거의 어디서나 성립한다는 것을 때로는 $P$ (\texttt{ae.})라 줄여 간단히 표기할 때도 있다. 한편, 거의 어디서나 성립하는 성질 중 가운데 특히 자주 쓰이는 것이 바로 \textbf{거의 어디서나 같다(\texttt{almost everywhere equality})}는 개념이다.
 
 \begin{proposition}
-    거의 어디서나 같다는 관계는 동치관계이다. 즉, 측도공간 $(X,\,\mathcal{A},\,\mu)$와 집합 $Y$,  함수 $f,\,g,\,h:X\to Y$에 대해 다음이 성립한다.
+    거의 어디서나 같다는 관계는 동치관계이다. 즉, 측도공간 $(X,\,\mathcal{A},\,\mu)$와 집합 $Y$, 함수 $f,\,g,\,h:X\to Y$에 대해 다음이 성립한다.
     \begin{enumerate}
         \item (반사성) $f=f$ (\texttt{ae.})
         \item (대칭성) $f=g$ (\texttt{ae.})이면 $g=f$ (\texttt{ae.})이다.
@@ -2378,14 +2378,6 @@
     ii. $\int_X|f|^p\,d\mu=||f||_p^p=0$이므로 정리 \ref{thm:zeroAeIntegral}의 ii로부터  $|f|=0$ (\texttt{ae.})이고, 곧 $f=0$ (\texttt{ae.})이다. 한편, 역은 자명하다.
 \end{proof}
 
-\begin{lemma}[Young's inequality]
-    임의의 $x,\,y\geq0$와 $1/p+1/q=1$인 $p,\,q>1$에 대해 $xy\leq x^p/p+y^q/q$이다. 이때, 등호가 성립할 필요충분조건은 $x^p=y^q$인 것이다.
-\end{lemma}
-
-\begin{proof}
-    임의의 $y\geq0$를 고정하고 함수 $f:\mathbb{R}\to\mathbb{R}$를 $f:x\mapsto x^p/p+y^q/q-xy$로 두면 $f':x\mapsto x^{p-1}-y$에서 $f$는 $y^{1/(1-p)}=y^{q/p}$에서 최솟값 $f(y^{q/p})=(1/p+1/q)y^q-y^{q/p+1}=0$을 가진다. 여기서 마지막 등호는 $q/p+1=q$에서 성립하고, 증명은 이로써 충분하다.
-\end{proof}
-
 \begin{theorem}[H\"older's inequality]
     측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 가측함수 $f,\,g:X\to\overline{\mathbb{R}}$와 $1/p+1/q=1$인 $p,\,q>1$에 대해 $\int_X|fg|\,d\mu\leq||f||_p||g||_q$이다. 이때, $||f||_p,\,||g||_q<\infty$라면 등호가 성립할 필요충분조건은 적당한 $c\geq0$가 존재하여 $|f|^p=c|g|^q$ (\texttt{ae.})이거나 $|g|^q=c|f|^p$ (\texttt{ae.})인 것이다.
 \end{theorem}
@@ -2397,11 +2389,11 @@
 \end{proof}
 
 \begin{theorem}[Minkowski's inequality]
-    측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 가측함수 $f,\,g:X\to\overline{\mathbb{R}}$와 $p\geq1$에 대해 $||f+g||_p\leq||f||_p+||g||_p$이다. 이때, $||f||_p,\,||g||_p<\infty$이고 $f+g=0$ (\texttt{ae}.)이 아니라면 등호가 성립한 필요충분조건은 적당한 $c\geq0$가 존재하여 $|f|^p=c|g|^p$ (\texttt{ae}.)이거나 $|g|^p=c|f|^p$ (\texttt{ae}.)인 것이다.
+    측도공간 $(X,\,\mathcal{A},\,\mu)$에서 정의된 가측함수 $f,\,g:X\to\overline{\mathbb{R}}$와 $p\geq1$에 대해 $||f+g||_p\leq||f||_p+||g||_p$이다. 이때, $||f||_p,\,||g||_p<\infty$이면 등호가 성립한 필요충분조건은 적당한 $c\geq0$가 존재하여 $|f|^p=c|g|^p$ (\texttt{ae}.)이거나 $|g|^p=c|f|^p$ (\texttt{ae}.)인 것이다.
 \end{theorem}
 
 \begin{proof}
-    만약 $p=1$이면 $||f+g||_1=\int_X|f+g|\,d\mu\leq\int_X|f|\,d\mu+\int_X|g|\,d\mu=||f||_1+||g||_1$에서 부등식이 자명하므로 $p>1$이라 하자. 또한, 만약 $||f||_p=\infty$이거나 $||g||_p=\infty$인 경우에도 부등식이 자명하므로 $||f||_p,\,||g||_p<\infty$라 하자. 그렇다면 $|f|,\,|g|\leq(|f|^p+|g|^p)^{1/p}$이므로 $|f+g|^p\leq(|f|+|g|)^p\leq2^p(|f|^p+|g|^p)$에서 $\int_X|f+g|^p\,d\mu\leq2^p\int_X|f|^p+|g|^p\,d\mu=2^p(||f||_p^p+||g||_p^p)<\infty$이고, 곧 $||f+g||_p<\infty$이다. 한편, \texttt{H\"older}의 부등식으로부터 $1/p+1/q=1$인 $q>1$에 대해
+    만약 $p=1$이면 $||f+g||_1=\int_X|f+g|\,d\mu\leq\int_X|f|\,d\mu+\int_X|g|\,d\mu=||f||_1+||g||_1$에서 부등식이 자명하므로 $p>1$이라 하자. 또한, 만약 $||f||_p=\infty$이거나 $||g||_p=\infty$이거나 $||f+g||_p=0$인 경우에도 부등식이 자명하므로 $||f||_p,\,||g||_p<\infty$이고 $||f+g||_p>0$이라 하자. 그렇다면 $|f|,\,|g|\leq(|f|^p+|g|^p)^{1/p}$이므로 $|f+g|^p\leq(|f|+|g|)^p\leq2^p(|f|^p+|g|^p)$에서 $\int_X|f+g|^p\,d\mu\leq2^p\int_X|f|^p+|g|^p\,d\mu=2^p(||f||_p^p+||g||_p^p)<\infty$이고, 곧 $||f+g||_p<\infty$이다. 한편, \texttt{H\"older}의 부등식으로부터 $1/p+1/q=1$인 $q>1$에 대해
     \begin{align*}
         ||f+g||_p^p&=\int_X|f+g|^p\,d\mu\\
         &\leq\int_X|f||f+g|^{p-1}\,d\mu+\int_X|g||f+g|^{p-1}\,d\mu\\
@@ -2412,7 +2404,7 @@
     \end{align*}
     이므로 $||f+g||_p\leq||f||_p+||g||_p$임을 안다.
 
-    한편, 등호조건을 보이기 위해 $||f||_p,\,||g||_p<\infty$이고 $f+g=0$ (\texttt{ae}.)이 아니며, $||f+g||_p=||f||_p+||g||_p$라 하자. 만약 $f=0$ (\texttt{ae}.)이면 $|f|^p=0=0\cdot|g|^p$ (\texttt{ae}.)에서 더 이상 보일 것이 없으므로 $f=0$ (\texttt{ae}.)이 아니라 하고, 비슷한 이유에서 $g=0$ (\texttt{ae}.)도 아니라 하자. 그렇다면 위의 증명과정과 \texttt{H\"older}의 부등식의 등호조건으로부터 적당한 $c_1,\,c_2>0$가 존재하여 $|f|^p=c_1|f+g|^{(p-1)q}=c_1|f+g|^p$ (\texttt{ae}.)이고 $|g|^p=c_2|f+g|^{(p-1)q}=c_2|f+g|^p$ (\texttt{ae}.)이므로 곧 $|f|^p=(c_1/c_2)c_2|f+g|^p=(c_1/c_2)|g|^p$ (\texttt{ae}.)이다. 역으로 적당한 $c\geq0$가 존재하여 $|f|^p=c|g|^p$ (\texttt{ae}.)이거나 $|g|^p=c|f|^p$ (\texttt{ae}.)인 경우에 등호가 성립함은 자명하므로 증명은 이로써 충분하다.
+    한편, 등호조건을 보이기 위해 $||f||_p,\,||g||_p<\infty$이고 $||f+g||_p=||f||_p+||g||_p$라 하자. 만약 $f=0$ (\texttt{ae}.)이면 $|f|^p=0=0\cdot|g|^p$ (\texttt{ae}.)에서 더 이상 보일 것이 없으므로 $f=0$ (\texttt{ae}.)이 아니라 하고, 비슷한 이유에서 $g=0$ (\texttt{ae}.)도 아니라 하자. 그렇다면 위의 증명과정과 \texttt{H\"older}의 부등식의 등호조건으로부터 적당한 $c_1,\,c_2>0$가 존재하여 $|f|^p=c_1|f+g|^{(p-1)q}=c_1|f+g|^p$ (\texttt{ae}.)이고 $|g|^p=c_2|f+g|^{(p-1)q}=c_2|f+g|^p$ (\texttt{ae}.)이므로 곧 $|f|^p=(c_1/c_2)c_2|f+g|^p=(c_1/c_2)|g|^p$ (\texttt{ae}.)이다. 역으로 적당한 $c\geq0$가 존재하여 $|f|^p=c|g|^p$ (\texttt{ae}.)이거나 $|g|^p=c|f|^p$ (\texttt{ae}.)인 경우에 등호가 성립함은 자명하므로 증명은 이로써 충분하다.
 \end{proof}
 
 당장은 $p$-노름은 노름이 아니라는 점에 주의하자. 명제 \ref{prop:lpnormScale}의 i과 \texttt{Minkowski}의 부등식으로부터 $p$-노름이 양의 동차성과 삼각부등식은 만족하지만, 아직 이가 양의 정부호성을 만족하는지는 알지 못한다. 그리고 조금만 생각해보면, $p$-노름이 양의 정부호성을 갖길 기대하는 건 부질없는 것임을 깨달을 수 있다. 적분값이 0이라고 해서 피적분함수가 반드시 0일 필요는 없기 때문이다. 그럼에도 이에 $p$-노름이라는 이름을 괜히 붙인 것은 아닐테니, $p$-노름을 정말 노름으로 만들기 위해서는 `도약'이 필요하다.
@@ -2436,7 +2428,7 @@
 \end{proof}
 
 \begin{proposition}
-    측도공간 $(X,\,\mathcal{A},\,\mu)$와 $p\geq1$에 대해 함수 $||\cdot||_p:L^p\to\mathbb{R}$를 $||\cdot||_p:[f]\mapsto||f||_p$로 정의하면 $(L^p,\,||\cdot||_p)$는 노름공간이다.
+    측도공간 $(X,\,\mathcal{A},\,\mu)$와 $p\geq1$에 대해 함수 $||\cdot||_p:L^p\to\mathbb{R}_0^+$를 $||\cdot||_p:[f]\mapsto||f||_p$로 정의하면 $(L^p,\,||\cdot||_p)$는 노름공간이다.
 \end{proposition}
 
 \begin{proof}
@@ -2492,18 +2484,6 @@
 \end{proof}
 
 보통 특별히 정하지 않는 이상 $L^2$ 공간에는 위의 정리에서와 같은 내적이 주어진 것으로 생각하고, 혼동의 우려가 없다면 위 내적의 아래첨자 $\mu$를 생략하여 그냥 $\langle\cdot,\,\cdot\rangle$로 쓴다. 한편, 위의 정리로부터 $(L^2,\,\langle\cdot,\,\cdot\rangle)$이 \texttt{Hilbert} 공간을 이루므로, 우리는 잠시  \texttt{Hilbert} 공간이라는 추상의 세계로 건너가 이가 가지는 성질을 알아보고자 한다. 이번 절을 시작하며 $L^p$ 공간은 도함수를 일반화하기 위한 경유지라고 했는데 어쩐지 점점 더 우리의 목적으로부터 멀어지는 듯하다. 그러나 대부분의 추상화가 그러하듯, 추상의 세계에서 우리는 본질을 더 잘 바라볼 수 있는 법이다. 우리가 \texttt{Hilbert} 공간에서 특히 관심을 가질 부분은 이에서 정의된 선형사상의 \texttt{characterization}이다.
-
-% \begin{definition}
-%     노름공간 $(\mathsf{V},\,||\cdot||)$에서 정의된 선형사상 $T:\mathsf{V}\to\mathbb{R}$에 대해 만약 적당한 $M>0$이 존재하여 임의의 $v\in\mathsf{V}$에 대해 $|T(v)|\leq M||v||$이면 이때의 $T$를 \textbf{유계(\texttt{bounded})}라 한다.
-% \end{definition}
-
-% \begin{theorem}\label{thm:linearOpBounded}
-%     노름공간 $(\mathsf{V},\,||\cdot||)$에서 정의된 선형사상 $T:\mathsf{V}\to\mathbb{R}$에 대해 $T$가 유계일 필요충분조건은 이가 연속인 것이다.
-% \end{theorem}
-
-% \begin{proof}
-%     먼저 충분조건임을 보이기 위해 $T$가 유계라 하면 적당한 $M>0$이 존재하여 임의의 $v\in\mathsf{V}$에 대해 $|T(v)|\leq M||v||$이다. 이제 임의의 $\epsilon>0$과 임의의 $v\in\mathsf{V}$를 택하면 $||v-w||<\epsilon/M$인 임의의 $w\in\mathsf{V}$에 대해 $|T(v)-T(w)|=|T(v-w)|\leq M||v-w||<\epsilon$이므로 $T$가 연속임을 안다. 다음으로 필요조건임을 보이기 위해 $T$가 연속이라 하면 임의의 $v\in\mathsf{V}$에 대해 적당한 $\delta>0$가 존재하여 $||v||<\delta$이면 $|T(v)-T(0)|=|T(v)|<1$이다. 따라서 $0$이 아닌 임의의 $v\in\mathsf{V}$에 대해 $\widetilde{v}=\delta v/2||v||$라 하면 $||\widetilde{v}||=\delta/2<\delta$이므로 $(\delta/2||v||)|T(v)|=|T(\widetilde{v})|<1$에서 $|T(v)|<(2/\delta)||v||$이고, 이는 $v=0$인 경우에도 성립하므로 곧 $T$가 유계임을 안다.
-% \end{proof}
 
 \begin{theorem}\label{thm:smallestNorm}
     \texttt{Hilbert} 공간 $(\mathsf{V},\,||\cdot||)$의 공집합이 아닌 부분집합 $K\subseteq\mathsf{V}$가 닫혀있고 볼록하다면 임의의 $v\in K$에 대해 $||v^*||\leq||v||$인 $v^*\in K$가 유일하게 존재한다.
@@ -3202,11 +3182,11 @@ f
     \end{align*}
     이다. 이상으로부터 어느 경우에나 $T$가 \texttt{good}이 되어 임의의 가역인 선형사상이 \texttt{good}임을 안다.
 
-    2단계, 3단계, 5단계의 결과를 종합하면 임의의 \texttt{Affine} 변환이 \texttt{good}임을 안다. 이제 증명의 후반부를 위해 임의의 $\mathcal{C}^1$급 미분동형사상 $\Phi:U\to V$와 임의의 \texttt{compact}한 $K\subseteq U$를 고정하고, $\mathbb{R}^n$에 \texttt{maximum norm} $||\cdot||_\infty$를 장착하자.
+    2단계, 3단계, 5단계의 결과를 종합하면 임의의 \texttt{Affine} 변환이 \texttt{good}임을 안다. 이제 증명의 후반부를 위해 임의의 $\mathcal{C}^1$급 미분동형사상 $\Phi:U\to V$와 임의의 \texttt{compact}한 $K\subseteq U$를 고정하고, $\mathbb{R}^n$에 최대값 노름 $||\cdot||_\infty$를 장착하자.
 
     \noindent\texttt{\textbf{Step 6.}} 임의의 $\epsilon>0$에 대해 적당한 $\delta>0$가 존재하여 임의의 $x,\,y\in K$가 $||x-y||_\infty<\delta$와 $\prod_{i=1}^n[x_i,\,y_i]\subseteq K$를 만족하면 $||\Phi(x)-\Phi(y)-\D\Phi(x)(y-x)||_\infty<\epsilon||x-y||_\infty$이다.
 
-    편의를 위해 $\prod_{i=1}^n[x_i,\,y_i]\subseteq K$를 만족하는 임의의 $x,\,y\in K$를 고정하자. 이제 함수 $\gamma:[0,\,1]\to\mathbb{R}^n$를 $\gamma:t\mapsto\Phi((1-t)x+ty)$로 두면 이는 $\mathcal{C}^1$급이고, \texttt{FTC}로부터 $\Phi(y)-\Phi(x)=\int_0^1\nabla\gamma=\int_0^1\D\Phi((1-t)x+ty)(y-x)\,dt$이다. 이로부터 함수 $\Gamma:[0,\,1]\to\mathsf{L}(\mathbb{R}^n,\,\mathbb{R}^n)$를 $\Gamma:t\mapsto\D\Phi((1-t)x+ty)-\D\Phi(x)$로 두면 $\Phi(y)-\Phi(x)=\int_0^1\D\Phi((1-t)x+ty)(y-x)\,dt=\int_0^1[\D\Phi(x)+\Gamma(t)](y-x)\,dt=\D\Phi(x)(y-x)+\int_0^1\Gamma(t)(y-x)\,dt$이다. (여기서 벡터공간 $\mathsf{V},\,\mathsf{W}$에 대해 $\mathsf{L}(\mathsf{V},\,\mathsf{W})$는 $\mathsf{V}$와 $\mathsf{W}$ 사이에 정의된 모든 선형사상의 집합을 의미한다.) 한편, $\D\Phi:\mathbb{R}^n\to\mathsf{L}(\mathbb{R}^n,\,\mathbb{R}^n)$가 $K$ 위에서 균등연속이므로 임의의 $\epsilon>0$을 택하면 적당한 $\delta>0$가 존재하여 $||x-y||_\infty<\delta$이면 $||\D\Phi(x)-\D\Phi(y)||_\mathrm{op}<\epsilon$이다. 이제 $||x-y||_\infty<\delta$라 하고 임의의 $t\in[0,\,1]$에 대해 $z=(1-t)x+ty$라 하면 $||x-z||_\infty\leq||x-y||_\infty<\delta$에서 $||\Gamma(t)||_\mathrm{op}=||\D\Phi(x)-\D\Phi(z)||_\mathrm{op}<\epsilon$이 되어 이상으로부터 각 $i\leq n$에 대해 $\int_0^1\Gamma_i(t)(y-x)\,dt\leq\int_0^1||\Gamma(t)(y-x)||_\infty\,dt\leq\int_0^1||\Gamma(t)||_\mathrm{op}||x-y||_\infty\,dt<\epsilon||x-y||_\infty$이므로 곧 $||\Phi(x)-\Phi(y)-\D\Phi(x)(y-x)||_\infty=||\int_0^1\Gamma(t)(y-x)\,dt||_\infty<\epsilon||x-y||_\infty$가 성립한다.
+    편의를 위해 $\prod_{i=1}^n[x_i,\,y_i]\subseteq K$를 만족하는 임의의 $x,\,y\in K$를 고정하자. 이제 함수 $\gamma:[0,\,1]\to\mathbb{R}^n$를 $\gamma:t\mapsto\Phi((1-t)x+ty)$로 두면 이는 $\mathcal{C}^1$급이고, \texttt{FTC}로부터 $\Phi(y)-\Phi(x)=\int_0^1\nabla\gamma=\int_0^1\D\Phi((1-t)x+ty)(y-x)\,dt$이다. 이로부터 함수 $\Gamma:[0,\,1]\to\mathsf{L}(\mathbb{R}^n,\,\mathbb{R}^n)$를 $\Gamma:t\mapsto\D\Phi((1-t)x+ty)-\D\Phi(x)$로 두면 $\Phi(y)-\Phi(x)=\int_0^1\D\Phi((1-t)x+ty)(y-x)\,dt=\int_0^1[\D\Phi(x)+\Gamma(t)](y-x)\,dt=\D\Phi(x)(y-x)+\int_0^1\Gamma(t)(y-x)\,dt$이다. 한편, $\D\Phi:\mathbb{R}^n\to\mathsf{L}(\mathbb{R}^n,\,\mathbb{R}^n)$가 $K$ 위에서 균등연속이므로 임의의 $\epsilon>0$을 택하면 적당한 $\delta>0$가 존재하여 $||x-y||_\infty<\delta$이면 $||\D\Phi(x)-\D\Phi(y)||_\mathrm{op}<\epsilon$이다. 이제 $||x-y||_\infty<\delta$라 하고 임의의 $t\in[0,\,1]$에 대해 $z=(1-t)x+ty$라 하면 $||x-z||_\infty\leq||x-y||_\infty<\delta$에서 $||\Gamma(t)||_\mathrm{op}=||\D\Phi(x)-\D\Phi(z)||_\mathrm{op}<\epsilon$이 되어 이상으로부터 각 $i\leq n$에 대해 $\int_0^1\Gamma_i(t)(y-x)\,dt\leq\int_0^1||\Gamma(t)(y-x)||_\infty\,dt\leq\int_0^1||\Gamma(t)||_\mathrm{op}||x-y||_\infty\,dt<\epsilon||x-y||_\infty$이므로 곧 $||\Phi(x)-\Phi(y)-\D\Phi(x)(y-x)||_\infty=||\int_0^1\Gamma(t)(y-x)\,dt||_\infty<\epsilon||x-y||_\infty$가 성립한다.
 
     이제 임의의 $x\in U$에 대해 함수 $\Psi_x:\mathbb{R}^n\to\mathbb{R}^n$를 $\Psi_x:y\mapsto\Phi(x)+\D\Phi(x)(x-y)$로 두면 이는 \texttt{Affine} 변환이며 곧 \texttt{good}이다. 나아가 6단계의 결과로부터 임의의 $\epsilon>0$에 대해 적당한 $\delta>0$가 존재하여 임의의 $x,\,y\in K$가 $||x-y||_\infty<\delta$와 $\prod_{i=1}^n[x_i,\,y_i]\subseteq K$를 만족하면 $||\Phi(y)-\Psi_{x}(y)||_\infty<\epsilon||x-y||_\infty$이다.
 
@@ -3969,7 +3949,7 @@ f
 
 \section{Convolution}
 
-이번 절에서는 적분으로 정의되는 유명한 연산인 합성곱에 대한 엄밀한 이론전개를 해 보기로 한다. 이미 대부분의 독자들이 알고 있겠지만 합성곱은 두 함수를 `곱하는' 특유의 방식으로 신호처리에서 두 신호를 합성하는 방법의 일종으로 널리 쓰인다. 우리도 이와 비슷하게 이후 확률론을 배우면서 두 확률변수를 더하는 과정에서 합성곱을 사용하게 될 것이다. 함수의 합성곱과 관련하여 필요한 이론의 전개가 이루어진 후에는 이와 유사하게 측도의 합성곱을 정의하고, 함수의 합성곱과 측도의 합성곱이 어떻게 연결되어 있는지를 살펴보도록 하자.
+이번 절에서는 적분으로 정의되는 유명한 연산인 합성곱에 대한 엄밀한 이론 전개를 해 보기로 한다. 이미 대부분의 독자들이 알고 있겠지만 합성곱은 두 함수를 `곱하는' 특유의 방식으로 신호처리에서 두 신호를 합성하는 방법의 일종으로 널리 쓰인다. 우리도 이와 비슷하게 이후 확률론을 배우면서 두 확률변수를 더하는 과정에서 합성곱을 사용하게 될 것이다. 함수의 합성곱과 관련하여 필요한 이론의 전개가 이루어진 후에는 이와 유사하게 측도의 합성곱을 정의하고, 함수의 합성곱과 측도의 합성곱이 어떻게 연결되어 있는지를 살펴보도록 하자.
 
 \begin{proposition}\label{prop:convolutionMeasurable}
     가측함수 $f:\mathbb{R}^n\to\overline{\mathbb{R}}$와 임의의 $x\in\mathbb{R}^n$에 대해 함수 $t\mapsto f(x-t)$는 가측이다.

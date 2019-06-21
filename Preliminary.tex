@@ -1,0 +1,355 @@
+\section{Analysis}
+
+\subsection{Inequalities}
+
+다음 부등식들은 각종 정리의 증명에서 유용하게 사용된다.
+
+\begin{theorem}[Young's inequality]
+    임의의 $x,\,y\geq0$와 $1/p+1/q=1$인 $p,\,q>1$에 대해 $xy\leq x^p/p+y^q/q$이다. 이때, 등호가 성립할 필요충분조건은 $x^p=y^q$인 것이다.
+\end{theorem}
+
+\begin{proof}
+    임의의 $y\geq0$를 고정하고 함수 $f:\mathbb{R}\to\mathbb{R}$를 $f:x\mapsto x^p/p+y^q/q-xy$로 두면 $f':x\mapsto x^{p-1}-y$에서 $f$는 $y^{1/(1-p)}=y^{q/p}$에서 최솟값 $f(y^{q/p})=(1/p+1/q)y^q-y^{q/p+1}=0$을 가진다. 여기서 마지막 등호는 $q/p+1=q$에서 성립하고, 증명은 이로써 충분하다.
+\end{proof}
+
+\begin{theorem}[H\"older's inequality]
+    임의의 $x,\,y\in\mathbb{R}^n$와 $1/p+1/q=1$인 $p,\,q>1$에 대해 $\sum_{i=1}^n|x_iy_i|\leq||x||_p||y||_q$이다. 이때, 등호가 성립할 필요충분조건은 적당한 $c\geq0$가 존재하여 각 $i\leq n$에 대해 $|x_i|^p=c|y_i|^q$이거나 $|y_i|^q=c|x_i|^p$인 것이다.
+\end{theorem}
+
+\begin{proof}
+    \texttt{WLOG}, 필요하다면 $x,\,y$를 각각 $|x|,\,|y|$로 대체하여 $x,\,y$의 모든 성분이 처음부터 음이 아니라 해도 된다. 한편, 만약 $||x||_p=0$이면 $x=0$에서 부등식이 자명하므로 $||x||_p>0$이라 하고, 비슷한 이유로 $||y||_p>0$이라 하자. 이제 $||x||_p=||y||_q=1$인 특별한 경우를 생각하면 \texttt{Young}의 부등식으로부터 $\sum_{i=1}^nx_iy_i\leq\sum_{i=1}^n(x_i^p/p+y_i^q/q)=||x||_p^p/p+||y||_q^q/q=1/p+1/q=1$이다. 이제 일반적인 경우에 $\widetilde{x}=x/||x||_p,\,\widetilde{y}=y/||y||_q$라 하면 $||\widetilde{x}||_p=||\widetilde{y}||_q=1$이므로 앞선 결과로부터 $\sum_{i=1}^n\widetilde{x}_i\widetilde{y}_i\leq1$이 되어 곧 $\sum_{i=1}^nx_iy_i\leq||x||_p||y||_q$임을 안다.
+
+    한편, 등호조건을 보이기 위해 $\sum_{i=1}^n|x_iy_i|=||x||_p||y||_q$라 하자. 만약 $||x||_p=0$이면 $x=0$에서 각 $i\leq n$에 대해 $|x_i|^p=0=0\cdot|y_i|^q$가 되어 더 이상 보일 것이 없으므로 $||x||_p\ne0$이라 하고, 비슷한 이유에서 $||y||_q\ne0$이라 하자. 이제 $\widetilde{x}=|x|/||x||_p,\,\widetilde{y}=|y|/||y||_q$라 하면 $\sum_{i=1}^n\widetilde{x}_i\widetilde{y}_i=(\sum_{i=1}^nx_iy_i)/||x||_p||y||_q=1=||\widetilde{x}||_p^p/p+||\widetilde{y}||_q^q/q=\sum_{i=1}^n(\widetilde{x}_i^p/p+\widetilde{y}_i^q/q)$이므로 \texttt{Young}의 부등식으로부터 각 $i\leq n$에 대해 $\widetilde{x}_i\widetilde{y}_i=\widetilde{x}_i^p/p+\widetilde{y}_i^q/q$이다. 이는 다시 \texttt{Young}의 부등식의 등호조건으로부터 각 $i\leq n$에 대해 $\widetilde{x}_i^p=\widetilde{y}_i^q$임을 뜻하고, 따라서 $|x_i|^p=(||x||_p^p/||y||_q^q)|y_i|^q$이다. 역으로 적당한 $c\geq0$가 존재하여 각 $i\leq n$에 대해 $|x_i|^p=c|y_i|^q$이거나 $|y_i|^q=c|x_i|^p$인 경우에 등호가 성립함은 자명하므로 증명은 이로써 충분한다.
+\end{proof}
+
+\texttt{H\"older}의 부등식에서 조건으로 주어진 `$1/p+1/q=1$인 실수 $p,\,q>1$'는 다른 부등식에서도 종종 조건으로 주어지곤 하기에 특별히 이러한 $p,\,q\in\mathbb{R}$에 대해 \textbf{\texttt{H\"older conjugate}}라는 이름이 붙어있다.
+
+\begin{theorem}[Minkowski's inequality]
+    임의의 $x,\,y\in\mathbb{R}^n$와 $p\geq1$에 대해 $||x+y||_p\leq||x||_p+||y||_p$이다. 이때, 등호가 성립한 필요충분조건은 적당한 $c\geq0$가 존재하여 각 $i\leq n$에 대해 $|x_i|^p=c|y_i|^q$이거나 $|y_i|^q=c|x_i|^p$인 것이다.
+\end{theorem}
+
+\begin{proof}
+    만약 $p=1$이면 $||x+y||_1=\sum_{i=1}^n|x_i+y_i|\leq\sum_{i=1}^n|x_i|+\sum_{i=1}^n|y_i|=||x||_1+||y||_1$에서 부등식이 자명하므로 $p>1$이라 하자. 또한 $||x+y||_p=0$인 경우에도 부등식이 자명하므로 $||x+y||_p>0$이라 하자. 한편, \texttt{H\"older}의 부등식으로부터 $1/p+1/q=1$인 $q>1$에 대해
+    \begin{align*}
+        ||x+y||_p^p&=\sum_{i=1}^n|x_i+y_i|^p\\
+        &\leq\sum_{i=1}^n|x_i||x_i+y_i|^{p-1}+\sum_{i=1}^n|y_i||x_i+y_i|^{p-1}\\
+        &\leq||x||_p\bigg(\sum_{i=1}^n|x_i+y_i|^{(p-1)q}\bigg)^{1/q}+||y||_p\bigg(\sum_{i=1}^n|x_i+y_i|^{(p-1)q}\bigg)^{1/q}\\
+        &=(||x||_p+||y||_p)\bigg(\sum_{i=1}^n|x_i+y_i|^p\bigg)^{(p-1)/p}\\
+        &=(||x||_p+||y||_p)||x+y||_p^{p-1}
+    \end{align*}
+    이므로 $||x+y||_p\leq||x||_p+||y||_p$임을 안다.
+
+    한편, 등호조건을 보이기 위해 $||x+y||_p=||x||_p+||y||_p$라 하자. 만약 $x=0$이면 각 $i\leq n$에 대해 $|x_i|^p=0=0\cdot|y_i|^p$에서 더 이상 보일 것이 없으므로 $x\ne0$이라 하고, 비슷한 이유에서 $y\ne0$이라 하자. 그렇다면 위의 증명과정과 \texttt{H\"older}의 부등식의 등호조건으로부터 적당한 $c_1,\,c_2>0$가 존재하여 $|x_i|^p=c_1|x_i+y_i|^{(p-1)q}=c_1|x_i+y_i|^p$이고 $|y_i|^p=c_2|x_i+y_i|^{(p-1)q}=c_2|x_i+y_i|^p$이므로 곧 $|x_i|^p=(c_1/c_2)c_2|x_i+y_i|^p=(c_1/c_2)|y_i|^p$이다. 역으로 적당한 $c\geq0$가 존재하여 각 $i\leq n$에 대해 $|x_i|^p=c|y_i|^q$이거나 $|y_i|^q=c|x_i|^p$인 경우에 등호가 성립함은 자명하므로 증명은 이로써 충분하다.
+\end{proof}
+
+\subsection{Norms}
+
+노름은 벡터공간에서 정의되는 `크기'의 추상화이다. 이미 해석개론 전반부에서 어느정도 논하였을 것이므로 여기서는 앞으로 사용될 몇몇 특별한 노름들을 간단히 소개하고 다변수해석학에 필요한 작용소 노름과 행렬 노름에 대해 집중적으로 살펴본다.
+
+\begin{definition}
+    벡터공간 $\mathsf{V}$에서 정의된 함수 $||\cdot||:\mathsf{V}\to\mathbb{R}$가 임의의 $\lambda\in\mathbb{R}$와 임의의 $v,\,w\in\mathsf{V}$에 대해
+    \begin{enumerate}
+        \item (양의 동차성) $||\lambda v||=|\lambda|||v||$.
+        \item (삼각부등식) $||v+w||\leq||v||+||w||$.
+        \item (양의 정부호성) $||v||=0$일 필요충분조건은 $v=0$인 것이다.
+    \end{enumerate}
+    를 만족하면 이때의 함수 $||\cdot||$를 $\mathsf{V}$ 위의 \textbf{노름(\texttt{norm})}이라 하고, \texttt{tuple} $(\mathsf{V},\,||\cdot||)$를 \textbf{노름공간(\texttt{norm space})}이라 한다.
+\end{definition}
+
+첫째로 소개할 노름은 $p$-노름으로 사실상 유클리드 공간에서의 표준으로 자리잡은 노름이다. 단순한 정의임에도 불구하고 그 기저에 깔린 훌륭한 기하학적 직관과 이가 가지는 좋은 성질들 덕분에 유클리드 공간을 넘어 수열공간이나 함수공간으로 그 정의가 확장되어 사용되지만, 무한차원 벡터공간에서는 조금 귀찮은 일들이 생기는 까닭에 여기서는 $n$차원 벡터공간에 한하여 $p$-노름을 도입한다. 이후 함수공간에서의 $p$-노름에 대해서는 측도론을 배우면서 $L^p$ 공간의 개념을 통해 엄밀히 논의할 것이다. 특별히 정하지 않는 이상, $\mathbb{R}^n$에는 $2$-노름이 장착된 것으로 생각한다.
+
+\begin{definition}
+    $n$차원 벡터공간 $\mathsf{V}$와 임의의 $p\geq1$에 대해 \textbf{$p$-노름($p$-\texttt{norm})}을 $||\cdot||_p:\mathsf{V}\to\mathbb{R}_0^+$로 쓰고 $||\cdot||_p:v\mapsto(\sum_{i=1}^n|v_i|^p)^{1/p}$로 정의한다. 여기서 $v_1,\,\cdots,\,v_n$은 $\mathsf{V}$의 고정된 기저에 대한 $v$의 좌표이다.
+\end{definition}
+
+\begin{proposition}
+    $n$차원 벡터공간 $\mathsf{V}$에 대해 $p$-노름은 노름이다. 따라서 $(\mathsf{V},\,||\cdot||_p)$는 노름공간을 이룬다.
+\end{proposition}
+
+\begin{proof}
+    양의 동차성과 양의 정부호성은 $p$-노름의 정의로부터 명백하고, 삼각부등식도 \texttt{Minkowski}의 부등식으로부터 자명하다.
+\end{proof}
+
+다음으로 소개할 노름은 $p$-노름만큼은 아니지만 각종 증명에서 이따금씩 등장하는 최댓값 노름이다. 아래의 정리에서 볼 수 있듯이 표기가 $p$-노름과 유사한 것은 우연의 일치가 아니며, 이러한 이유로 최댓값 노름을 $p$-노름의 $p=\infty$인 특별한 경우로 보는 경우도 있다.
+
+\begin{definition}
+    $n$차원 벡터공간 $\mathsf{V}$에 대해 \textbf{최댓값 노름(\texttt{maximum norm})}을 $||\cdot||_\infty:\mathsf{V}\to\mathbb{R}_0^+$로 쓰고 $||\cdot||_\infty:v\mapsto\max_{i=1}^n|v_i|$로 정의한다. 여기서 $v_1,\,\cdots,\,v_n$은 $\mathsf{V}$의 고정된 기저에 대한 $v$의 좌표이다.
+\end{definition}
+
+\begin{proposition}
+    $n$차원 벡터공간 $\mathsf{V}$에 대해 \texttt{maximum norm}은 노름이다. 따라서 $(\mathsf{V},\,||\cdot||_\infty)$는 노름공간을 이룬다.
+\end{proposition}
+
+\begin{proof}
+    양의 동차성과 양의 정부호성은 \texttt{maximum norm}의 정의로부터 명백하므로 삼각부등식만 보이면 된다. 이를 위해 임의의 $v,\,w\in\mathsf{V}$를 생각하면 각 $i\leq n$에 대해 $v_i+w_i\leq||v||_\infty+||w||_\infty$이므로 $||v+w||_\infty\leq||v||_\infty+||w||_\infty$가 성립한다.
+\end{proof}
+
+\begin{theorem}
+    $n$차원 벡터공간 $\mathsf{V}$에 속하는 임의의 $v\in\mathsf{V}$에 대해 $p\to\infty$이면 $||v||_p\to||v||_\infty$이다.
+\end{theorem}
+
+\begin{proof}
+    만약 $v=0$이면 정리가 자명하므로 $v\ne0$이라 하자. 한편, 간결한 논의를 위해 $v$의 모든 성분이 $0$이 아니라 하자. (다른 경우에 대해서도 이와 비슷하게 하면 된다.) 그렇다면 $||v||_\infty>0$이고 \texttt{L'H\^ospital}의 법칙으로부터
+    \begin{align*}
+        \lim_{p\to\infty}\frac{||v||_p}{||v||_\infty}&=\lim_{p\to\infty}\bigg[\sum_{i=1}^n\bigg(\frac{|v_i|}{||v||_\infty}\bigg)^p\bigg]^{1/p}\\
+        &=\lim_{p\to\infty}\exp\bigg(\frac{1}{p}\log\sum_{i=1}^n\bigg(\frac{|v_i|}{||v||_\infty}\bigg)^p\bigg)\\
+        &=\exp\bigg(\lim_{p\to\infty}\frac{1}{p}\log\sum_{i=1}^n\bigg(\frac{|v_i|}{||v||_\infty}\bigg)^p\bigg)\\
+        &=\exp\bigg(\lim_{p\to\infty}\sum_{i=1}^n\bigg(\frac{|v_i|}{||v||_\infty}\bigg)^p\log\bigg(\frac{|v_i|}{||v||_\infty}\bigg)\bigg/\sum_{i=1}^n\bigg(\frac{|v_i|}{||v||_\infty}\bigg)^p\bigg)\\
+        &=\exp\bigg(\sum_{i=1}^n\bigg[\lim_{p\to\infty}\bigg(\frac{|v_i|}{||v||_\infty}\bigg)^p\log\bigg(\frac{|v_i|}{||v||_\infty}\bigg)\bigg/\sum_{i=1}^n\bigg(\frac{|v_i|}{||v||_\infty}\bigg)^p\bigg]\bigg)
+    \end{align*}
+    인데, 각 $i\leq n$에 대해 만약 $|v_i|=||v||_\infty$이면 $\log(|v_i|/||v||_\infty)=0$이고 그렇지 않으면 $|v_i|<|v_j|$인 $j\leq n$가 적어도 하나 존재하여
+    \begin{align*}
+        \lim_{p\to\infty}\bigg(\frac{|v_i|}{||v||_\infty}\bigg)^p\log\bigg(\frac{|v_i|}{||v||_\infty}\bigg)\bigg/\sum_{i=1}^n\bigg(\frac{|v_i|}{||v||_\infty}\bigg)^p&\leq\lim_{p\to\infty}\bigg(\frac{|v_i|}{||v||_\infty}\bigg)^p\log\bigg(\frac{|v_i|}{||v||_\infty}\bigg)\bigg/\frac{|v_j|}{||v||_\infty}\\
+        &=\lim_{p\to\infty}\frac{\log(|v_i|/||v||_\infty)}{(|v_j|/|v_i|)^p}\\
+        &=0
+    \end{align*}
+    이므로 이상으로부터 $p\to\infty$이면 $||v||_p/||v||_\infty\to1$임을 알고, 증명은 이로써 충분하다.
+\end{proof}
+
+무한차원 벡터공간으로 넘어가기 전에, 유한차원 벡터공간에 한해서만 성립하는 중요한 결과 하나를 소개한다. 이는 유한차원에서 사용할 노름의 선택을 단순한 개인의 취향 문제로 만들어버리는 강력한 결과이다.
+
+\begin{definition}
+    벡터공간 $\mathsf{V}$ 위의 두 노름 $||\cdot||,\,||\cdot||'$에 대해 $C_1\leq C_2$인 $C_1,\,C_2>0$가 존재하여 임의의 $v\in\mathsf{V}$에 대해 $C_1||v||\leq||v||'\leq C_2||v||$이면 이때 $||\cdot||$와 $||\cdot||'$가 \textbf{\texttt{equivalent}}하다고 하고 $||\cdot||\sim||\cdot||'$으로 쓴다. 
+\end{definition}
+
+\begin{proposition}\label{prop:normEquivalent}
+    벡터공간 $\mathsf{V}$ 위의 노름간의 \texttt{equivalence}는 동치관계이다. 즉, $\mathsf{V}$ 위의 노름 $||\cdot||,\,||\cdot||',\,||\cdot||''$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item (반사성) $||\cdot||\sim||\cdot||$.
+        \item (대칭성) $||\cdot||\sim||\cdot||'$이면 $||\cdot||'\sim||\cdot||$이다.
+        \item (전이성) $||\cdot||\sim||\cdot||'$이고 $||\cdot||'\sim||\cdot||''$이면 $||\cdot||\sim||\cdot||''$이다.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    반사성은 명백하므로 대칭성과 전이성만 보이자. 먼저 대칭성을 보이기 위해 $||\cdot||\sim||\cdot||'$라 하면 $C_1\leq C_2$인 $C_1,\,C_2>0$가 존재하여 임의의 $v\in\mathsf{V}$에 대해 $C_1||v||\leq||v||'\leq C_2||v||$이므로 $(1/C_2)||v||'\leq||v||\leq(1/C_1)||v||'$에서 $||\cdot||'\sim||\cdot||$이고, 곧 대칭성이 성립한다. 다음으로 전이성을 보이기 위해 $||\cdot||\sim||\cdot||'$이고 $||\cdot||'\sim||\cdot||''$라 하면 $C_1\leq C_2$이고 $C_3\leq C_4$인 $C_1,\,C_2,\,C_3,\,C_4>0$가 존재하여 임의의 $v\in\mathsf{V}$에 대해 $C_1||v||\leq||v||'\leq C_2||v||$이고 $C_3||v||'\leq||v||''\leq C_4||v||'$이므로 $C_1C_3||v||\leq C_3||v||'\leq||v||''\leq C_4||v||'\leq C_2C_4||v||$에서 $||\cdot||\sim||\cdot||''$이고, 곧 전이성이 성립한다.
+\end{proof}
+
+\begin{lemma}
+    유한차원 노름공간 $(\mathsf{V},\,||\cdot||_1)$ 위의 임의의 노름 $||\cdot||$은 균등연속이다.
+\end{lemma}
+
+\begin{proof}
+    벡터공간 $\mathsf{V}$의 기저를 $\beta=\{\beta_1,\,\cdots,\,\beta_n\}$이라 하고 임의의 $\epsilon>0$을 택하면 $||v-w||_1<\epsilon/\max_{i=1}^n||\beta_i||$인 임의의 $v,\,w\in\mathsf{V}$에 대해
+    \begin{align*}
+        |||v||-||w|||&\leq||v-w||\\
+        &\leq||(v_1,\,v_2,\,\cdots,\,v_n)-(w_1,\,v_2,\,\cdots,\,v_n)||+||(w_1,\,v_2,\,\cdots,\,v_n)-(w_1,\,w_2,\,\cdots,\,v_n)||\\
+        &\qquad\qquad\qquad\qquad\qquad\qquad+\cdots+||(w_1,\,w_2,\,\cdots,\,v_n)-(w_1,\,w_2,\,\cdots,\,w_n)||\\
+        &=\sum_{i=1}^n|v_i-w_i|||\beta_i||\\
+        &\leq\sum_{i=1}^n|v_i-w_i|\max_{i=1}^n||\beta_i||\\
+        &=(\max_{i=1}^n||\beta_i||)||v-w||_1\\
+        &<\epsilon
+    \end{align*}
+    이므로 $||\cdot||$은 균등연속이다.
+\end{proof}
+
+\begin{theorem}\label{thm:normEquiv}
+    유한차원 벡터공간 $\mathsf{V}$ 위의 임의의 두 노름 $||\cdot||,\,||\cdot||'$에 대해 $||\cdot||\sim||\cdot||'$이다.
+\end{theorem}
+
+\begin{proof}
+    먼저 $\mathsf{V}$에 $1$-노름을 장착하면 위의 보조정리로부터 $\mathsf{V}$ 위의 임의의 노름 $||\cdot||$이 연속이고, 집합 $S(1)\subseteq\mathsf{V}$이 \texttt{compact}하므로 $||\cdot||$은 $S(1)$ 위에서 최댓값 $M>0$과 최솟값 $m>0$을 가진다. 이제 $0$이 아닌 임의의 $v\in\mathsf{V}$에 대해 $\widetilde{v}=v/||v||_1$라 하면 $\widetilde{v}\in S(1)$이므로 $m\leq||\widetilde{v}||\leq M$에서 $m||v||_1\leq||v||\leq M||v||_1$이고, 이는 $v=0$인 경우에도 성립하므로 $||\cdot||\sim||\cdot||_1$임을 안다. 여기서 $||\cdot||$이 임의의 노름이라는 점과 명제 \ref{prop:normEquivalent}를 생각해보면 증명은 이로써 충분하다.
+\end{proof}
+
+이제 작용소 노름에 대해 알아보자. 작용소 노름은 선형사상에 대해 정의되는 일종의 함수인데, 앞서 소개한 노름들과 달리 $\infty$를 그 값으로 가질 수 있어서 이를 진짜 노름으로 만들기 위해서는 약간의 준비가 필요하다.
+
+\begin{definition}
+    노름공간 $(\mathsf{V},\,||\cdot||),\,(\mathsf{W},\,||\cdot||')$에 대해 \textbf{작용소 노름(\texttt{operator norm})}을 $||\cdot||_\mathrm{op}:\mathsf{L}(\mathsf{V},\,\mathsf{W})\to\overline{\mathbb{R}}_0^+$로 쓰고 $||\cdot||_\mathrm{op}:T\mapsto\inf\{M\geq0:\textrm{임의의 $v\in\mathsf{V}$에 대해 $||T(v)||'\leq M||v||$}\}$로 정의한다.
+\end{definition}
+
+\begin{proposition}\label{prop:opNormProp}
+    노름공간 $(\mathsf{V},\,||\cdot||),\,(\mathsf{W},\,||\cdot||')$ 사이에서 정의된 선형사상 $T,\,T':\mathsf{V}\to\mathsf{W}$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item 임의의 $\lambda\in\mathbb{R}$에 대해 $||\lambda T||_\mathrm{op}=|\lambda|||T||_\mathrm{op}$이다.
+        \item $||T+T'||_\mathrm{op}\leq||T||_\mathrm{op}+||T'||_\mathrm{op}$.
+        \item $||T||_\mathrm{op}=0$일 필요충분조건은 $T=0$인 것이다.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    iii. 만약 $T=0$이면 $||T||_\mathrm{op}=0$임이 자명하다. 이제 $||T||_\mathrm{op}=0$인데 $T\ne0$이라 하면 $T(v)\ne0$인 $0$이 아닌 $v\in\mathsf{V}$를 적어도 하나 택할 수 있고 가정으로부터 적당한 $M<||T(v)||'/||v||$이 존재하여 $||T(v)||'\leq M||v||<||T(v)||'$의 모순이 발생하므로 $T=0$이다.
+
+    i. 만약 $\lambda=0$이면 iii으로부터 명제가 자명하므로 $\lambda\ne0$이라 하자. 또한, 만약 $||T||_\mathrm{op}=\infty$라면 임의의 $i\in\mathbb{N}$에 대해 적당한 $v_i\in\mathsf{V}$가 존재하여 $||T(v_i)||'>i||v_i||$이다. 이로부터 임의의 $j\in\mathbb{N}$에 대해 $i_j\geq j/|\lambda|$인 $\mathbb{N}$에 속하는 수열 $\{i_j\}$를 잡으면 임의의 $j\in\mathbb{N}$에 대해 $||\lambda T(v_{i_j})||'=|\lambda|||T(v_{i_j})||'>i_j|\lambda|||v_{i_j}||\geq j||v_{i_j}||$가 되어 $||\lambda T||_\mathrm{op}=\infty$애서 이 경우에도 명제가 자명하므로 $||T||_\mathrm{op}<\infty$라 하자.
+
+    이제 임의의 $v\in\mathsf{V}$에 대해 $||T(v)||'\leq M||v||$인 $M\geq0$을 임의로 하나 택하면 임의의 $v\in\mathsf{V}$에 대해 $||\lambda T(v)||'=|\lambda|||T(v)||'\leq|\lambda|M||v||$이므로 $||\lambda T||_\mathrm{op}\leq|\lambda|M$이고, 곧 $||\lambda T||_\mathrm{op}\leq|\lambda|||T||_\mathrm{op}$이다. 여기서 $\lambda\ne0$가 임의였음을 상기한다면 $|\lambda|||T||_\mathrm{op}\leq||\lambda T||_\mathrm{op}$도 성립하므로 이상을 종합하면 $||\lambda T||_\mathrm{op}=|\lambda|||T||_\mathrm{op}$이다.
+
+    ii. 만약 $||T||_\mathrm{op}=\infty$이거나 $||T'||_\mathrm{op}=\infty$이면 명제가 자명하므로 $||T||_\mathrm{op},\,||T'||_\mathrm{op}<\infty$라 하자. 이제 임의의 $v\in\mathsf{V}$에 대해 $||T(v)||'\leq M||v||$이고 $||T'(v)||'\leq N||v||$인 $M,\,N\geq0$을 임의로 하나씩 택하면 임의의 $v\in\mathsf{V}$에 대해 $||(T+T')(v)||'\leq||T(v)||'+||T'(v)||'\leq(M+N)||v||$이므로 $||T+T'||_\mathrm{op}\leq M+N$이고, 곧 $||T+T'||_\mathrm{op}\leq||T||_\mathrm{op}+||T'||_\mathrm{op}$이다.
+\end{proof}
+
+위의 명제를 보니 $\infty$의 작용소 노름을 가지는 선형사상들만 제거해주면 그 위에서 노름공간을 이룰 수 있을 듯하다.
+
+\begin{definition}
+    노름공간 $(\mathsf{V},\,||\cdot||),\,(\mathsf{W},\,||\cdot||')$ 사이에서 정의된 선형사상 $T:\mathsf{V}\to\mathsf{W}$에 대해 $||T||_\mathrm{op}<\infty$이면 이때의 선형사상 $T$를 \textbf{유계(\texttt{bounded})}라 한다.
+\end{definition}
+
+\begin{theorem}\label{thm:linearOpBoundedContinuous}
+    노름공간 $(\mathsf{V},\,||\cdot||),\,(\mathsf{W},\,||\cdot||')$ 사이에서 정의된 선형사상 $T:\mathsf{V}\to\mathsf{W}$에 대해 $T$가 유계일 필요충분조건은 이가 연속인 것이다.
+\end{theorem}
+
+\begin{proof}
+    먼저 충분조건임을 보이기 위해 $T$가 유계라 하면 $||T||_\mathrm{op}<\infty$이므로 적당한 $M>0$이 존재하여 임의의 $v\in\mathsf{V}$에 대해 $||T(v)||'\leq M||v||$이다. 이제 임의의 $\epsilon>0$과 임의의 $v\in\mathsf{V}$를 택하면 $||v-w||<\epsilon/M$인 임의의 $w\in\mathsf{V}$에 대해 $||T(v)-T(w)||'=||T(v-w)||'\leq M||v-w||<\epsilon$이므로 $T$가 연속임을 안다. 다음으로 필요조건임을 보이기 위해 $T$가 연속이라 하면 임의의 $v\in\mathsf{V}$에 대해 적당한 $\delta>0$가 존재하여 $||v||<\delta$이면 $||T(v)||'=||T(v)-T(0)||'<1$이다. 따라서 $0$이 아닌 임의의 $v\in\mathsf{V}$에 대해 $\widetilde{v}=\delta v/2||v||$라 하면 $||\widetilde{v}||=\delta/2<\delta$이므로 $(\delta/2||v||)||T(v)||'=||T(\widetilde{v})||'<1$에서 $||T(v)||'<(2/\delta)||v||$이고, 이는 $v=0$인 경우에도 성립하므로 곧 $||T||_\mathrm{op}\leq2/\delta$에서 $T$가 유계임을 안다.
+\end{proof}
+
+\begin{proposition}\label{prop:boundedLinearMapNormSpace}
+    노름공간 $(\mathsf{V},\,||\cdot||),\,(\mathsf{W},\,||\cdot||')$ 사이에서 정의된 모든 유계인 선형사상의 집합을 $\mathsf{BL}(\mathsf{V},\,\mathsf{W})\subseteq\mathsf{L}(\mathsf{V},\,\mathsf{W})$라 하면 $(\mathsf{BL}(\mathsf{V},\,\mathsf{W}),\,||\cdot||_\mathrm{op})$는 노름공간을 이룬다.
+\end{proposition}
+
+\begin{proof}
+    집합 $\mathsf{BL}(\mathsf{V},\,\mathsf{W})$이 벡터공간임을 보일 수만 있으면 명제 \ref{prop:opNormProp}로부터 명제가 자명한데, 정리 \ref{thm:linearOpBoundedContinuous}로부터 $\mathsf{BL}(\mathsf{V},\,\mathsf{W})$의 모든 원소는 연속함수이고, 연속함수의 합과 스칼라곱은 연속함수라는 점에서 다시 정리 \ref{thm:linearOpBoundedContinuous}로부터 그 결과가 $\mathsf{BL}(\mathsf{V},\,\mathsf{W})$에 속하여 $\mathsf{BL}(\mathsf{V},\,\mathsf{W})$은 덧셈과 스칼라곱에 대해 닫혀있음을 안다. 이제 $\mathsf{BL}(\mathsf{V},\,\mathsf{W})$이 벡터공간이 되기 위해 만족해야할 나머지 조건들은 쉽게 확인해볼 수 있다.
+\end{proof}
+
+만약 $\mathsf{V}$가 유한차원이었다면 더 간단해진다.
+
+\begin{theorem}
+    노름공간 $(\mathsf{V},\,||\cdot||),\,(\mathsf{W},\,||\cdot||')$ 사이에서 정의된 선형사상 $T:\mathsf{V}\to\mathsf{W}$에 대해 $\dim\mathsf{V}<\infty$이면 $T$는 유계이고, 따라서 연속이다.
+\end{theorem}
+
+\begin{proof}
+    벡터공간 $\mathsf{V}$의 기저를 $\beta=\{\beta_1,\,\cdots,\,\beta_n\}$이라 하고 $M=\max_{i=1}^n||T(\beta_i)||'$라 하자. 그렇다면 임의의 $v\in\mathsf{V}$에 대해
+    \begin{align*}
+        ||T(v)||'&=\bigg|\bigg|T\bigg(\sum_{i=1}^nv_i\beta_i\bigg)\bigg|\bigg|'\\
+        &=\bigg|\bigg|\sum_{i=1}^nv_iT(\beta_i)\bigg|\bigg|'\\
+        &\leq\sum_{i=1}^n|v_i|||T(\beta_i)||'\\
+        &\leq M\sum_{i=1}^n|v_i|\\
+        &=M||v||_\infty
+    \end{align*}
+    인데, 정리 \ref{thm:normEquiv}로부터 적당한 $C>0$가 존재하여 $||v||_\infty\leq C||v||$이므로 $||T(v)||'\leq CM||v||$이다. 이는 곧 $||T||_\mathrm{op}\leq CM<\infty$임을 뜻하므로 $T$는 유계이고, 정리 \ref{thm:linearOpBoundedContinuous}로부터 연속이다.
+\end{proof}
+
+\begin{corollary}
+    노름공간 $(\mathsf{V},\,||\cdot||),\,(\mathsf{W},\,||\cdot||')$에 대해 $\dim\mathsf{V}<\infty$이면 $(\mathsf{L}(\mathsf{V},\,\mathsf{W}),\,||\cdot||_\mathrm{op})$는 노름공간을 이룬다.
+\end{corollary}
+
+\begin{proof}
+    이는 위의 정리와 명제 \ref{prop:boundedLinearMapNormSpace}로부터 자명하다.
+\end{proof}
+
+마지막으로 작용소 노름의 중요한 성질 하나를 소개한다.
+
+\begin{theorem}\label{thm:opNormProp}
+    노름공간 $(\mathsf{U},\,||\cdot||),\,(\mathsf{V},\,||\cdot||'),\,(\mathsf{W},\,||\cdot||'')$에 대해 선형사상 $T:\mathsf{U}\to\mathsf{V},\,T':\mathsf{V}\to\mathsf{W}$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item 임의의 $v\in\mathsf{U}$에 대헤 $||T(v)||'\leq||T||_\mathrm{op}||v||$이다.
+        \item $||T'\circ T||_\mathrm{op}\leq||T||_\mathrm{op}||T'||_\mathrm{op}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    i. 우선 $v=0$에 대해서는 정리가 자명하므로 $v\ne0$이라 하자. 또한, $||T||_\mathrm{op}=\infty$인 경우에도 정리가 자명하므로 $||T||_\mathrm{op}<\infty$라 하자. 이제 임의의 $v\in\mathsf{V}$에 대해 $||T(v)||'\leq M||v||$인 $M\geq0$을 임의로 하나 택하면 $0$이 아닌 임의의 $v\in\mathsf{V}$에 대해 $||T(v)||'\leq M||v||$에서 $||T(v)||'/||v||\leq M$이므로 곧 $||T(v)||'/||v||\leq||T||_\mathrm{op}$에서 증명이 끝난다.
+
+    ii. 만약 $||T||_\mathrm{op}=0$이거나 $||T'||_\mathrm{op}=0$이면 $T'\circ T=0$이 되어 정리가 자명하므로 $||T||_\mathrm{op},\,||T'||_\mathrm{op}>0$라 하자. 비슷하게, $||T||_\mathrm{op}=\infty$이거나 $||T'||_\mathrm{op}=\infty$인 경우에도 정리가 자명하므로 $||T||_\mathrm{op},\,||T'||_\mathrm{op}<\infty$라 하자. 이제 임의의 $v\in\mathsf{V}$에 대해 $||T(v)||'\leq M||v||$이고 $||T'(v)||''\leq N||v||$인 $M,\,N>0$을 임의로 하나씩 택하면 임의의 $v\in\mathsf{V}$에 대해 $||(T'\circ T)(v)||''\leq N||T(v)||'\leq MN||v||$이므로 $||T'\circ T||_\mathrm{op}\leq MN$에서 $||T'\circ T||_\mathrm{op}/N\leq M$이고, 곧 $||T'\circ T||_\mathrm{op}/N\leq||T||_\mathrm{op}$이다. 비슷하게, 이는 다시 $||T'\circ T||_\mathrm{op}/||T||_\mathrm{op}\leq N$임을 의미하여 $||T'\circ T||_\mathrm{op}/||T||_\mathrm{op}\leq||T'||_\mathrm{op}$이 성립하고, 곧 $||T'\circ T||_\mathrm{op}\leq||T||_\mathrm{op}||T'||_\mathrm{op}$가 되어 증명이 끝난다.
+\end{proof}
+
+마지막으로 살펴볼 노름은 행렬 노름이다. 행렬에 노름을 주는 방식은 크게 두 가지가 있는데, 우선 $\mathsf{M}_{m,\,n}$을 $L(\mathbb{R}^n,\,\mathbb{R}^m)$과 동일시하여 행렬을 선형사상으로 파악하고, 이에 방금 소개한 작용소 노름을 주는 방식을 소개한다.
+
+\begin{definition}
+    행렬 $A\in\mathsf{M}_{m,\,n}$에 대해 이를 $p$-노름(혹은 최댓값 노름)이 장착된 $(\mathbb{R}^n,\,||\cdot||_p)$와 $(\mathbb{R}^m,\,||\cdot||_p)$ 사이에서 정의된 선형사상 $T_A:\mathbb{R}^n\to\mathbb{R}^m$로 생각하여 \textbf{$p$-노름(혹은 최댓값 노름)으로부터 유도된 작용소 노름(\texttt{operator norm induced by $p$-norm}(\texttt{resp. maximum norm}))}을 $||\cdot||_p:\mathsf{M}_{m,\,n}\to\mathbb{R}_0^+$로 쓰고 $||\cdot||_p:A\mapsto||T_A||_\mathrm{op}$로 정의한다.
+\end{definition}
+
+\begin{proposition}
+    모든 $m\times n$ 행렬들의 집합 $\mathsf{M}_{m,\,n}$에 대해 $p$-노름으로부터 유도된 작용소 노름은 노름이다. 따라서 $(\mathsf{M}_{m,\,n},\,||\cdot||_p)$는 노름공간을 이룬다.
+\end{proposition}
+
+\begin{proof}
+    임의의 $A\in\mathsf{M}_{m,\,n}$에 대해 선형사상 $T_A$가 연속임이 자명하므로 정리 \ref{thm:linearOpBoundedContinuous}로부터 이는 자명하다.
+\end{proof}
+
+$p$-노름(혹은 최댓값 노름)으로부터 유도된 작용소 노름은 본질적으로 작용소 노름이므로 정리 \ref{thm:opNormProp}가 그대로 성립한다.
+
+\begin{theorem}
+    임의의 $A\in\mathsf{M}_{l,\,m}$와 $B\in\mathsf{M}_{m,\,n}$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item 임의의 $x\in\mathbb{R}^m$에 대해 $||Ax||_p\leq||A||_p||x||_p$ (혹은 $||Ax||_\infty\leq||A||_\infty||x||_\infty$)이다.
+        \item $||AB||_p\leq||A||_p||B||_p$. (혹은 $||AB||_\infty\leq||A||_\infty||B||_\infty$.)
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    이는 $p$-노름(혹은 최댓값 노름)으로부터 유도된 작용소 노름의 정의와 정리 \ref{thm:opNormProp}로부터 자명하다.
+\end{proof}
+
+특별히, $1$-노름으로부터 유도되거나 최댓값 노름으로부터 유도된 경우에는 그로부터 유도된 작용소 노름을 간단하게 구할 수 있다. 작용소 노름의 정의가 행렬의 성분과는 적어도 직접적으로는 관계가 없다는 점을 생각해보면 아래 정리는 조금 신기한 결과이다.
+
+\begin{theorem}
+    임의의 $A\in\mathsf{M}_{m,\,n}$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item $||A||_1=\max_{j=1}^n\sum_{i=1}^m|a_{ij}|$.
+        \item $||A||_\infty=\max_{i=1}^m\sum_{j=1}^n|a_{ij}|$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    i. 임의의 $x\in\mathbb{R}^n$에 대해
+    \begin{align*}
+        ||T_A(x)||_1&=||Ax||_1\\
+        &=\sum_{i=1}^m\bigg|\sum_{j=1}^na_{ij}x_j\bigg|\\
+        &\leq\sum_{i=1}^m\sum_{j=1}^n|a_{ij}x_j|\\
+        &=\sum_{j=1}^n\bigg(\sum_{i=1}^m|a_{ij}|\bigg)|x_j|\\
+        &\leq\bigg(\max_{j=1}^n\sum_{i=1}^m|a_{ij}|\bigg)\sum_{j=1}^n|x_j|\\
+        &=\bigg(\max_{j=1}^n\sum_{i=1}^m|a_{ij}|\bigg)||x||_1
+    \end{align*}
+    이므로 $||A||_1=||T_A||_\mathrm{op}\leq\max_{j=1}^n\sum_{i=1}^m|a_{ij}|$이다. 한편, 만약 임의의 $x\in\mathbb{R}^n$에 대해 $||T_A(x)||_1\leq M||x||_1$인 $M<\max_{j=1}^n\sum_{i=1}^m|a_{ij}|$이 존재한다면 $j_0=\argmax_{j=1}^n\sum_{i=1}^m|a_{ij}|$에 대해
+    \begin{align*}
+        \max_{j=1}^n\sum_{i=1}^m|a_{ij}|&=\sum_{i=1}^n|a_{ij_0}|\\
+        &=||A\mathbf{e}_{j_0}||_1\\
+        &=||T_A(\mathbf{e}_{j_0})||_1\\
+        &\leq M||\mathbf{e}_{j_0}||\\
+        &=M\\
+        &<\max_{j=1}^n\sum_{i=1}^m|a_{ij}|
+    \end{align*}
+    에서 모순이 발생하므로 이러한 $M$은 존재하지 않고, 곧 $||A||_1=||T_A||_\mathrm{op}=\max_{j=1}^n\sum_{i=1}^m|a_{ij}|$이다.
+
+    ii. 만약 $A=0$이면 정리가 $||A||_\infty=0$이 되어 정리가 자명하므로 $A\ne0$이라 하자. 그렇다면 임의의 $x\in\mathbb{R}^n$에 대해
+    \begin{align*}
+        ||T_A(x)||_\infty&=||Ax||_\infty\\
+        &=\max_{i=1}^m\bigg|\sum_{j=1}^na_{ij}x_j\bigg|\\
+        &\leq\max_{i=1}^m\sum_{j=1}^n|a_{ij}x_j|\\
+        &\leq\bigg(\max_{i=1}^m\sum_{j=1}^n|a_{ij}|\bigg)\max_{j=1}^n|x_j|\\
+        &=\bigg(\max_{i=1}^m\sum_{j=1}^n|a_{ij}|\bigg)||x||_\infty
+    \end{align*}
+    이므로 $||A||_\infty=||T_A||_\mathrm{op}\leq\max_{i=1}^m\sum_{j=1}^n|a_{ij}|$이다. 한편, 만약 임의의 $x\in\mathbb{R}^n$에 대해 $||T_A(x)||_\infty\leq M||x||_\infty$인 $M<\max_{i=1}^m\sum_{j=1}^n|a_{ij}|$이 존재한다면 $i_0=\argmax_{i=1}^m\sum_{j=1}^n|a_{ij}|$와 $x_0=(\sgn(a_{i_0j}))$에 대해 $x_0$의 성분 중 적어도 하나는 $0$이 아니므로 $||x_0||_\infty=1$이 되어
+    \begin{align*}
+        \max_{i=1}^m\sum_{j=1}^n|a_{ij}|&=\max_{i=1}^m\bigg|\sum_{j=1}^n\sgn(a_{i_0j})a_{ij}\bigg|\\
+        &=||Ax_0||_\infty\\
+        &=||T_A(x_0)||_\infty\\
+        &\leq M||x_0||_\infty\\
+        &=M\\
+        &<\max_{i=1}^m\sum_{j=1}^n|a_{ij}|
+    \end{align*}
+    에서 모순이 발생하므로 이러한 $M$은 존재하지 않고, 곧 $||A||_\infty=||T_A||_\mathrm{op}=\max_{i=1}^m\sum_{j=1}^n|a_{ij}|$이다. 위의 식에서 첫번째 등호는 각 $i\leq m$에 대해 $|\sum_{j=1}^n\sgn(a_{i_0j})a_{ij}|\leq\sum_{j=1}^n|a_{ij}|$이고 $\max_{i=1}^m\sum_{j=1}^n|a_{ij}|=\sum_{j=1}^n|a_{i_0j}|=\sum_{j=1}^n\sgn(a_{i_0j})a_{i_0j}$이므로 성립한다.
+\end{proof}
+
+행렬에 노름을 주는 또다른 방식은 $\mathsf{M}_{m,\,n}$을 $\mathbb{R}^{mn}$과 동일시하여 행렬을 벡터로 파악하고, 이에 $p$-노름이나 최댓값 노름을 주는 방식이다. 사실 $\mathbb{R}^{mn}$에서 정의되는 어떤 노름이든 줄 수 있지만, $2$-노름을 주는 경우가 일반적이며, 여기서도 이 경우만 살펴본다.
+
+\begin{definition}
+    행렬 $A\in\mathsf{M}_{m,\,n}$에 대해 이를 $2$-노름이 장착된 $(\mathbb{R}^{m+n},\,||\cdot||)$에 속하는 벡터 $\mathrm{vec}\,A\in\mathbb{R}^{m+n},$로 생각하여 \textbf{\texttt{Frobenius} 노름(- \texttt{norm})}을 $||\cdot||_\mathrm{F}:\mathsf{M}_{m,\,n}\to\mathbb{R}_0^+$로 쓰고 $||\cdot||_\mathrm{F}:A\mapsto||\mathrm{vec}\, A||_2$로 정의한다.
+\end{definition}
+
+신기하게도, \texttt{Frobenius} 노름은 선형사상으로서의 행렬과는 그다지 관련이 없음에도 불구하고 정리 \ref{thm:opNormProp}과 유사한 성질들을 가진다.
+
+\begin{theorem}
+    임의의 $A\in\mathsf{M}_{l,\,m}$와 $B\in\mathsf{M}_{m,\,n}$에 대해 다음이 성립한다.
+    \begin{enumerate}
+        \item 임의의 $x\in\mathbb{R}^m$에 대해 $||Ax||\leq||A||_\mathrm{F}||x||$이다.
+        \item $||AB||_\mathrm{F}\leq||A||_\mathrm{F}||B||_\mathrm{F}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    i. \texttt{Cauchy-Schwarz}의 부등식으로부터
+    \begin{align*}
+        ||Ax||&=\sqrt{\sum_{i=1}^m\bigg(\sum_{j=1}^na_{ij}x_j\bigg)^2}\\
+        &\leq\sqrt{\sum_{i=1}^m\bigg(\sum_{j=1}^na_{ij}^2\bigg)\bigg(\sum_{j=1}^nx_j^2\bigg)}\\
+        &=||A||_\mathrm{F}||x||
+    \end{align*}
+    이므로 이는 자명하다.
+
+    ii. 행렬 $B$의 각 열을 $b_1,\,\cdots,\,b_n\in\mathbb{R}^m$이라 하면 $AB=[Ab_1,\,\cdots,\,Ab_n]$이고 곧 i로부터
+    \begin{align*}
+        ||AB||_\mathrm{F}&=\sqrt{\sum_{i=1}^n||Ab_i||^2}\\
+        &\leq\sqrt{\sum_{i=1}^n||A||_\mathrm{F}^2||b_i||^2}\\
+        &=||A||_\mathrm{F}\sqrt{\sum_{i=1}^n||b_i||^2}\\
+        &=||A||_\mathrm{F}||B||_\mathrm{F}
+    \end{align*}
+    이다.
+\end{proof}
