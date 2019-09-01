@@ -1,26 +1,49 @@
-func := max(min(Re(erf(x + I * y)), 2.1), -2.1):
+q := beta(x, y):
 
-xLower := -3:
-xUpper := 3:
-yLower := -3:
-yUpper := 3:
-zLower := -2:
-zUpper := 2:
+  conts := 10:
+  ylowerlimit := 0:
+  yupperlimit := 3:
+  xlowerlimit := 0:
+  xupperlimit := 3:
+  zlowerlimit := 0:
+  zupperlimit := 3:
+  submeshlevel := 4:
 
-funcPlot := plot::Function3d(func(x,y),
-                             x = xLower..xUpper,
-                             y = yLower..yUpper,
+funcplot := plot::Function3d(q(x,y),
+                             x = xlowerlimit..xupperlimit,
+                             y = ylowerlimit..yupperlimit,
                              Mesh = [23, 23],
-                             Submesh = [15, 15],
+                             Submesh = [submeshlevel,submeshlevel],
                              LineColor = RGB::Black.[0.4],
-                             LineWidth = 0.2,
-                             ViewingBoxZRange = zLower..zUpper,
-                             ZContours = [zLower, zUpper]
+                             LineWidth = 0.15,
+                             ViewingBoxZRange = zlowerlimit..zupperlimit
                             ):
 
-plotEverything := plot::Canvas(funcPlot,
-                               Width = 3 * unit::inch, 
-                               Height = 3 * unit::inch
-                              ):
-
-plot(plotEverything)
+contours := plot::modify(funcplot,
+                         ZContours = [$ zlowerlimit..zupperlimit step (zupperlimit-zlowerlimit)/conts],
+                         LineWidth = 0.2,
+                         LineColor = RGB::Gray90.[0.5],
+                         XLinesVisible = FALSE,
+                         YLinesVisible = FALSE,
+                         Filled = FALSE
+                        ):
+                        
+projcontours := plot::Transform3d([0, 0, zlowerlimit],
+                                  [1, 0, 0, 0, 1, 0, 0, 0, 0], 
+                                   plot::modify(funcplot, ZContours = [$ zlowerlimit..zupperlimit step (zupperlimit-zlowerlimit)/conts],
+                                                LineWidth = 0.2,
+                                                LineColorType = Dichromatic,
+                                                LineColor = RGB::Red.[0.99],
+                                                LineColor2 = RGB::CornflowerBlue.[0.99],
+                                                XLinesVisible = FALSE,
+                                                YLinesVisible = FALSE,
+                                                Filled = FALSE
+                                               )
+                                  ):
+                             
+ploteverything := plot::Canvas(funcplot, contours, projcontours,
+                               Width = 5*unit::inch, 
+                               Height = 5*unit::inch
+                              ): 
+                          
+plot(ploteverything)

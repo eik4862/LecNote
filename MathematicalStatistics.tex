@@ -23,6 +23,7 @@
 \graphicspath{{./Figures/}}
 \linespread{1.3}
 \allowdisplaybreaks
+\setcounter{chapter}{-1}
 
 \newcommand{\ind}{\mathbf{1}}
 \newcommand{\vol}{\mathrm{vol}}
@@ -32,6 +33,7 @@
 \renewcommand{\imag}{\mathbf{i}}
 \newcommand{\re}{\mathbf{Re}\,}
 \newcommand{\im}{\mathbf{Im}\,}
+\newcommand{\diam}{\mathrm{diam}\,}
 
 \renewcommand{\prob}{\mathbf{P}}
 \newcommand{\expect}{\mathbf{E}}
@@ -44,6 +46,8 @@
 \newcommand{\erf}{\mathrm{erf}}
 \newcommand{\Be}{\mathrm{B}}
 \newcommand{\cosec}{\mathrm{cosec}\,}
+\newcommand{\sinc}{\mathrm{sinc}}
+\newcommand{\Si}{\mathrm{Si}}
 
 \newcommand{\var}{\mathbf{Var}}
 \newcommand{\sd}{\mathbf{Sd}}
@@ -59,9 +63,9 @@
 
 \begin{document}
 
-\author{PSH}
+\author{PSH, KSP, KMJ, PBU}
 \title{수리통계학 강의록}
-\subtitle{Mathematical Statistics Lecture Note}
+\subtitle{Mathematical Statistics Lecture Note\\{\normalsize 3rd DRAFT}}
 \maketitle
 
 \frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -84,6 +88,7 @@
     \item[\texttt{\textbf{LUBP}}]{\texttt{Least Upper Bound Property}}
     \item[\texttt{\textbf{GLBP}}]{\texttt{Greatest Lower Bound Property}}
     \item[\texttt{\textbf{MSP}}]{\texttt{Monotone Sequence Property}}
+    \item[\texttt{\textbf{NSP}}]{\texttt{Nested Set Property}} 
     \item[\texttt{\textbf{MCT}}]{단조수렴정리(\texttt{Monotone Convergence Theorem})}
     \item[\texttt{\textbf{DCT}}]{\texttt{Lebesgue}의 지배수렴정리(\texttt{Lebesgue's Dominated Convergence Theorem})}
     \item[\texttt{\textbf{FTC}}]{미적분학의 기본정리(\texttt{Funcdamental Theorem of Calculus})}
@@ -107,21 +112,19 @@
 
 \mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\part{Preliminary}
-
 \chapter{Preliminary}
 
 \input{Preliminary.tex}
 
-\part{Probability and Measure}
+% \part{Probability and Measure}
 
-\chapter{Measure Theory}
+% \chapter{Measure Theory}
 
-\input{Chapter1.tex}
+% \input{MeasureTheory.tex}
 
-\chapter{Probability Theory}
+% \chapter{Probability Theory}
 
-\input{Chapter2.tex}
+% \input{ProbabilityTheory.tex}
 
 % \part{Distributions}
 
