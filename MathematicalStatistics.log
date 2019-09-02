@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.7.23)  1 SEP 2019 17:11
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.7.23)  1 SEP 2019 19:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1096,38 +1096,39 @@ Overfull \hbox (13.01968pt too wide) detected at line 2726
 []
  []
 
-[67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81]
+[67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83]
 
-LaTeX Warning: Reference `thm:integrableApprox' on page 82 undefined on input line 3166.
+LaTeX Warning: Reference `thm:integrableApprox' on page 84 undefined on input line 3281.
 
+[84]
 
-LaTeX Warning: Reference `thm:integrableApprox' on page 82 undefined on input line 3177.
+LaTeX Warning: Reference `thm:integrableApprox' on page 85 undefined on input line 3292.
 
-[82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95]
+[85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97]
 
-LaTeX Warning: Reference `prop:outerMeasure' on page 96 undefined on input line 3633.
+LaTeX Warning: Reference `prop:outerMeasure' on page 98 undefined on input line 3681.
 
-[96] [97]
-Overfull \hbox (2.14348pt too wide) in paragraph at lines 3661--3662
+[98] [99]
+Overfull \hbox (2.14348pt too wide) in paragraph at lines 3709--3710
 []\TU/TimesNewRomanPSMT(0)/m/n/10 Jerrold E. Marsden and Michael J. Hoffman, \TU/TimesNewRomanPSMT(0)/m/it/10 Elementary Classical Analysis 2nd Edition\TU/TimesNewRomanPSMT(0)/m/n/10 ,
  []
 
 
-Overfull \hbox (10.86418pt too wide) in paragraph at lines 3664--3665
+Overfull \hbox (10.86418pt too wide) in paragraph at lines 3712--3713
 []\TU/TimesNewRomanPSMT(0)/m/n/10 Kenneth Falconer, \TU/TimesNewRomanPSMT(0)/m/it/10 Fractal Geometry: Mathematical Foundations and Applications\TU/TimesNewRomanPSMT(0)/m/n/10 , Wiley,
  []
 
 
-Overfull \hbox (24.33586pt too wide) in paragraph at lines 3667--3668
+Overfull \hbox (24.33586pt too wide) in paragraph at lines 3715--3716
 []\TU/TimesNewRomanPSMT(0)/m/n/10 Mohammed Dahleh, Munther A. Dahleh, and George Verghese, \TU/TimesNewRomanPSMT(0)/m/it/10 Lectures on Dynamic Systems
  []
 
-[98]
-Overfull \hbox (16.7382pt too wide) in paragraph at lines 3670--3671
+
+Overfull \hbox (16.7382pt too wide) in paragraph at lines 3718--3719
 []\TU/TimesNewRomanPSMT(0)/m/n/10 Harold P. Boas, \TU/TimesNewRomanPSMT(0)/m/it/10 Lecture Notes on Several Complex Variables\TU/TimesNewRomanPSMT(0)/m/n/10 , Texas A&M University, 2013. 
  []
 
-) [99] [100
+[100]) [101] [102
 
 
 ]
@@ -1144,12 +1145,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 31449 strings out of 492916
- 623544 string characters out of 6133345
- 979745 words of memory out of 5000000
- 35047 multiletter control sequences out of 15000+600000
+ 31451 strings out of 492916
+ 623609 string characters out of 6133345
+ 979764 words of memory out of 5000000
+ 35049 multiletter control sequences out of 15000+600000
  597150 words of font info for 269 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  60i,15n,67p,15308b,2559s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on MathematicalStatistics.pdf (108 pages).
+Output written on MathematicalStatistics.pdf (110 pages).

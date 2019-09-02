@@ -11,4 +11,5 @@
 \contentsline {subsection}{\numberline {0.2.2}Special Functions Related to Gamma Function}{29}% 
 \contentsline {subsection}{\numberline {0.2.3}Special Functions Related to Riemann Zeta Function}{51}% 
 \contentsline {subsection}{\numberline {0.2.4}Special Functions Related to Cantor Set}{64}% 
-\contentsline {subsection}{\numberline {0.2.5}More Special Functions}{77}% 
+\contentsline {subsection}{\numberline {0.2.5}Special Functions Related to Sine}{77}% 
+\contentsline {subsection}{\numberline {0.2.6}More Special Functions}{89}% 
